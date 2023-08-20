@@ -44,9 +44,13 @@ Route::post('room-maintenance/archiveroom/{id}', [App\Http\Controllers\RoomMaint
 Route::post('AddRoom', [App\Http\Controllers\RoomMaintenanceCtr::class, 'AddRoom']);
 //Rule Maintenance
 Route::get('rule-maintenance',[App\Http\Controllers\RuleMaintenanceCtr::class, 'index'])->middleware('Islogged');
-//Route::get('rule-maintenance/rule',[App\Http\Controllers\RuleMaintenanceCtr::class, 'rulemaintenance_rule'])->middleware('Islogged');
 Route::get('rule-maintenance-details/{id}',[App\Http\Controllers\RuleMaintenanceCtr::class, 'getRuleDetails'])->middleware('Islogged');
 Route::post('EditRule', [App\Http\Controllers\RuleMaintenanceCtr::class, 'updateRule'])->middleware('Islogged');
+//Room Information
+Route::get('room-information',[App\Http\Controllers\RoomInformationCtr::class, 'index'])->middleware('Islogged');
+Route::get('room-information/room',[App\Http\Controllers\RoomInformationCtr::class, 'roominformation_room'])->middleware('Islogged');
+Route::get('room-tenantinformation/tenantroom/{id}',[App\Http\Controllers\RoomInformationCtr::class, 'roominformation_tenantroom'])->middleware('Islogged');
+Route::get('room-information-details/{id}',[App\Http\Controllers\RoomInformationCtr::class, 'getRoomInfoDetails'])->middleware('Islogged');
 
 //UTILITIES
 //ARCHIVE
