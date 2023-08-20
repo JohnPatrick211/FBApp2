@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,9 @@
         
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <!-- include libraries(jQuery, bootstrap) -->
+   
+  
     <!-- Custom styles for this page -->
     <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-replace-svg="nest"></script>
@@ -67,8 +69,8 @@
                 </a>
                 <div id="collapsePatientApproval" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="patient-information">Tenant Information</a>
-                        <a class="collapse-item" href="admin-patient-history">Room Information</a>
+                        <a class="collapse-item" href="tenant-information">Tenant Information</a>
+                        <a class="collapse-item" href="room-information">Room Information</a>
                     </div>
                 </div>
             </li>
@@ -403,8 +405,13 @@
 
     <!-- Bootstrap core JavaScript-->
     <!-- Bootstrap core JavaScript-->
-
+    
+    
+    
     <script src="js/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
@@ -426,6 +433,7 @@
     <script src="js/user.js"></script>
     <script src="js/archive.js"></script>
     <script src="js/room.js"></script>
+    <script src="js/rule.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>
@@ -457,9 +465,8 @@
     <script src="js/bootstrap-multiselect.js"></script>
     <script src="js/adminlte.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script> -->
-    
    
+    <!-- <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script> -->
 
 </body>
 
