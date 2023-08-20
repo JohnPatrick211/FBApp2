@@ -361,6 +361,14 @@ $(document).ready(function()
                     $('#egender').val(data[0].gender);
                     $('#ecivilstatus').val(data[0].civilstatus);
                     document.getElementById("eroom").value = data[0].roomid;
+                    if(data[0].roomid == null){
+                       document.getElementById('eroom').disabled = false;
+                       console.log(data[0].roomid)
+                    }
+                    else{
+                      document.getElementById('eroom').disabled = true;
+                      console.log(data[0].roomid)
+                    }
                     var img_source = '../../images/'+data[0].profile_pic;
                     $('#showprofile').attr('src', img_source);
                       $("#eprofilepic").on("change", function (e) {
@@ -438,6 +446,7 @@ $(document).ready(function()
             var mname = $('#emname').val();
             var lname = $('#elname').val();
             var room = $('#eroom').val();
+            const element = document.getElementById('eroom');
             if($('#eroom').has('option').length == 0){
               var room = 'none'
               console.log(room);
@@ -445,6 +454,9 @@ $(document).ready(function()
             else{
               var room = $('#eroom').val();
               console.log(room);
+            }
+            if(element.disabled){
+              var room = 'not'
             }
             var email = $('#eemail').val();
             var phone = $('#ephone').val();

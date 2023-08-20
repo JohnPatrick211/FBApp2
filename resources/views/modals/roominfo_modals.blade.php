@@ -81,7 +81,7 @@
           </div>
         <div class="modal-footer">
           <img src="../../assets/loader.gif" class="loader" alt="loader" style="display: none">
-          <button class="btn btn-sm btn-outline-dark" type="button" name="ok_button" id="btn_archive_room">Yes</button>
+          <button class="btn btn-sm btn-outline-dark" type="button" name="ok_button" id="btn_archive_tenantroom">Yes</button>
         <button class="btn btn-sm btn-danger cancel-delete" data-dismiss="modal">Cancel</button>
 
         </div>

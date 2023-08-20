@@ -59,7 +59,7 @@ class RoomInformationCtr extends Controller
             {
             return datatables()->of($getEm)
             ->addColumn('action', function($getEm){
-            $button = '<a class="btn btn-sm btn-danger m-1" id="btn-archive-tenant" employer-id='. $getEm->id .' data-toggle="modal" data-target="#RoomTenantArchiveModal">
+            $button = '<a class="btn btn-sm btn-danger m-1" id="btn-archive-tenant" employer-id='. $getEm->tenant_id .' data-toggle="modal" data-target="#RoomTenantArchiveModal">
                 <i class="fa fa-archive"></i></a>';
 
             return $button;
@@ -76,5 +76,82 @@ class RoomInformationCtr extends Controller
         ->where('BR.room_id',$id)
         ->where('BR.status',1)
         ->get();
+    }
+
+    //Archive
+    public function ArchiveTenantRoom($id)
+    {
+        $roomid = DB::table('tbl_tenant AS BR')
+        ->select('BR.room_id')
+        ->where('BR.tenant_id',$id)
+        ->get();
+
+        $presentroomid = $roomid[0]->room_id;
+
+        DB::table('tbl_tenant')
+        ->where('tenant_id', $id)
+        ->update([
+            'status' => '0',
+            'room_id' => 0
+        ]);
+
+        DB::table('tbl_room')
+        ->where('id', $presentroomid)
+        ->update([
+            'vacantnumber' => DB::raw('vacantnumber +'. 1),
+        ]);
+
+        $aftergetDBvacantnumber = DB::table('tbl_room AS BR')
+        ->select('BR.vacantnumber')
+        ->where('BR.id',$presentroomid)
+        ->get();
+        $aftergetDBroomcapacity = DB::table('tbl_room AS BR')
+        ->select('BR.roomcapacity')
+        ->where('BR.id',$presentroomid)
+        ->get();
+
+        $latestroomcapacity = $aftergetDBroomcapacity[0]->roomcapacity;
+        $latestvacantnumber = $aftergetDBvacantnumber[0]->vacantnumber;
+
+        if($latestroomcapacity > $latestvacantnumber){
+            if($latestvacantnumber == 0){
+                DB::table('tbl_room')
+                ->where('id', $presentroomid)
+                ->update([
+                    'isOccupied' => 1,
+                ]);
+            }
+            else if( $latestvacantnumber <= -1){
+                DB::table('tbl_room')
+                ->where('id', $presentroomid)
+                ->update([
+                    'isOccupied' => 3,
+                ]);
+            }
+            else{
+                DB::table('tbl_room')
+                ->where('id', $presentroomid)
+                ->update([
+                    'isOccupied' => 2,
+                ]);
+            }
+        }
+        else if($latestroomcapacity == $latestvacantnumber){
+            DB::table('tbl_room')
+            ->where('id', $presentroomid)
+            ->update([
+                'isOccupied' => 0,
+            ]);
+        }
+        else if( $latestvacantnumber <= -1){
+            DB::table('tbl_room')
+            ->where('id', $presentroomid)
+            ->update([
+                'isOccupied' => 3,
+            ]);
+        }
+        // $getname = Session::get('Name');
+        // $getusertype = Session::get('User-Type');
+        // base::recordAction( $getname, $getusertype,'Archive', 'Retrieve Patient Account Successfully ID number: '.$id);
     }
 }

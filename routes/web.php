@@ -51,6 +51,7 @@ Route::get('room-information',[App\Http\Controllers\RoomInformationCtr::class, '
 Route::get('room-information/room',[App\Http\Controllers\RoomInformationCtr::class, 'roominformation_room'])->middleware('Islogged');
 Route::get('room-tenantinformation/tenantroom/{id}',[App\Http\Controllers\RoomInformationCtr::class, 'roominformation_tenantroom'])->middleware('Islogged');
 Route::get('room-information-details/{id}',[App\Http\Controllers\RoomInformationCtr::class, 'getRoomInfoDetails'])->middleware('Islogged');
+Route::post('room-information/archivetenantroom/{id}', [App\Http\Controllers\RoomInformationCtr::class, 'ArchiveTenantRoom']);
 
 //UTILITIES
 //ARCHIVE

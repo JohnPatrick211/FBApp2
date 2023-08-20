@@ -104,7 +104,7 @@ $(document).ready(function()
 
            Archive(id);
 
-          });
+        });
 
           function Archive(id) {
             $.ajax({

@@ -329,6 +329,62 @@ class UserMaintenanceCtr extends Controller
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             ]);
+
+            DB::table('tbl_room')
+                ->where('id', $request->input('room'))
+                ->update([
+                    'vacantnumber' => DB::raw('vacantnumber -'. 1),
+                ]);
+
+                $aftergetDBvacantnumber = DB::table('tbl_room AS BR')
+                ->select('BR.vacantnumber')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+                $aftergetDBroomcapacity = DB::table('tbl_room AS BR')
+                ->select('BR.roomcapacity')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+
+                $latestroomcapacity = $aftergetDBroomcapacity[0]->roomcapacity;
+                $latestvacantnumber = $aftergetDBvacantnumber[0]->vacantnumber;
+
+                if($latestroomcapacity > $latestvacantnumber){
+                    if($latestvacantnumber == 0){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 1,
+                        ]);
+                    }
+                    else if( $latestvacantnumber <= -1){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 3,
+                        ]);
+                    }
+                    else{
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 2,
+                        ]);
+                    }
+                }
+                else if($latestroomcapacity == $latestvacantnumber){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 0,
+                    ]);
+                }
+                else if( $latestvacantnumber <= -1){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 3,
+                    ]);
+                }
         }
 
         return redirect('user-maintenance')->with('success', 'User Saved');
@@ -503,7 +559,6 @@ class UserMaintenanceCtr extends Controller
                     'mname' => $request->input('mname'),
                     'lname' => $request->input('lname'),
                     'email' => $request->input('email'),
-                    'room_id' => $request->input('room'),
                     'address' => $request->input('address'),
                     'phone' => $request->input('phone'),
                     'age' => $request->input('age'),
@@ -515,7 +570,77 @@ class UserMaintenanceCtr extends Controller
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]);
+
+                if($request->input('room') == 'not')
+                {
+                    
+                }
+                else{
+
+                    DB::table('tbl_tenant')
+                ->where('tenant_id', $request->input('id'))
+                ->update([
+                    'room_id' => $request->input('room'),
+                ]);
+                    
+                    DB::table('tbl_room')
+                ->where('id', $request->input('room'))
+                ->update([
+                    'vacantnumber' => DB::raw('vacantnumber -'. 1),
+                ]);
+
+                $aftergetDBvacantnumber = DB::table('tbl_room AS BR')
+                ->select('BR.vacantnumber')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+                $aftergetDBroomcapacity = DB::table('tbl_room AS BR')
+                ->select('BR.roomcapacity')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+
+                $latestroomcapacity = $aftergetDBroomcapacity[0]->roomcapacity;
+                $latestvacantnumber = $aftergetDBvacantnumber[0]->vacantnumber;
+
+                if($latestroomcapacity > $latestvacantnumber){
+                    if($latestvacantnumber == 0){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 1,
+                        ]);
+                    }
+                    else if( $latestvacantnumber <= -1){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 3,
+                        ]);
+                    }
+                    else{
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 2,
+                        ]);
+                    }
+                }
+                else if($latestroomcapacity == $latestvacantnumber){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 0,
+                    ]);
+                }
+                else if( $latestvacantnumber <= -1){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 3,
+                    ]);
+                }
             }
+
+        }
             else{
                 DB::table('tbl_tenant')
                 ->where('tenant_id', $request->input('id'))
@@ -523,7 +648,6 @@ class UserMaintenanceCtr extends Controller
                     'fname' => $request->input('fname'),
                     'mname' => $request->input('mname'),
                     'lname' => $request->input('lname'),
-                    'room_id' => $request->input('room'),
                     'email' => $request->input('email'),
                     'address' => $request->input('address'),
                     'phone' => $request->input('phone'),
@@ -535,7 +659,77 @@ class UserMaintenanceCtr extends Controller
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]);
+
+                if($request->input('room') == 'not')
+                {
+                    
+                }
+                else{
+
+                    DB::table('tbl_tenant')
+                ->where('tenant_id', $request->input('id'))
+                ->update([
+                    'room_id' => $request->input('room'),
+                ]);
+                    
+                    DB::table('tbl_room')
+                ->where('id', $request->input('room'))
+                ->update([
+                    'vacantnumber' => DB::raw('vacantnumber -'. 1),
+                ]);
+
+                $aftergetDBvacantnumber = DB::table('tbl_room AS BR')
+                ->select('BR.vacantnumber')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+                $aftergetDBroomcapacity = DB::table('tbl_room AS BR')
+                ->select('BR.roomcapacity')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+
+                $latestroomcapacity = $aftergetDBroomcapacity[0]->roomcapacity;
+                $latestvacantnumber = $aftergetDBvacantnumber[0]->vacantnumber;
+
+                if($latestroomcapacity > $latestvacantnumber){
+                    if($latestvacantnumber == 0){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 1,
+                        ]);
+                    }
+                    else if( $latestvacantnumber <= -1){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 3,
+                        ]);
+                    }
+                    else{
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 2,
+                        ]);
+                    }
+                }
+                else if($latestroomcapacity == $latestvacantnumber){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 0,
+                    ]);
+                }
+                else if( $latestvacantnumber <= -1){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 3,
+                    ]);
+                }
             }
+
+        }
             
             // $getname = Session::get('Name');
             // $getusertype = Session::get('User-Type');
@@ -673,7 +867,6 @@ class UserMaintenanceCtr extends Controller
                     'mname' => $request->input('mname'),
                     'lname' => $request->input('lname'),
                     'email' => $request->input('email'),
-                    'room_id' => $request->input('room'),
                     'address' => $request->input('address'),
                     'phone' => $request->input('phone'),
                     'age' => $request->input('age'),
@@ -685,6 +878,76 @@ class UserMaintenanceCtr extends Controller
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]);
+
+                if($request->input('room') == 'not')
+                {
+                    
+                }
+                else{
+
+                    DB::table('tbl_tenant')
+                ->where('tenant_id', $request->input('id'))
+                ->update([
+                    'room_id' => $request->input('room'),
+                ]);
+                    
+                    DB::table('tbl_room')
+                ->where('id', $request->input('room'))
+                ->update([
+                    'vacantnumber' => DB::raw('vacantnumber -'. 1),
+                ]);
+
+                $aftergetDBvacantnumber = DB::table('tbl_room AS BR')
+                ->select('BR.vacantnumber')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+                $aftergetDBroomcapacity = DB::table('tbl_room AS BR')
+                ->select('BR.roomcapacity')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+
+                $latestroomcapacity = $aftergetDBroomcapacity[0]->roomcapacity;
+                $latestvacantnumber = $aftergetDBvacantnumber[0]->vacantnumber;
+
+                if($latestroomcapacity > $latestvacantnumber){
+                    if($latestvacantnumber == 0){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 1,
+                        ]);
+                    }
+                    else if( $latestvacantnumber <= -1){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 3,
+                        ]);
+                    }
+                    else{
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 2,
+                        ]);
+                    }
+                }
+                else if($latestroomcapacity == $latestvacantnumber){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 0,
+                    ]);
+                }
+                else if( $latestvacantnumber <= -1){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 3,
+                    ]);
+                }
+            }
+
             }
             else{
                 DB::table('tbl_tenant')
@@ -693,7 +956,6 @@ class UserMaintenanceCtr extends Controller
                     'fname' => $request->input('fname'),
                     'mname' => $request->input('mname'),
                     'lname' => $request->input('lname'),
-                    'room_id' => $request->input('room'),
                     'email' => $request->input('email'),
                     'address' => $request->input('address'),
                     'phone' => $request->input('phone'),
@@ -705,7 +967,76 @@ class UserMaintenanceCtr extends Controller
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]);
-            }
+
+                if($request->input('room') == 'not')
+                {
+                    
+                }
+                else{
+
+                    DB::table('tbl_tenant')
+                ->where('tenant_id', $request->input('id'))
+                ->update([
+                    'room_id' => $request->input('room'),
+                ]);
+                    
+                    DB::table('tbl_room')
+                ->where('id', $request->input('room'))
+                ->update([
+                    'vacantnumber' => DB::raw('vacantnumber -'. 1),
+                ]);
+
+                $aftergetDBvacantnumber = DB::table('tbl_room AS BR')
+                ->select('BR.vacantnumber')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+                $aftergetDBroomcapacity = DB::table('tbl_room AS BR')
+                ->select('BR.roomcapacity')
+                ->where('BR.id',$request->input('room'))
+                ->get();
+
+                $latestroomcapacity = $aftergetDBroomcapacity[0]->roomcapacity;
+                $latestvacantnumber = $aftergetDBvacantnumber[0]->vacantnumber;
+
+                if($latestroomcapacity > $latestvacantnumber){
+                    if($latestvacantnumber == 0){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 1,
+                        ]);
+                    }
+                    else if( $latestvacantnumber <= -1){
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 3,
+                        ]);
+                    }
+                    else{
+                        DB::table('tbl_room')
+                        ->where('id', $request->input('room'))
+                        ->update([
+                            'isOccupied' => 2,
+                        ]);
+                    }
+                }
+                else if($latestroomcapacity == $latestvacantnumber){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 0,
+                    ]);
+                }
+                else if( $latestvacantnumber <= -1){
+                    DB::table('tbl_room')
+                    ->where('id', $request->input('room'))
+                    ->update([
+                        'isOccupied' => 3,
+                    ]);
+                }
+            }  
+        }
             
             // $getname = Session::get('Name');
             // $getusertype = Session::get('User-Type');

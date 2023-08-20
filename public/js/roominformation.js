@@ -133,64 +133,45 @@ $(document).ready(function()
                });
         }
 
-        // $(document).on('click', '#btn-edit-save-room', function(){
-        //     var id = $('#ecust-id-hidden').val();
-        //     var roomnumber = $('#eroomnumber').val();
-        //     var roomcapacity = $('#eroomcapacity').val();
-        //     var form = new FormData()
-        //     form.append('id', id)
-        //     form.append('roomnumber', roomnumber)
-        //     form.append('roomcapacity', roomcapacity)
+        $(document).on('click', '#btn-archive-tenant', function()
+        {
+            let id = $(this).attr('employer-id');
+            console.log(id);
+            $('#id_archive').val(id);
+        });
 
-        //     edit(form)
+        $(document).on('click', '#btn_archive_tenantroom', function(){
+          var id = $('#id_archive').val();
+          console.log(id);
 
-        // function edit(form) {
-        //     $.ajax({
-        //       url:"room/editroom/",
-        //       type:"POST",
-        //       data:form,
-        //         cache: false,
-        //         contentType: false,
-        //         processData: false,
-        //       beforeSend:function(){
-        //           $('#btn-edit-save-room').text('Please wait...');
-        //           $('.loader').css('display', 'inline');
-        //         },
-        //       success:function(data){
-        //         console.log(data);
-        //         if(data == 0){
-        //             $('.error-capacity').css('display', 'inline');
-        //             $('.loader').css('display', 'none');
-        //             $('#btn-edit-save-room').text('Edit');
-        //             $('#room-table').DataTable().ajax.reload();
-        //             setTimeout(function(){
-        //             $('.error-capacity').fadeOut('slow');
-        //           },2000);
-        //         }
-        //         else if(data == 1){
-        //           $('.error-number').css('display', 'inline');
-        //             $('.loader').css('display', 'none');
-        //             $('#btn-edit-save-room').text('Edit');
-        //             $('#room-table').DataTable().ajax.reload();
-        //             setTimeout(function(){
-        //             $('.error-number').fadeOut('slow');
-        //           },2000);
-        //         }
-        //         else{
-        //             $('.update-success-validation').css('display', 'inline');
-        //             $('.loader').css('display', 'none');
-        //             $('#btn-edit-save-room').text('Edit');
-        //             $('#room-table').DataTable().ajax.reload();
-        //             setTimeout(function(){
-        //             $('.update-success-validation').fadeOut('slow');
-        //             $('#EditRoomModal').modal('toggle');
-        //           },2000);
-        //         }
-                  
-        //       }
+         Archive(id);
 
-        //      });
-        //   }
+      });
 
-      // });
+      function Archive(id) {
+        $.ajax({
+          url:"room-information/archivetenantroom/"+ id,
+          type:"POST",
+          data:{
+              id:id,
+            },
+            beforeSend:function(){
+                $('#btn_archive_tenantroom').text('Please wait...');
+                $('.loader').css('display', 'inline');
+              },
+            success:function(data){
+                $('.dupdate-success-validation').css('display', 'inline');
+                $('.loader').css('display', 'none');
+                $('#btn_archive_tenantroom').text('Yes');
+                $('#tenantroom-table').DataTable().ajax.reload();
+                $('#roominfo-table').DataTable().ajax.reload();
+                setTimeout(function(){
+                $('.dupdate-success-validation').fadeOut('slow');
+                $('#RoomTenantArchiveModal').modal('toggle');
+
+            },2000);
+          }
+
+         });
+      }
 });
