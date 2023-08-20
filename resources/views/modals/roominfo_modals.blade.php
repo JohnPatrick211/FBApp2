@@ -70,11 +70,11 @@
         </div>
         <div class="modal-body">
              <input type="hidden" id="id_archive">
-            <label class="col-form-label">Are you sure you want to archive and remove tenant in this room?</label>
+            <label class="col-form-label">Are you sure you want to remove tenant in this room?</label>
           <p class="delete-message"></p>
         </div>
         <div class="dupdate-success-validation" style="display: none;">
-          <span style="margin-left:145px;" class="text-success">Remove and Archive Tenant Successfully!</span>
+          <span style="margin-left:145px;" class="text-success">Remove Tenant Successfully!</span>
           </div>
           <div class="existservice-success" style="display: none;">
           <span style="margin-left:180px;" class="text-danger">Room Already Used</span>

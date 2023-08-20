@@ -91,7 +91,6 @@ class RoomInformationCtr extends Controller
         DB::table('tbl_tenant')
         ->where('tenant_id', $id)
         ->update([
-            'status' => '0',
             'room_id' => 0
         ]);
 
