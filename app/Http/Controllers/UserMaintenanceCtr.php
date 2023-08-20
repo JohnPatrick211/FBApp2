@@ -18,7 +18,7 @@ class UserMaintenanceCtr extends Controller
                  'LoggedUserInfo' => $users2
              ];
              $users3 = Login::all();
-             $users4 = Room::orderBy('id', 'ASC')->where('vacantnumber', '!=', 0)->get();
+             $users4 = Room::orderBy('id', 'ASC')->where('vacantnumber', '!=', 0)->where('status', '!=', 0)->get();
              return view('user-maintenance', $data)->with('users3',$users3)->with('users4',$users4);
          }
     }
@@ -323,6 +323,7 @@ class UserMaintenanceCtr extends Controller
             'age' => $request->input('age'),
             'phone' => $request->input('phone'),
             'birthdate' => $request->input('birthdate'),
+            'date_of_occupancy' => $request->input('dateofoccupancy'),
             'profile_pic' => $profile_pic,
             'status' => '1',
             'created_at' => \Carbon\Carbon::now(),
@@ -507,6 +508,7 @@ class UserMaintenanceCtr extends Controller
                     'phone' => $request->input('phone'),
                     'age' => $request->input('age'),
                     'birthdate' => $request->input('birthdate'),
+                    'date_of_occupancy' => $request->input('dateofoccupancy'),
                     'gender' => $request->input('gender'),
                     'civilstatus' => $request->input('civilstatus'),
                     'profile_pic' => $profilepic,
@@ -527,6 +529,7 @@ class UserMaintenanceCtr extends Controller
                     'phone' => $request->input('phone'),
                     'age' => $request->input('age'),
                     'birthdate' => $request->input('birthdate'),
+                    'date_of_occupancy' => $request->input('dateofoccupancy'),
                     'gender' => $request->input('gender'),
                     'civilstatus' => $request->input('civilstatus'),
                     'created_at' => \Carbon\Carbon::now(),
@@ -675,6 +678,7 @@ class UserMaintenanceCtr extends Controller
                     'phone' => $request->input('phone'),
                     'age' => $request->input('age'),
                     'birthdate' => $request->input('birthdate'),
+                    'date_of_occupancy' => $request->input('dateofoccupancy'),
                     'gender' => $request->input('gender'),
                     'civilstatus' => $request->input('civilstatus'),
                     'profile_pic' => $profilepic,
@@ -695,6 +699,7 @@ class UserMaintenanceCtr extends Controller
                     'phone' => $request->input('phone'),
                     'age' => $request->input('age'),
                     'birthdate' => $request->input('birthdate'),
+                    'date_of_occupancy' => $request->input('dateofoccupancy'),
                     'gender' => $request->input('gender'),
                     'civilstatus' => $request->input('civilstatus'),
                     'created_at' => \Carbon\Carbon::now(),

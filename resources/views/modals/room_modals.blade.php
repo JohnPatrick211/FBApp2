@@ -52,34 +52,15 @@
 
                 <input type="hidden" id="discount_hidden">
 
-                <div class="col-md-12">
-                    <label class="col-form-label">Service Name</label>
-                    <input type="text" class="form-control" name="servicename" id="servicename" required>
+                <div class="col-md-6">
+                    <label class="col-form-label">Room Number</label>
+                    <input type="text" class="form-control" name="roomnumber" id="roomnumber" required>
                     <span class="text-danger" id="brancherror"></span>
                   </div>
 
-                  <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-                    <label class="col-form-label">Original Price</label>
-                     <input type="number" step=".01" class="form-control" name="originalprice" id="originalprice" required>
-                  </div>
-        
-                  <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-                    <label class="col-form-label">Markup rate</label>
-                      <input type="number" step=".01" class="form-control" name="markup" id="markup" min="0" required>
-                  </div>
-        
-                  <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-                    <label class="col-form-label">Selling Price</label>
-                      <input type="number" step=".01" class="form-control" name="sellingprice" id="sellingprice" readonly>
-                  </div>
-
-                  <div class="col-12">
-                            <label class="col-form-label">Branch</label>
-                            <select class="form-control" name="servicebranch" id="servicebranch" >
-                            @foreach($users4 as $item)
-                                <option value="{{$item->id}}">{{$item->branchname}}</option>
-                            @endforeach
-                  </select>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="col-form-label">Room Capacity</label>
+                     <input type="number" step="1" class="form-control" name="roomcapacity" id="roomcapacity" min="1" required>
                   </div>
           </div>
           <br><br>
@@ -109,36 +90,17 @@
               <div class="row">
 
 
-                <input type="hidden" id="cust-id-hidden">
+                <input type="hidden" id="ecust-id-hidden">
 
-                <div class="col-md-12">
-                    <label class="col-form-label">Service Name</label>
-                    <input type="text" class="form-control" name="editservicename" id="editservicename" required>
+                <div class="col-md-6">
+                    <label class="col-form-label">Room Number</label>
+                    <input type="text" class="form-control" name="eroomnumber" id="eroomnumber" required>
                     <span class="text-danger" id="brancherror"></span>
                   </div>
 
-                  <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-                    <label class="col-form-label">Original Price</label>
-                     <input type="number" step=".01" class="form-control" name="editoriginalprice" id="editoriginalprice">
-                  </div>
-        
-                  <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-                    <label class="col-form-label">Markup rate</label>
-                      <input type="number" step=".01" class="form-control" name="editmarkup" id="editmarkup" min="0">
-                  </div>
-        
-                  <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
-                    <label class="col-form-label">Selling Price</label>
-                      <input type="number" step=".01" class="form-control" name="editsellingprice" id="editsellingprice" readonly>
-                  </div>
-
-                  <div class="col-12">
-                            <label class="col-form-label">Branch</label>
-                            <select class="form-control" name="editservicebranch" id="editservicebranch">
-                            @foreach($users4 as $item)
-                                <option value="{{$item->id}}">{{$item->branchname}}</option>
-                            @endforeach
-                  </select>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="col-form-label">Room Capacity</label>
+                     <input type="number" step="1" class="form-control" name="eroomcapacity" id="eroomcapacity" min="1" required>
                   </div>
           </div>
           <br><br>
@@ -146,12 +108,15 @@
             <div class="update-success-validation mr-auto ml-3" style="display: none">
                 <label class="label text-success">Edit Successfully</label>
                </div>
-                <div class="existservice-success" style="display: none;">
-          <span style="margin-left:180px;" class="text-danger">Service Already Used</span>
-          </div>
+               <div class="error-capacity mr-auto ml-3" style="display: none">
+                <label class="label text-danger">Vacant Beds cannot be less than zero</label>
+               </div>
+               <div class="error-number mr-auto ml-3" style="display: none">
+                <label class="label text-danger">Room Number Already Exist</label>
+               </div>
                <img src="../../assets/loader.gif" class="loader" alt="loader" style="display: none">
                   <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-sm btn-primary" id="btn-edit-save-service">Edit</button>
+                  <button type="submit" class="btn btn-sm btn-primary" id="btn-edit-save-room">Edit</button>
           </div>
         </form>
         </div>

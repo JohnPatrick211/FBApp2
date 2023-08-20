@@ -35,6 +35,12 @@ $(document).ready(function()
             if(data == 1){
                 return 'Occupied'
             }
+            else if(data == 2){
+                return 'Not Fully Occupied'
+            }
+            else if(data == 3){
+              return 'Overloaded, Please Decrease the Tenant of this Room'
+          }
             else{
                 return 'Not Occupied'
             }
@@ -55,81 +61,35 @@ $(document).ready(function()
 
        }       
         // show user details
-        // $(document).on('click', '#btn-edit-user', function()
-        // {
-        //     let id = $(this).attr('employer-id');
-        //     let user_type = $(this).attr('user-type');
-        //     console.log(id);
-        //     console.log(user_type);
-        //     if(user_type == 'Tenant')
-        //     {
-        //         $('#edit_user_type').val('Tenant'); 
-        //         console.log(user_type);
-        //         var test = $('#eroom').val('');
-        //         $('.ehide-room').css('display', 'inline');
-        //         console.log(test);
-        //         getUserDetails(id,user_type);
-        //     }
-        //     else if(user_type == 'Employee'){
-        //         $('#edit_user_type').val('Employee');
-        //         console.log(user_type);
-        //         var test = $('#eroom').val('none');
-        //         $('.ehide-room').css('display', 'none');
-        //        console.log(test);
-        //        getUserDetails(id,user_type);
-        //     }
-        //     else if(user_type == 'System Admin'){
-        //       $('#edit_user_type').val('System Admin');
-        //       console.log(user_type);
-        //       var test = $('#eroom').val('none');
-        //      $('.ehide-room').css('display', 'none');
-        //      console.log(test);
-        //      getUserDetails(id,user_type);
-        //   }
-        // });
+        $(document).on('click', '#btn-edit-room', function()
+        {
+            let id = $(this).attr('employer-id');
+            console.log(id);
+            getRoomDetails(id);
+        });
 
-        // function getUserDetails(id,user_type)
-        // {
-        //     $.ajax({
-        //         url:"user-maintenance-details/"+id+"/"+ user_type,
-        //         type:"GET",
+        function getRoomDetails(id)
+        {
+            $.ajax({
+                url:"room-maintenance-details/"+id,
+                type:"GET",
 
-        //         success:function(data){
-        //             console.log(data);
-        //             $('#euser_id_hidden').val(id);
-        //             $('#euser_type').text(data[0].user_role);
-        //             $('#efname').val(data[0].fname);
-        //             $('#emname').val(data[0].mname);
-        //             $('#elname').val(data[0].lname);
-        //             $('#eemail').val(data[0].email);
-        //             $('#ephone').val(data[0].phone);
-        //             $('#eaddress').val(data[0].address);
-        //             $('#eusername').val(data[0].username);
-        //             $('#eage').val(data[0].age);
-        //             $('#ebirthdate').val(data[0].birthdate);
-        //             $('#egender').val(data[0].gender);
-        //             $('#ecivilstatus').val(data[0].civilstatus);
-        //             document.getElementById("eroom").value = data[0].roomid;
-        //             var img_source = '../../images/'+data[0].profile_pic;
-        //             $('#showprofile').attr('src', img_source);
-        //               $("#eprofilepic").on("change", function (e) {
-        //                 //var file = $(this)[0].files[0];
-        //                 var file =URL.createObjectURL($(this)[0].files[0]);
-        //                 $('#showprofile').attr('src', file);
-        //                 console.log(file);
-        //             });
-        //             console.log(img_source);
-        //             // if(data[0].user_role == 'Doctor')
-        //             // {
-        //             //   $('#eroom').val(data[0].specialty);
-        //             // }
-        //             // else{
-        //             //   $('#eroom').val('none');
-        //             // }
-        //            // $('#ebranch').val(data[0].branchname);
-        //         }
-        //        });
-        // }
+                success:function(data){
+                    console.log(data);
+                    $('#ecust-id-hidden').val(id);
+                    $('#eroomnumber').val(data[0].roomnumber);
+                    $('#eroomcapacity').val(data[0].roomcapacity);
+                    // if(data[0].user_role == 'Doctor')
+                    // {
+                    //   $('#eroom').val(data[0].specialty);
+                    // }
+                    // else{
+                    //   $('#eroom').val('none');
+                    // }
+                   // $('#ebranch').val(data[0].branchname);
+                }
+               });
+        }
 
         $(document).on('click', '#btn-archive-room', function()
         {
@@ -173,121 +133,95 @@ $(document).ready(function()
           }
 
 
-        // $(document).on('click', '#ebtn-update', function(){
-        //     var id = $('#euser_id_hidden').val();
-        //     var user_type = $('#euser_type').text();
-        //     var fname = $('#efname').val();
-        //     var mname = $('#emname').val();
-        //     var lname = $('#elname').val();
-        //     var room = $('#eroom').val();
-        //     if($('#eroom').has('option').length == 0){
-        //       var room = 'none'
-        //       console.log(room);
-        //     }
-        //     else{
-        //       var room = $('#eroom').val();
-        //       console.log(room);
-        //     }
-        //     var email = $('#eemail').val();
-        //     var phone = $('#ephone').val();
-        //     var address = $('#eaddress').val();
-        //     var username = $('#eusername').val();
-        //     var password =  $('#epassword').val();
-        //     var age = $('#eage').val();
-        //     var birthdate = $('#ebirthdate').val();
-        //     var gender = $('#egender').val();
-        //     var civilstatus = $('#ecivilstatus').val();
-        //     var profilepic = $('#eprofilepic').prop('files')[0];
-        //     var form = new FormData()
-        //     form.append('id', id)
-        //     form.append('user_type', user_type)
-        //     form.append('fname', fname)
-        //     form.append('mname', mname)
-        //     form.append('lname', lname)
-        //     form.append('room', room)
-        //     form.append('email', email)
-        //     form.append('phone', phone)
-        //     form.append('address', address)
-        //     form.append('username', username)
-        //     form.append('password', password)
-        //     form.append('birthdate', birthdate)
-        //     form.append('civilstatus', civilstatus)
-        //     form.append('profilepic', profilepic)
-        //     form.append('age', age)
-        //     form.append('gender', gender)
-        //     console.log(id);
-        //     console.log(user_type);
-        //     console.log(profilepic);
-        //     if(password.trim() == '')
-        //     {
-        //         editwithoutpassword(form);
-        //     }
-        //     else
-        //     {
-        //         edit(form);
-        //     }
+        $(document).on('click', '#btn-edit-save-room', function(){
+            var id = $('#ecust-id-hidden').val();
+            var roomnumber = $('#eroomnumber').val();
+            var roomcapacity = $('#eroomcapacity').val();
+            var form = new FormData()
+            form.append('id', id)
+            form.append('roomnumber', roomnumber)
+            form.append('roomcapacity', roomcapacity)
 
-        // function edit(form) {
-        //     $.ajax({
-        //       url:"usermaintenance/edituser/",
-        //       type:"POST",
-        //       data:form,
-        //         cache: false,
-        //         contentType: false,
-        //         processData: false,
-        //       beforeSend:function(){
-        //           $('#ebtn-update').text('Please wait...');
-        //           $('.loader').css('display', 'inline');
-        //         },
-        //       success:function(data){
-        //           $('.eupdate-success-validation').css('display', 'inline');
-        //           $('.loader').css('display', 'none');
-        //           $('#ebtn-update').text('Edit');
-        //           $('#admin-table').DataTable().ajax.reload();
-        //           $('#tenant-table').DataTable().ajax.reload();
-        //           $('#employee-table').DataTable().ajax.reload();
-        //           setTimeout(function(){
-        //           $('.eupdate-success-validation').fadeOut('slow');
-        //           var password =  $('#epassword').val("");
-        //           $("#eprofilepic").val('');
-        //           $('#editUserModal').modal('toggle');
+            edit(form)
 
-        //         },2000);
-        //       }
+        function edit(form) {
+            $.ajax({
+              url:"room/editroom/",
+              type:"POST",
+              data:form,
+                cache: false,
+                contentType: false,
+                processData: false,
+              beforeSend:function(){
+                  $('#btn-edit-save-room').text('Please wait...');
+                  $('.loader').css('display', 'inline');
+                },
+              success:function(data){
+                console.log(data);
+                if(data == 0){
+                    $('.error-capacity').css('display', 'inline');
+                    $('.loader').css('display', 'none');
+                    $('#btn-edit-save-room').text('Edit');
+                    $('#room-table').DataTable().ajax.reload();
+                    setTimeout(function(){
+                    $('.error-capacity').fadeOut('slow');
+                  },2000);
+                }
+                else if(data == 1){
+                  $('.error-number').css('display', 'inline');
+                    $('.loader').css('display', 'none');
+                    $('#btn-edit-save-room').text('Edit');
+                    $('#room-table').DataTable().ajax.reload();
+                    setTimeout(function(){
+                    $('.error-number').fadeOut('slow');
+                  },2000);
+                }
+                else{
+                    $('.update-success-validation').css('display', 'inline');
+                    $('.loader').css('display', 'none');
+                    $('#btn-edit-save-room').text('Edit');
+                    $('#room-table').DataTable().ajax.reload();
+                    setTimeout(function(){
+                    $('.update-success-validation').fadeOut('slow');
+                    $('#EditRoomModal').modal('toggle');
+                  },2000);
+                }
+                  
+              }
 
-        //      });
-        //   }
+             });
+          }
 
-        //   function editwithoutpassword(form) {
-        //     $.ajax({
-        //       url:"usermaintenance/edituserwithoutpassword/",
-        //       type:"POST",
-        //       data:form,
-        //       cache: false,
-        //         contentType: false,
-        //         processData: false,
-        //       beforeSend:function(){
-        //           $('#ebtn-update').text('Please wait...');
-        //           $('.loader').css('display', 'inline');
-        //         },
-        //       success:function(data){
-        //         console.log(data);
-        //           $('.eupdate-success-validation').css('display', 'inline');
-        //           $('.loader').css('display', 'none');
-        //           $('#ebtn-update').text('Edit');
-        //           $('#admin-table').DataTable().ajax.reload();
-        //           $('#tenant-table').DataTable().ajax.reload();
-        //           $('#employee-table').DataTable().ajax.reload();
-        //           setTimeout(function(){
-        //           $('.eupdate-success-validation').fadeOut('slow');
-        //           $("#eprofilepic").val('');
-        //           $('#editUserModal').modal('toggle');
+          function editwithoutpassword(form) {
+            $.ajax({
+              url:"usermaintenance/edituserwithoutpassword/",
+              type:"POST",
+              data:form,
+              cache: false,
+                contentType: false,
+                processData: false,
+              beforeSend:function(){
+                  $('#ebtn-update').text('Please wait...');
+                  $('.loader').css('display', 'inline');
+                },
+              success:function(data){
+                console.log(data);
+                  $('.eupdate-success-validation').css('display', 'inline');
+                  $('.loader').css('display', 'none');
+                  $('#ebtn-update').text('Edit');
+                  $('#admin-table').DataTable().ajax.reload();
+                  $('#tenant-table').DataTable().ajax.reload();
+                  $('#employee-table').DataTable().ajax.reload();
+                  setTimeout(function(){
+                  $('.eupdate-success-validation').fadeOut('slow');
+                  $("#eprofilepic").val('');
+                  $('#editUserModal').modal('toggle');
 
-        //         },2000);
-        //       }
+                },2000);
+              }
 
-        //      });
-        //   }
+             });
+          }
 
-       // });
+       });
 });

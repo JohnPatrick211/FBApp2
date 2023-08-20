@@ -68,6 +68,14 @@
                    </div>
                 </div>
 
+                <div class="hide-dateofoccupancy col-12" style="display: none">
+                  <label class="col-form-label">Date of Occupancy</label>
+                  <input type="date" class="form-control" id="dateofoccupancy" name="dateofoccupancy" required>
+                  <div class="empty-reject-dateofoccupancy mr-auto ml-3" style="display: none">
+                        <label class="label text-danger">Please input the Date of Occupancy</label>
+                       </div>
+                </div>
+
                 <div class="col-5">
                     <label class="col-form-label">Email</label>
                     <input type="text" class="form-control" name="email" id="email"  required>
@@ -229,6 +237,14 @@
                     <label class="label text-danger">Please input the Room Number</label>
                    </div>
                 </div>
+
+                <div class="ehide-dateofoccupancy col-12" style="display: none">
+                  <label class="col-form-label">Date of Occupancy</label>
+                  <input type="date" class="form-control" id="edateofoccupancy" name="edateofoccupancy" required>
+                  <div class="empty-reject-dateofoccupancy mr-auto ml-3" style="display: none">
+                        <label class="label text-danger">Please input the Date of Occupancy</label>
+                       </div>
+                </div> 
 
               <div class="col-5">
                   <label class="col-form-label">Email</label>

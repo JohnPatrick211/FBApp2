@@ -38,10 +38,10 @@ Route::post('AddUser', [App\Http\Controllers\UserMaintenanceCtr::class, 'AddUser
 //Room Maintenance
 Route::get('room-maintenance',[App\Http\Controllers\RoomMaintenanceCtr::class, 'index'])->middleware('Islogged');
 Route::get('room-maintenance/room',[App\Http\Controllers\RoomMaintenanceCtr::class, 'roommaintenance_room'])->middleware('Islogged');
-//Route::get('room-maintenance-details/{id}',[App\Http\Controllers\RoomMaintenanceCtr::class, 'getRoomDetails'])->middleware('Islogged');
-//Route::post('room/editroom/', [App\Http\Controllers\RoomMaintenanceCtr::class, 'updateRoom'])->middleware('Islogged');
+Route::get('room-maintenance-details/{id}',[App\Http\Controllers\RoomMaintenanceCtr::class, 'getRoomDetails'])->middleware('Islogged');
+Route::post('room/editroom/', [App\Http\Controllers\RoomMaintenanceCtr::class, 'updateRoom'])->middleware('Islogged');
 Route::post('room-maintenance/archiveroom/{id}', [App\Http\Controllers\RoomMaintenanceCtr::class, 'ArchiveRoom']);
-//Route::post('AddRoom', [App\Http\Controllers\RoomMaintenanceCtr::class, 'AddRoom']);
+Route::post('AddRoom', [App\Http\Controllers\RoomMaintenanceCtr::class, 'AddRoom']);
 
 //UTILITIES
 //ARCHIVE

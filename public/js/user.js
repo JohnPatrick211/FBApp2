@@ -89,39 +89,39 @@ $(document).ready(function()
             
         });
 
-    function LoadRoom()
-    {
-      let user_type = $('#user_type').val()
-         if(user_type == 'Doctor')
-         {
-          var test = $('#room').val('');
-          $('.hide-room').css('display', 'inline');
-          console.log(test);
-         }
-         else
-         {
-          var test = $('#room').val('none');
-          $('.hide-room').css('display', 'none');
-          console.log(test);
-         }
-    }
+    // function LoadRoom()
+    // {
+    //   let user_type = $('#user_type').val()
+    //      if(user_type == 'Doctor')
+    //      {
+    //       var test = $('#room').val('');
+    //       $('.hide-room').css('display', 'inline');
+    //       console.log(test);
+    //      }
+    //      else
+    //      {
+    //       var test = $('#room').val('none');
+    //       $('.hide-room').css('display', 'none');
+    //       console.log(test);
+    //      }
+    // }
 
-    function LoadRoom2()
-    {
-      let user_type = $('#euser_type').val()
-         if(user_type == 'Tenant')
-         {
-          var test = $('#eroom').val('');
-          $('.ehide-room').css('display', 'inline');
-          console.log(test);
-         }
-         else
-         {
-          var test = $('#eroom').val('none');
-          $('.ehide-room').css('display', 'none');
-          console.log(test);
-         }
-    }
+    // function LoadRoom2()
+    // {
+    //   let user_type = $('#euser_type').val()
+    //      if(user_type == 'Tenant')
+    //      {
+    //       var test = $('#eroom').val('');
+    //       $('.ehide-room').css('display', 'inline');
+    //       console.log(test);
+    //      }
+    //      else
+    //      {
+    //       var test = $('#eroom').val('none');
+    //       $('.ehide-room').css('display', 'none');
+    //       console.log(test);
+    //      }
+    // }
 
     function fetchAdmin(){
         $('#admin-table').DataTable({
@@ -259,14 +259,21 @@ $(document).ready(function()
          if(user_type == 'Tenant')
          {
           var test = $('#room').val('');
+          var test2 = $('#dateofoccupancy').val('');
           $('.hide-room').css('display', 'inline');
+          $('.hide-dateofoccupancy').css('display', 'inline');
           console.log(test);
+          console.log(test2);
+          
          }
          else
          {
           var test = $('#room').val('none');
+          var test2 = $('#dateofoccupancy').val('');
           $('.hide-room').css('display', 'none');
+          $('.hide-dateofoccupancy').css('display', 'none');
           console.log(test);
+          console.log(test2);
          }
        });
 
@@ -300,24 +307,33 @@ $(document).ready(function()
                 $('#edit_user_type').val('Tenant'); 
                 console.log(user_type);
                 var test = $('#eroom').val('');
+                var test2 = $('#edateofoccupancy').val('');
+                $('.ehide-dateofoccupancy').css('display', 'inline');
                 $('.ehide-room').css('display', 'inline');
                 console.log(test);
+                console.log(test2);
                 getUserDetails(id,user_type);
             }
             else if(user_type == 'Employee'){
                 $('#edit_user_type').val('Employee');
                 console.log(user_type);
                 var test = $('#eroom').val('none');
+                var test2 = $('#edateofoccupancy').val('');
+                $('.ehide-dateofoccupancy').css('display', 'none');
                 $('.ehide-room').css('display', 'none');
                console.log(test);
+               console.log(test2);
                getUserDetails(id,user_type);
             }
             else if(user_type == 'System Admin'){
               $('#edit_user_type').val('System Admin');
               console.log(user_type);
               var test = $('#eroom').val('none');
+              var test2 = $('#edateofoccupancy').val('');
+              $('.ehide-dateofoccupancy').css('display', 'none');
              $('.ehide-room').css('display', 'none');
              console.log(test);
+             console.log(test2);
              getUserDetails(id,user_type);
           }
         });
@@ -341,6 +357,7 @@ $(document).ready(function()
                     $('#eusername').val(data[0].username);
                     $('#eage').val(data[0].age);
                     $('#ebirthdate').val(data[0].birthdate);
+                    $('#edateofoccupancy').val(data[0].date_of_occupancy);
                     $('#egender').val(data[0].gender);
                     $('#ecivilstatus').val(data[0].civilstatus);
                     document.getElementById("eroom").value = data[0].roomid;
@@ -436,6 +453,7 @@ $(document).ready(function()
             var password =  $('#epassword').val();
             var age = $('#eage').val();
             var birthdate = $('#ebirthdate').val();
+            var dateofoccupancy = $('#edateofoccupancy').val();
             var gender = $('#egender').val();
             var civilstatus = $('#ecivilstatus').val();
             var profilepic = $('#eprofilepic').prop('files')[0];
@@ -452,6 +470,7 @@ $(document).ready(function()
             form.append('username', username)
             form.append('password', password)
             form.append('birthdate', birthdate)
+            form.append('dateofoccupancy', dateofoccupancy)
             form.append('civilstatus', civilstatus)
             form.append('profilepic', profilepic)
             form.append('age', age)

@@ -19,7 +19,7 @@ class ArchiveCtr extends Controller
                  'LoggedUserInfo' => $users2
              ];
              $users3 = Login::all();
-             $users4 = Room::orderBy('id', 'ASC')->where('status', '=', 0)->get();
+             $users4 = Room::orderBy('id', 'ASC')->where('vacantnumber', '!=', 0)->where('status', '!=', 1)->get();
              return view('archive', $data)->with('users3',$users3)->with('users4',$users4);
          }
 
