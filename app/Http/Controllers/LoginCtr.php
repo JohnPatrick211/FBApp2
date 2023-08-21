@@ -222,17 +222,26 @@ class LoginCtr extends Controller
             //   ->leftJoin('tbl_user', 'BR.patient_id', '=', 'tbl_user.id')
             //   ->leftJoin('tbl_doctor', 'BR.doctor_id', '=', 'tbl_doctor.doctor_id')
             //   ->count();
-            $numberOfRoomsAvailable = DB::table('tbl_room')
+            $numberOfRooms = DB::table('tbl_room')
+              ->select('tbl_room.*')
+              ->where('status',1)
+              ->count();
+
+              $numberOfVacantRoomsAvailable = DB::table('tbl_room')
               ->select('tbl_room.*')
               ->where('status',1)
               ->where('vacantnumber', '!=', 0)
-              ->count();
+              ->count();  
 
-            //   $approvedpatient = DB::table('tbl_user')
-            //   ->select('tbl_user.*')
-            //   ->where('user_role','Patient')
-            //   ->where('status','Approved')
-            //    ->count();
+              $numberofTenants = DB::table('tbl_tenant')
+              ->select('tbl_tenant.*')
+              ->where('status',1)
+               ->count();
+
+               $numberofEmployees = DB::table('tbl_employee')
+               ->select('tbl_employee.*')
+               ->where('status',1)
+                ->count(); 
 
             //    $sales = DB::table('tbl_sales')
             //    ->where('status', 1)
@@ -244,10 +253,10 @@ class LoginCtr extends Controller
             //   $dateadvance = \Carbon\Carbon::now()->addWeek()->format('Y-m-d');
             $data = [
                 'LoggedUserInfo' => $user,
-                 'numberOfRoomsAvailable' =>  $numberOfRoomsAvailable,
-                // 'pendingappointmentapproval' =>  $pendingappointmentapproval,
-                // 'completeappointment' =>  $completeappointment,
-                // 'pendingpatient' => $pendingpatient,
+                 'numberOfRooms' =>  $numberOfRooms,
+                 'numberOfVacantRoomsAvailable' =>  $numberOfVacantRoomsAvailable,
+                 'numberofTenants' =>  $numberofTenants,
+                 'numberofEmployees' => $numberofEmployees,
                 // 'approvedpatient' => $approvedpatient,
                 // 'date' => $date,
                 // 'sales' => $sales,
