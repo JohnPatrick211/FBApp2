@@ -435,6 +435,7 @@
     <script src="js/room.js"></script>
     <script src="js/rule.js"></script>
     <script src="js/roominformation.js"></script>
+    <script src="js/tenantinformation.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>

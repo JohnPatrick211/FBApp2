@@ -222,11 +222,11 @@ class LoginCtr extends Controller
             //   ->leftJoin('tbl_user', 'BR.patient_id', '=', 'tbl_user.id')
             //   ->leftJoin('tbl_doctor', 'BR.doctor_id', '=', 'tbl_doctor.doctor_id')
             //   ->count();
-            //   $pendingpatient = DB::table('tbl_user')
-            //   ->select('tbl_user.*')
-            //   ->where('user_role','Patient')
-            //   ->where('status','Pending')
-            //   ->count();
+            $numberOfRoomsAvailable = DB::table('tbl_room')
+              ->select('tbl_room.*')
+              ->where('status',1)
+              ->where('vacantnumber', '!=', 0)
+              ->count();
 
             //   $approvedpatient = DB::table('tbl_user')
             //   ->select('tbl_user.*')
@@ -244,7 +244,7 @@ class LoginCtr extends Controller
             //   $dateadvance = \Carbon\Carbon::now()->addWeek()->format('Y-m-d');
             $data = [
                 'LoggedUserInfo' => $user,
-                // 'AppointmentForToday' =>  $AppointmentForToday,
+                 'numberOfRoomsAvailable' =>  $numberOfRoomsAvailable,
                 // 'pendingappointmentapproval' =>  $pendingappointmentapproval,
                 // 'completeappointment' =>  $completeappointment,
                 // 'pendingpatient' => $pendingpatient,

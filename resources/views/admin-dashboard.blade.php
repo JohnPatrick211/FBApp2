@@ -13,9 +13,9 @@
                                 <div class="col mr-2">
                                     <div class="text-sm font-weight-bold text-primary text-uppercase mb-3">
                                         Total Number of Rooms</div>
-                                    <div class="h3 mb-0 font-weight-bold text-gray-800">6
+                                    <div class="h3 mb-0 font-weight-bold text-gray-800">{{ $numberOfRoomsAvailable }}
                                     <br><br>
-                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="admin-appointment-list">Click Here to See More</a></div>
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="room-information">Click Here to See More</a></div>
                                     </div>
                                 </div>
                                 <div class="col-auto">
