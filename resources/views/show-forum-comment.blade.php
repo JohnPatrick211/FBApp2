@@ -1,4 +1,4 @@
-@extends('./layouts.admin')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -6,7 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <p><b>{{ $forums->title }}</b></p>
+                    <p><b>{{ $forums->title }}</b>
+                    <br/> {{ $forums->fname }} {{ $forums->mname }} {{ $forums->lname }}</p>
                     <p>
                         {{ $forums->body }}
                     </p>
