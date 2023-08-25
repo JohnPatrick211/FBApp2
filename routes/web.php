@@ -55,8 +55,23 @@ Route::post('room-information/archivetenantroom/{id}', [App\Http\Controllers\Roo
 //Tenant Information
 Route::get('tenant-information',[App\Http\Controllers\TenantInformationCtr::class, 'index'])->middleware('Islogged');
 Route::get('tenant-information/tenant',[App\Http\Controllers\TenantInformationCtr::class, 'tenantinformation_tenant'])->middleware('Islogged');
-//Route::get('tenant-tenantinformation/tenant/{id}',[App\Http\Controllers\TenantInformationCtr::class, 'tenantinformation_tenant'])->middleware('Islogged');
 Route::get('tenant-information-details/{id}',[App\Http\Controllers\TenantInformationCtr::class, 'getTenantInfoDetails'])->middleware('Islogged');
+//SALES
+//Billing
+Route::get('billing', [App\Http\Controllers\BillingCtr::class, 'index'])->middleware('Islogged');
+Route::post('/record-sale', [App\Http\Controllers\BillingCtr::class, 'recordSale']);
+Route::post('add-to-tray', [App\Http\Controllers\BillingCtr::class, 'addToTray']);
+Route::get('/read-tray', [App\Http\Controllers\BillingCtr::class, 'readTray']);
+Route::post('void/{id}', [App\Http\Controllers\BillingCtr::class, 'void']);
+Route::get('preview-invoice/{tenantname}/{invoice}', [App\Http\Controllers\BillingCtr::class, 'previewInvoice']);
+Route::get('getTenantInfo/{id}', [App\Http\Controllers\BillingCtr::class, 'getTenantInfo']);
+//REPORTS
+//Sales Reports
+Route::get('sales-reports',[App\Http\Controllers\SalesReportCtr::class, 'index'])->middleware('Islogged');
+Route::get('sales-report-data',[App\Http\Controllers\SalesReportCtr::class, 'SalesReportData'])->middleware('Islogged');
+Route::get('sales-report/print/{date_from}/{date_to}', [App\Http\Controllers\SalesReportCtr::class, 'previewSalesReport'])->middleware('Islogged');
+Route::get('/compute-total-sales', [App\Http\Controllers\SalesReportCtr::class, 'computeSales']);
+
 //UTILITIES
 //ARCHIVE
 Route::get('archive',[App\Http\Controllers\ArchiveCtr::class, 'index'])->middleware('Islogged');
@@ -72,6 +87,7 @@ Route::post('archivetenant/retrieve/{id}',[App\Http\Controllers\ArchiveCtr::clas
 //Archive Room
 Route::get('archive/room',[App\Http\Controllers\ArchiveCtr::class, 'archive_room'])->middleware('Islogged');
 Route::post('archiveroom/retrieve/{id}',[App\Http\Controllers\ArchiveCtr::class, 'archiveroom_retrieve'])->middleware('Islogged');
+
 
 //test payment
 //Route::get('/payment',[App\Http\Controllers\PaymentCtr::class, 'index']);
