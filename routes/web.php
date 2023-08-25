@@ -75,6 +75,11 @@ Route::get('sales-reports',[App\Http\Controllers\SalesReportCtr::class, 'index']
 Route::get('sales-report-data',[App\Http\Controllers\SalesReportCtr::class, 'SalesReportData'])->middleware('Islogged');
 Route::get('sales-report/print/{date_from}/{date_to}/{payment_method}', [App\Http\Controllers\SalesReportCtr::class, 'previewSalesReport'])->middleware('Islogged');
 Route::get('/compute-total-sales', [App\Http\Controllers\SalesReportCtr::class, 'computeSales']);
+//FORUMS AND COMMENTS;
+Route::get('forum',[App\Http\Controllers\ForumCtr::class, 'index'])->middleware('Islogged');
+//Route::get('show-forum-comment/{id}',[App\Http\Controllers\ForumCtr::class, 'showindex'])->middleware('Islogged');
+Route::get('show-forum-comment/{forum_id}', [App\Http\Controllers\ForumCtr::class, 'showindex'])->middleware('Islogged');
+//Route::post('/forum/store', 'ForumCtr@store')->name('forum.store');
 
 //UTILITIES
 //ARCHIVE

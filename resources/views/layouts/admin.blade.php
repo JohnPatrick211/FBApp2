@@ -12,7 +12,7 @@
         rel="stylesheet">
         
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
     <!-- include libraries(jQuery, bootstrap) -->
    
   
@@ -50,13 +50,13 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="admin-dashboard">
+                <a class="nav-link" href="/admin-dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span id="content-dashboard">Dashboard</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="admin-dashboard">
+                <a class="nav-link" href="/forum">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span id="content-dashboard">Forum and Comments</span></a>
             </li>
@@ -69,9 +69,9 @@
                 </a>
                 <div id="collapsePatientApproval" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="tenant-information">Tenant Information</a>
-                        <a class="collapse-item" href="employee-information">Employee Information</a>
-                        <a class="collapse-item" href="room-information">Room Information</a>
+                        <a class="collapse-item" href="/tenant-information">Tenant Information</a>
+                        <a class="collapse-item" href="/employee-information">Employee Information</a>
+                        <a class="collapse-item" href="/room-information">Room Information</a>
                     </div>
                 </div>
             </li>
@@ -98,7 +98,7 @@
                 </a>
                 <div id="collapseApproval" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="billing">Billing</a>
+                        <a class="collapse-item" href="/billing">Billing</a>
                     </div>
                 </div>
             </li>
@@ -120,7 +120,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="sales-reports">Sales Reports</a>
+                        <a class="collapse-item" href="/sales-reports">Sales Reports</a>
                     </div>
                 </div>
             </li>
@@ -144,9 +144,9 @@
                 </a>
                 <div id="collapseMaintenance" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="user-maintenance">User Maintenance</a>
-                        <a class="collapse-item" href="room-maintenance">Room Maintenance</a>
-                        <a class="collapse-item" href="rule-maintenance">Rule Maintenance</a>
+                        <a class="collapse-item" href="/user-maintenance">User Maintenance</a>
+                        <a class="collapse-item" href="/room-maintenance">Room Maintenance</a>
+                        <a class="collapse-item" href="/rule-maintenance">Rule Maintenance</a>
                     </div>
                 </div>
             </li>
@@ -161,9 +161,9 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="audit-trail">Audit Trail</a>
-                        <a class="collapse-item" href="backup-and-restore">Backup and Restore</a>
-                        <a class="collapse-item" href="archive">Archive</a>
+                        <a class="collapse-item" href="/audit-trail">Audit Trail</a>
+                        <a class="collapse-item" href="/backup-and-restore">Backup and Restore</a>
+                        <a class="collapse-item" href="/archive">Archive</a>
                     </div>
                 </div>
             </li>
@@ -340,7 +340,7 @@
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Session::get('Name')}}</span>
                                 {{-- <span class="mr-2 d-none d-lg-inline text-gray-600 small">Wyns Alvez</span> --}}
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -398,7 +398,7 @@
                 <div class="modal-body">Are you sure you want to logout your account?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="logout">Logout</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -409,7 +409,7 @@
     
     
     
-    <script src="js/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
@@ -419,30 +419,31 @@
 
     <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
    
 
     <!-- Core plugin JavaScript-->
-    <script src="js/jquery.easing.min.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/dataTables.bootstrap4.min.js"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/datatables-demo.js"></script>
-    <script src="js/user.js"></script>
-    <script src="js/archive.js"></script>
-    <script src="js/room.js"></script>
-    <script src="js/rule.js"></script>
-    <script src="js/roominformation.js"></script>
-    <script src="js/tenantinformation.js"></script>
-    <script src="js/employeeinformation.js"></script>
-    <script src="js/cashiering.js"></script>
-    <script src="js/salesreport.js"></script>
+    <script src="/js/datatables-demo.js"></script>
+    <script src="/js/user.js"></script>
+    <script src="/js/archive.js"></script>
+    <script src="/js/room.js"></script>
+    <script src="/js/rule.js"></script>
+    <script src="/js/roominformation.js"></script>
+    <script src="/js/tenantinformation.js"></script>
+    <script src="/js/employeeinformation.js"></script>
+    <script src="/js/cashiering.js"></script>
+    <script src="/js/salesreport.js"></script>
+    <!-- <script src="js/forum.js"></script> -->
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>
