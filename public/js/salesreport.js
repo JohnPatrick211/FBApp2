@@ -11,15 +11,14 @@ $(document).ready(function(){
       function load_data()  {
         let date_from = $('#salesreportdate_from').val()
         let date_to = $('#salesreportdate_to').val();
-        let salesreportbranch = $('#salesreportbranch').val()
-        fetchSalesReport(date_from,date_to,salesreportbranch);
-        console.log(salesreportbranch);
-        fetchTotalSales(date_from, date_to,salesreportbranch);
+        let payment_method = $('#salespayment_method').val();
+        fetchSalesReport(date_from,date_to,payment_method);
+        fetchTotalSales(date_from, date_to,payment_method);
 
       }
 
 
-      function fetchSalesReport(date_from,date_to,salesreportbranch){
+      function fetchSalesReport(date_from,date_to,payment_method){
       var tbl_for_validation = $('#sales-report-table').DataTable({
 
           processing: true,
@@ -30,7 +29,7 @@ $(document).ready(function(){
            data:{
             date_from:date_from,
             date_to:date_to,
-            salesreportbranch:salesreportbranch,
+            payment_method:payment_method
             },
           },
 
@@ -40,25 +39,6 @@ $(document).ready(function(){
              },
 
              columnDefs: [{
-              targets: 1,
-              searchable: false,
-              orderable: true,
-              changeLength: true,
-              className: 'dt-body-center',
-              render: function (data, type, full, meta){
-                const firstDigitStr = String(data)[0];
-                console.log(firstDigitStr);
-                if(firstDigitStr == 1)
-                {
-                  return 'P-'+data;
-                }
-                else
-                {
-                  return 'S-'+data;
-                }
-              }
-           },
-           {
             targets: 0,
             searchable: false,
             orderable: true,
@@ -68,36 +48,35 @@ $(document).ready(function(){
                 return 'INV-'+data;
             }
           },{
-            targets: 3,
-            visible: false,
-          },
-           {
-            targets: [4,6],
+            targets: [6],
             orderable: true,
             changeLength: true,
             className: 'dt-body-center',
             render: function (data, type, full, meta){
                 return '₱'+data;
             }
-         }],
+         }, {
+            targets: 1,
+            orderable: true,
+            changeLength: true,
+            className: 'dt-body-center',
+            render: function (data, type, full, meta){
+                return data + ' ' +full.mname + ' ' + full.lname;
+            }
+         },
+         { "visible": false,  "targets": [ 2 ] },
+         { "visible": false,  "targets": [ 3 ] }],
 
   
             columns:[
               {data: 'invoice_no', name: 'invoice_no'},
-              {data: 'product_id', name: 'product_id'},
-              {data: 'productname', name: 'productname'},
-              {data: 'branchname', name: 'branchname'},
-              {data: 'selling_price', name: 'selling_price'},
-              {data: 'qty', name: 'qty'},
+              {data: 'fname', name: 'fname'},
+              {data: 'mname', name: 'mname'},
+              {data: 'lname', name: 'lname'},
+              {data: 'product_name', name: 'product_name'},
+              {data: 'payment_method', name: 'payment_method'},
               {data: 'amount', name: 'amount'},
               {data: 'created_at', name: 'created_at'},
-  
-              // { data: 'BIR_file', name: 'BIR_file',
-              //         render: function( data, type, full, meta ) {
-              //             return "<img src=\"/storage/BIR/" + data + "\" height=\"50\"id=\"trigger\"/>";
-              //           // return '<div align="center"><a href="/storage/jobposts/" """><img src="{{ asset("siteicons/Info_Box_Blue.png") }}" id="trigger" onclick="ShowSlider(0)"></a></div>';
-              //         }
-              //     },
             ],
              order: [[7, 'desc']],
           });
@@ -108,10 +87,10 @@ $(document).ready(function(){
       {
         let date_from = $('#salesreportdate_from').val()
         let date_to = $('#salesreportdate_to').val();
-        let salesreportbranch = $('#salesreportbranch').val()
+        let payment_method = $('#salespayment_method').val()
         $('#sales-report-table').DataTable().destroy();
-        fetchSalesReport(date_from,date_to,salesreportbranch);
-        fetchTotalSales(date_from, date_to,salesreportbranch);
+        fetchSalesReport(date_from,date_to,payment_method);
+        fetchTotalSales(date_from, date_to,payment_method);
        
       });
 
@@ -119,32 +98,32 @@ $(document).ready(function(){
       {
         let date_from = $('#salesreportdate_from').val()
         let date_to = $('#salesreportdate_to').val();
-        let salesreportbranch = $('#salesreportbranch').val()
+        let payment_method = $('#salespayment_method').val()
         $('#sales-report-table').DataTable().destroy();
-        fetchSalesReport(date_from,date_to,salesreportbranch);
-        fetchTotalSales(date_from, date_to,salesreportbranch);
+        fetchSalesReport(date_from,date_to,payment_method);
+        fetchTotalSales(date_from, date_to,payment_method);
       });
 
-      $('#salesreportbranch').change(function()
+      $('#salespayment_method').change(function()
       {
         let date_from = $('#salesreportdate_from').val()
         let date_to = $('#salesreportdate_to').val();
-        let salesreportbranch = $('#salesreportbranch').val()
+        let payment_method = $('#salespayment_method').val()
         $('#sales-report-table').DataTable().destroy();
-        fetchSalesReport(date_from,date_to,salesreportbranch);
-        fetchTotalSales(date_from, date_to,salesreportbranch);
+        fetchSalesReport(date_from,date_to,payment_method);
+        fetchTotalSales(date_from, date_to,payment_method);
        
       });
       
       $('#btn-salesreport-print').click(function () {
         let date_from = $('#salesreportdate_from').val()
         let date_to = $('#salesreportdate_to').val();
-        let salesreportbranch = $('#salesreportbranch').val()
-        window.open('sales-report/print/'+date_from+'/'+date_to+'/'+salesreportbranch, '_blank');
+        let payment_method = $('#salespayment_method').val()
+        window.open('sales-report/print/'+date_from+'/'+date_to+'/'+payment_method, '_blank');
 
       });
 
-      function fetchTotalSales(date_from, date_to,salesreportbranch) {
+      function fetchTotalSales(date_from, date_to,payment_method) {
         $('#txt-total-sales').html('<i class="fas fa-spinner fa-spin"></i>');
         $.ajax({
             url: '/compute-total-sales',
@@ -152,7 +131,7 @@ $(document).ready(function(){
             data: {
                 date_from        :date_from,
                 date_to          :date_to,
-                salesreportbranch:salesreportbranch,
+                payment_method:payment_method,
             },
             success:function(total_sales){
                 

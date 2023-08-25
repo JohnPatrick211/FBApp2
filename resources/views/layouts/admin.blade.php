@@ -440,6 +440,7 @@
     <script src="js/roominformation.js"></script>
     <script src="js/tenantinformation.js"></script>
     <script src="js/cashiering.js"></script>
+    <script src="js/salesreport.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>

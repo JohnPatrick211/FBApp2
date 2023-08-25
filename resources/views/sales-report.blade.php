@@ -17,9 +17,9 @@
                 </div>
 
                 
-                <div class="row mb-2">
+                <div class="row">
 
-                <div class="col-sm-2 mb-3">
+                <div class="col-sm-2 ">
                               <input data-column="9" type="date" class="form-control" id="salesreportdate_from" value="{{ date('Y-m-d') }}">
                               </div>
 
@@ -27,19 +27,18 @@
                                 -
                                 </div>
 
-                              <div class="col-sm-2 mb-3">
+                              <div class="col-sm-2">
                                 <input data-column="9" type="date" class="form-control" id="salesreportdate_to" value="{{ date('Y-m-d') }}" >
                                 </div>
                                     
                                     <div class="mt-2">
                                 </div>
 
-                                <div class="col-sm-2 mb-3">
-                            <select class="form-control" style="width:160%;" name="salesreportbranch" id="salesreportbranch">
-                                                <option value="All Branches">All Branches</option>
-                                                @foreach($users4 as $item)
-                                                    <option value="{{$item->id}}">{{$item->branchname}}</option>
-                                                @endforeach
+                                <div class="col-sm-2 ">
+                            <select class="form-control" style="width:160%;" name="salespayment_method" id="salespayment_method">
+                                                <option value="All Payment Method">All Payment Method</option>
+                                                <option value="Cash">Cash</option>
+                                                <option value="GCash">GCash</option>
                                                 </select>
                               </div>
 
@@ -67,11 +66,11 @@
                                 <thead>
                                   <tr>
                                             <th>Invoice No.</th>
-                                            <th>Product Code</th>
-                                            <th>Product Name</th>
-                                            <th>Branch Name</th>
-                                            <th>Price</th>
-                                            <th>Qty</th>
+                                            <th>Tenant Name</th>
+                                            <th>Middle Name</th>
+                                            <th>Last Name</th>
+                                            <th>Product/Description</th>
+                                            <th>Payment Method</th>
                                             <th>Amount</th>
                                             <th>Date Time</th>
                                   </tr>

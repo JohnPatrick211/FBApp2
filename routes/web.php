@@ -69,7 +69,7 @@ Route::get('getTenantInfo/{id}', [App\Http\Controllers\BillingCtr::class, 'getTe
 //Sales Reports
 Route::get('sales-reports',[App\Http\Controllers\SalesReportCtr::class, 'index'])->middleware('Islogged');
 Route::get('sales-report-data',[App\Http\Controllers\SalesReportCtr::class, 'SalesReportData'])->middleware('Islogged');
-Route::get('sales-report/print/{date_from}/{date_to}', [App\Http\Controllers\SalesReportCtr::class, 'previewSalesReport'])->middleware('Islogged');
+Route::get('sales-report/print/{date_from}/{date_to}/{payment_method}', [App\Http\Controllers\SalesReportCtr::class, 'previewSalesReport'])->middleware('Islogged');
 Route::get('/compute-total-sales', [App\Http\Controllers\SalesReportCtr::class, 'computeSales']);
 
 //UTILITIES
