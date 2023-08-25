@@ -70,6 +70,7 @@
                 <div id="collapsePatientApproval" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="tenant-information">Tenant Information</a>
+                        <a class="collapse-item" href="employee-information">Employee Information</a>
                         <a class="collapse-item" href="room-information">Room Information</a>
                     </div>
                 </div>
@@ -439,6 +440,7 @@
     <script src="js/rule.js"></script>
     <script src="js/roominformation.js"></script>
     <script src="js/tenantinformation.js"></script>
+    <script src="js/employeeinformation.js"></script>
     <script src="js/cashiering.js"></script>
     <script src="js/salesreport.js"></script>
     <!-- ajax action edit employer -->

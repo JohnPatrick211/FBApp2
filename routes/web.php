@@ -56,6 +56,10 @@ Route::post('room-information/archivetenantroom/{id}', [App\Http\Controllers\Roo
 Route::get('tenant-information',[App\Http\Controllers\TenantInformationCtr::class, 'index'])->middleware('Islogged');
 Route::get('tenant-information/tenant',[App\Http\Controllers\TenantInformationCtr::class, 'tenantinformation_tenant'])->middleware('Islogged');
 Route::get('tenant-information-details/{id}',[App\Http\Controllers\TenantInformationCtr::class, 'getTenantInfoDetails'])->middleware('Islogged');
+//Employee Information
+Route::get('employee-information',[App\Http\Controllers\EmployeeInformationCtr::class, 'index'])->middleware('Islogged');
+Route::get('employee-information/employee',[App\Http\Controllers\EmployeeInformationCtr::class, 'employeeinformation_employee'])->middleware('Islogged');
+Route::get('employee-information-details/{id}',[App\Http\Controllers\EmployeeInformationCtr::class, 'getEmployeeInfoDetails'])->middleware('Islogged');
 //SALES
 //Billing
 Route::get('billing', [App\Http\Controllers\BillingCtr::class, 'index'])->middleware('Islogged');
