@@ -43,7 +43,7 @@ class SalesReportCtr extends Controller
         if($payment_method == 'All Payment Method')
         {
             return DB::table('tbl_sales AS BR')
-            ->select('BR.*','tbl_tenant.*')
+            ->select('BR.*','tbl_tenant.*','BR.created_at AS created')
             ->leftJoin('tbl_tenant', 'BR.tenant_id', '=', 'tbl_tenant.tenant_id')
             ->whereBetween('BR.created_at', [$date_from, date('Y-m-d', strtotime($date_to. ' + 1 days'))])
             ->get();
@@ -52,7 +52,7 @@ class SalesReportCtr extends Controller
         {
 
             return DB::table('tbl_sales AS BR')
-                ->select('BR.*','tbl_tenant.*')
+            ->select('BR.*','tbl_tenant.*','BR.created_at AS created')
                 ->leftJoin('tbl_tenant', 'BR.tenant_id', '=', 'tbl_tenant.tenant_id')
                 ->whereBetween('BR.created_at', [$date_from, date('Y-m-d', strtotime($date_to. ' + 1 days'))])
                 ->where('BR.payment_method',$payment_method)
@@ -78,7 +78,7 @@ class SalesReportCtr extends Controller
         if($payment_method == 'All Payment Method')
         {
             return DB::table('tbl_sales AS BR')
-            ->select('BR.*','tbl_tenant.*')
+            ->select('BR.*','tbl_tenant.*','BR.created_at AS created')
             ->leftJoin('tbl_tenant', 'BR.tenant_id', '=', 'tbl_tenant.tenant_id')
             ->whereBetween('BR.created_at', [$date_from, date('Y-m-d', strtotime($date_to. ' + 1 days'))])
             ->get(); 
@@ -86,7 +86,7 @@ class SalesReportCtr extends Controller
         else
         {
             return DB::table('tbl_sales AS BR')
-                ->select('BR.*','tbl_tenant.*')
+            ->select('BR.*','tbl_tenant.*','BR.created_at AS created')
                 ->leftJoin('tbl_tenant', 'BR.tenant_id', '=', 'tbl_tenant.tenant_id')
                 ->whereBetween('BR.created_at', [$date_from, date('Y-m-d', strtotime($date_to. ' + 1 days'))])
                 ->where('BR.payment_method',$payment_method)
@@ -99,7 +99,7 @@ class SalesReportCtr extends Controller
         if($payment_method == 'All Payment Method')
         {
             return DB::table('tbl_sales AS BR')
-            ->select('BR.*','tbl_tenant.*')
+            ->select('BR.*','tbl_tenant.*','BR.created_at AS created')
             ->leftJoin('tbl_tenant', 'BR.tenant_id', '=', 'tbl_tenant.tenant_id')
             ->whereBetween('BR.created_at', [$date_from, date('Y-m-d', strtotime($date_to. ' + 1 days'))])
             ->count(); 
@@ -107,7 +107,7 @@ class SalesReportCtr extends Controller
         else
         {
             return DB::table('tbl_sales AS BR')
-                ->select('BR.*','tbl_tenant.*')
+            ->select('BR.*','tbl_tenant.*','BR.created_at AS created')
                 ->leftJoin('tbl_tenant', 'BR.tenant_id', '=', 'tbl_tenant.tenant_id')
                 ->whereBetween('BR.created_at', [$date_from, date('Y-m-d', strtotime($date_to. ' + 1 days'))])
                 ->where('BR.payment_method',$payment_method)
@@ -250,7 +250,7 @@ class SalesReportCtr extends Controller
                              <td>'. $datas->product_name .'</td>   
                              <td>'. $datas->payment_method .'</td>   
                              <td><span class = "peso">&#8369;</span>'. $datas->amount .'</td>
-                             <td>'. $datas->created_at .'</td>      
+                             <td>'. $datas->created .'</td>      
                          </tr>
                          ';        
                  }

@@ -231,7 +231,13 @@ class LoginCtr extends Controller
               ->select('tbl_room.*')
               ->where('status',1)
               ->where('vacantnumber', '!=', 0)
-              ->count();  
+              ->count();
+              
+              $numberOfVacantBedsAvailable = DB::table('tbl_room')
+              ->select('tbl_room.*')
+              ->where('status',1)
+              ->where('vacantnumber', '!=', 0)
+              ->sum('vacantnumber');  
 
               $numberofTenants = DB::table('tbl_tenant')
               ->select('tbl_tenant.*')
@@ -241,8 +247,12 @@ class LoginCtr extends Controller
                $numberofEmployees = DB::table('tbl_employee')
                ->select('tbl_employee.*')
                ->where('status',1)
-                ->count(); 
+                ->count();
 
+                $sales = DB::table('tbl_sales')
+                ->where(DB::raw('DATE(created_at)'), \Carbon\Carbon::now()->format('Y-m-d'))
+                // ->where(DB::raw('DATE(created_at)'), DB::raw(' DATE_ADD(created_at, INTERVAL 1 month )'))
+                ->sum('amount');
             //    $sales = DB::table('tbl_sales')
             //    ->where('status', 1)
             //    ->where('tbl_sales.product_id', 'LIKE', '1%')
@@ -257,6 +267,8 @@ class LoginCtr extends Controller
                  'numberOfVacantRoomsAvailable' =>  $numberOfVacantRoomsAvailable,
                  'numberofTenants' =>  $numberofTenants,
                  'numberofEmployees' => $numberofEmployees,
+                 'sales' => $sales,
+                 'numberOfVacantBedsAvailable' => $numberOfVacantBedsAvailable,
                 // 'approvedpatient' => $approvedpatient,
                 // 'date' => $date,
                 // 'sales' => $sales,

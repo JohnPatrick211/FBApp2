@@ -76,7 +76,7 @@ $(document).ready(function(){
               {data: 'product_name', name: 'product_name'},
               {data: 'payment_method', name: 'payment_method'},
               {data: 'amount', name: 'amount'},
-              {data: 'created_at', name: 'created_at'},
+              {data: 'created', name: 'created'},
             ],
              order: [[7, 'desc']],
           });

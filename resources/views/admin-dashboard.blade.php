@@ -53,7 +53,7 @@
                                 <div class="col mr-2">
                                     <div class="text-sm font-weight-bold text-primary text-uppercase mb-3">
                                         No. of Vacant Beds</div>
-                                    <div class="h3 mb-0 font-weight-bold text-gray-800">4
+                                    <div class="h3 mb-0 font-weight-bold text-gray-800">{{$numberOfVacantBedsAvailable}}
                                      <br><br>
                                     <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="appointment-reports">Click Here to See More</a></div></div>
                                     
@@ -108,8 +108,8 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-sm font-weight-bold text-danger text-uppercase mb-3">
-                                        Total Sales for This Month</div>
-                                    <div class="h3 mb-0 font-weight-bold text-gray-800"><span style="font-size: 28px;">&#8369;</span> 40,000.00
+                                        Total Sales for Today</div>
+                                    <div class="h3 mb-0 font-weight-bold text-gray-800"><span style="font-size: 28px;">&#8369;</span> {{$sales}}
                                      <br><br>   
                                     <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="sales-reports">Click Here to See More</a></div></div>
                                 </div>
