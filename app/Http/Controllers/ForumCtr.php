@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Login;
 use App\Models\Forum;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
@@ -74,9 +75,114 @@ class ForumCtr extends Controller
           // return dd($forum);
 
     }
-
-    public function store(Request $request)
+    //Add
+    public function AddForum(Request $request)
     {
-        // store code
+        $forum = new Forum();
+        $validateforum =  Forum::where('title','=', $request->input('title'))->first();
+        if($validateforum)
+        {
+            return back()->with('danger', 'Forum Already Exist');
+        }
+        else
+        {
+            $forum->title = $request->input('title');
+            $forum->body = $request->input('body');
+            $forum->author_id = Session::get('LoggedUser');
+            $forum->save();
+        // $getname = Session::get('Name');
+        // $getusertype = Session::get('User-Type');
+        // base::recordAction( $getname, $getusertype,'Category Maintenance', 'Add Category Successfully');
+        // return redirect('maintenance-category')->with('success', 'Category Saved');
+         return back()->with('success', 'Forum Saved');
+        }
+    }
+    //Edit
+    public function EditForum(Request $request,$id)
+    {
+        DB::table('tbl_forum')
+        ->where('id', $id)
+        ->update([
+            'title' => $request->input('edittitle'),
+            'body' => $request->input('editbody'),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+        // $getname = Session::get('Name');
+        // $getusertype = Session::get('User-Type');
+        // base::recordAction( $getname, $getusertype,'Category Maintenance', 'Add Category Successfully');
+        // return redirect('maintenance-category')->with('success', 'Category Saved');
+         return back()->with('success', 'Forum Edited Successfully');
+        
+    }
+    //Delete
+    public function DeleteForum(Request $request,$id)
+    {
+        DB::table('tbl_forum')->where('id', $id)->delete();
+        DB::table('tbl_comment')->where('parent_id', $id)->delete();
+        // $getname = Session::get('Name');
+        // $getusertype = Session::get('User-Type');
+        // base::recordAction( $getname, $getusertype,'Category Maintenance', 'Add Category Successfully');
+        // return redirect('maintenance-category')->with('success', 'Category Saved');
+         return redirect('forum')->with('success', 'Forum Deleted Successfully');
+        
+    }
+    //COMMENT
+    //Add
+    public function AddComment(Request $request)
+    {
+        $comment = new Comment();
+        $validatecomment =  Comment::where('comment_body','=', $request->input('comment_body'))->first();
+        if($validatecomment)
+        {
+            return back()->with('danger', 'Comment Already Exist');
+        }
+        else
+        {
+            $comment->parent_id = $request->input('parent_id');
+            $comment->comment_body = $request->input('comment_body');
+            $comment->user_id = Session::get('LoggedUser');
+            $comment->save();
+        // $getname = Session::get('Name');
+        // $getusertype = Session::get('User-Type');
+        // base::recordAction( $getname, $getusertype,'Category Maintenance', 'Add Category Successfully');
+        // return redirect('maintenance-category')->with('success', 'Category Saved');
+         return back()->with('success', 'Comment Posted');
+        }
+    }
+    //Edit
+    public function EditComment(Request $request)
+    {
+        DB::table('tbl_comment')
+        ->where('id', $request->input('comment_id'))
+        ->update([
+            'comment_body' => $request->input('editcomment_body'),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+        // $getname = Session::get('Name');
+        // $getusertype = Session::get('User-Type');
+        // base::recordAction( $getname, $getusertype,'Category Maintenance', 'Add Category Successfully');
+        // return redirect('maintenance-category')->with('success', 'Category Saved');
+         return back()->with('success', 'Comment Edited Successfully');
+        
+    }
+    //get comment info
+    public function getCommentInfo($id){
+        return DB::table('tbl_comment AS BR')
+            ->select('BR.*')
+            ->where('BR.id',$id)
+            ->get();
+    }
+    //Delete
+    public function DeleteComment(Request $request)
+    {
+        DB::table('tbl_comment')->where('id', $request->input('forcommentdelete'))->delete();
+        // $getname = Session::get('Name');
+        // $getusertype = Session::get('User-Type');
+        // base::recordAction( $getname, $getusertype,'Category Maintenance', 'Add Category Successfully');
+        // return redirect('maintenance-category')->with('success', 'Category Saved');
+         return back()->with('success', 'Comment Delete Successfully');
+        
     }
 }

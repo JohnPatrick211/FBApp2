@@ -1,9 +1,42 @@
+@include('modals.forumedit_modals')
+@include('modals.forumdelete_modals')
+@include('modals.addcomment_modals')
+@include('modals.commentedit_modals')
+@include('modals.commentdelete_modals')
 @extends('layouts.admin')
 
 @section('content')
+@if(count($errors)>0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+
+                            <li>{{$error}}</li>
+
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
+                    @if(\Session::has('success'))
+                    <div class="alert alert-success alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <h5><i class="icon fas fa-check"></i> </h5>
+                      {{ \Session::get('success') }}
+                    </div>
+                    @endif
+
+                    @if(\Session::has('danger'))
+                    <div class="alert alert-danger alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <h5><i class="icon fas fa-exclamation-triangle"></i> </h5>
+                      {{ \Session::get('danger') }}
+                    </div>
+                    @endif
+
 <div class="container-fluid mb-4">
 <a href="/forum"><i class="fa fa-arrow-left"></i></a>
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center mt-3">
       <div class="col-12">
         <div class="card">
           <div class="card-body">
@@ -53,30 +86,34 @@
             <div class="small d-flex justify-content-start mb-4">
                             <a href="#!" class="d-flex align-items-center me-3">
                                 <i class="far fa-comment-dots me-5 "></i>
-                                    <p class="mb-0 mr-2">Add Comment</p>
+                                    <p class="mb-0 mr-2" data-toggle="modal" data-target="#AddCommentModal">Add Comment</p>
                             </a>
                             <a href="#!" class="d-flex align-items-center me-3 ">
                                 <i class="far fa-comment-dots me-5 "></i>
-                                <p class="mb-0 mr-2">Edit</p>
+                                <p class="mb-0 mr-2" data-toggle="modal" data-target="#EditForumModal">Edit</p>
                             </a>
                             <a href="#!" class="d-flex align-items-center me-3">
                                 <i class="fas fa-archive me-5"></i>
-                                <p class="mb-0">Delete</p>
+                                <p class="mb-0" data-toggle="modal" data-target="#ForumDeleteModal" >Delete</p>
                             </a>
                         </div>
             @else
             <div class="small d-flex justify-content-start mb-4">
                             <a href="#!" class="d-flex align-items-center me-3">
                             <i class="far fa-comment-dots me-5 "></i>
-                                <p class="mb-0 mr-2">Add Comment</p>
+                                <p class="mb-0 mr-2" data-toggle="modal" data-target="#AddCommentModal">Add Comment</p>
                             </a>
             </div>                    
             @endif
             
-
             <hr>
-
+            @if(count($comments) > 0)
             <h4>Comments</h4>
+            @endif
+
+            @if(count($comments) < 0)
+            <h4>Comments</h4>
+            @endif
                     @foreach($comments as $comments)
                         <div class="display-comment">
                             <hr>
@@ -101,21 +138,17 @@
                             <strong>{{ $comments->tenant_fname }} {{ $comments->tenant_mname }} {{ $comments->tenant_lname }} <span class="badge badge-success">Tenant</span></strong>
                         @endif
                             
-                        <p class="mb-2">{{ $comments->comment_body }}</p>
+                        <p class="mb-2" id="commentbody" comment-body="{{ $comments->comment_body }}">{{ $comments->comment_body }}</p>
 
                         @if(\Session::get('LoggedUser') == $comments->id)
                         <div class="small d-flex justify-content-start mb-4">
-                            <a href="#!" class="d-flex align-items-center me-3">
-                            <i class="far fa-comment-dots me-5 "></i>
-                                <p class="mb-0 mr-2">Comment</p>
-                            </a>
                             <a href="#!" class="d-flex align-items-center me-3 ">
                                 <i class="far fa-comment-dots me-5 "></i>
-                                <p class="mb-0 mr-2">Edit</p>
+                                <p class="mb-0 mr-2" data-toggle="modal" id="editcomment" comment-id="{{ $comments->comment_id }}" data-target="#EditCommentModal">Edit</p>
                             </a>
                             <a href="#!" class="d-flex align-items-center me-3">
                                 <i class="fas fa-archive me-5"></i>
-                                <p class="mb-0">Delete</p>
+                                <p class="mb-0" data-toggle="modal" id="deletecomment" comment-id="{{ $comments->comment_id }}" data-target="#DeleteCommentModal">Delete</p>
                             </a>
                         </div>
                         @endif

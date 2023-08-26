@@ -161,8 +161,8 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/audit-trail">Audit Trail</a>
-                        <a class="collapse-item" href="/backup-and-restore">Backup and Restore</a>
+                        <!-- <a class="collapse-item" href="/audit-trail">Audit Trail</a>
+                        <a class="collapse-item" href="/backup-and-restore">Backup and Restore</a> -->
                         <a class="collapse-item" href="/archive">Archive</a>
                     </div>
                 </div>
@@ -443,7 +443,7 @@
     <script src="/js/employeeinformation.js"></script>
     <script src="/js/cashiering.js"></script>
     <script src="/js/salesreport.js"></script>
-    <script src="/js/forum.js"></script>
+    <script src="/js/forum_comment.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>

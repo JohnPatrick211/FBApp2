@@ -77,9 +77,14 @@ Route::get('sales-report/print/{date_from}/{date_to}/{payment_method}', [App\Htt
 Route::get('/compute-total-sales', [App\Http\Controllers\SalesReportCtr::class, 'computeSales']);
 //FORUMS AND COMMENTS;
 Route::get('forum',[App\Http\Controllers\ForumCtr::class, 'index'])->middleware('Islogged');
-//Route::get('show-forum-comment/{id}',[App\Http\Controllers\ForumCtr::class, 'showindex'])->middleware('Islogged');
 Route::get('show-forum-comment/{forum_id}', [App\Http\Controllers\ForumCtr::class, 'showindex'])->middleware('Islogged');
-//Route::post('/forum/store', 'ForumCtr@store')->name('forum.store');
+Route::post('/AddForum', [App\Http\Controllers\ForumCtr::class, 'AddForum'])->middleware('Islogged');
+Route::patch('show-forum-comment/EditForum/{id}', [App\Http\Controllers\ForumCtr::class, 'EditForum'])->middleware('Islogged');
+Route::patch('show-forum-comment/DeleteForum/{id}', [App\Http\Controllers\ForumCtr::class, 'DeleteForum'])->middleware('Islogged');
+Route::post('show-forum-comment/AddComment', [App\Http\Controllers\ForumCtr::class, 'AddComment'])->middleware('Islogged');
+Route::patch('show-forum-comment/EditComment', [App\Http\Controllers\ForumCtr::class, 'EditComment'])->middleware('Islogged');
+Route::get('show-forum-comment/getcomment/{id}',[App\Http\Controllers\ForumCtr::class, 'getCommentInfo'])->middleware('Islogged');
+Route::patch('show-forum-comment/DeleteComment', [App\Http\Controllers\ForumCtr::class, 'DeleteComment'])->middleware('Islogged');
 
 //UTILITIES
 //ARCHIVE

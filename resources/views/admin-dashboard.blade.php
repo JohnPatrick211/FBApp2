@@ -55,7 +55,7 @@
                                         No. of Vacant Beds</div>
                                     <div class="h3 mb-0 font-weight-bold text-gray-800">{{$numberOfVacantBedsAvailable}}
                                      <br><br>
-                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="appointment-reports">Click Here to See More</a></div></div>
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="room-information">Click Here to See More</a></div></div>
                                     
                                 </div>
                                 <div class="col-auto">

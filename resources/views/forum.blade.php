@@ -1,4 +1,4 @@
-@include('modals.employeeinfo_modals')
+@include('modals.forum_modals')
 @extends('layouts.admin')
 
 @section('content')
@@ -32,6 +32,19 @@
                       {{ \Session::get('danger') }}
                     </div>
                     @endif
+
+                    <div class="row">
+
+                        <div class="col-sm-2 col-md-2 col-lg-10 mb-3">
+                          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddForumModal" id="btn-add-product"><span class='fa fa-plus'></span> Add Forum</button>
+
+                          </div>
+                          
+                        </div>
+                        
+                        <div class="col-sm-2 ">
+
+                        </div>
                                     
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
