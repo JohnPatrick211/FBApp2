@@ -37,23 +37,35 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="forum-table"width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                         <th>Forum Title</th>
-                                        <th>Forum Description</th>
                                         <th>Author Name</th>
-                                        <th>Action</th>
+                                        <th>User Type</th>
+                                        <th style="width: 100px;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($forums as $forum)
                                         <tr>
                                             <td>{{ $forum->title }}</td>
-                                            <td>{{ $forum->body }}</td>
-                                            <td>{{ $forum->fname }} {{$forum->mname}} {{$forum->lname}}</td>
+                                            @if( $forum->role == 'System Admin' )
+                                                <td>{{ $forum->fname }} {{ $forum->mname }} {{ $forum->lname }}</td>
+                                                <td>{{ $forum->role }}</td>
+                                            @endif
+
+                                            @if( $forum->role == 'Employee' )
+                                                <td>{{ $forum->emp_fname }} {{ $forum->emp_mname }} {{ $forum->emp_lname }}</td>
+                                                <td>{{ $forum->role }}</td>
+                                            @endif
+
+                                            @if( $forum->role == 'Tenant' )
+                                                <td>{{ $forum->tenant_fname }} {{ $forum->tenant_mname }} {{ $forum->tenant_lname }}</td>
+                                                <td>{{ $forum->role }}</td>
+                                            @endif
                                             <td>
-                                                <a href='show-forum-comment/{{$forum->forum_id}}'class="btn btn-primary">Show Post</a>
+                                                <a href='show-forum-comment/{{$forum->forum_id}}'class="btn btn-primary">Show Forum</a>
                                             </td>
                                         </tr>
                                         @endforeach
