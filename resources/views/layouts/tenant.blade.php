@@ -378,6 +378,7 @@
     <script src="/js/cashiering.js"></script>
     <script src="/js/salesreport.js"></script>
     <script src="/js/forum_comment.js"></script>
+    <script src="/js/property.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>
