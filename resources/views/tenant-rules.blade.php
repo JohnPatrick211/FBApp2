@@ -29,5 +29,9 @@
                     </div>
                     @endif
 
-                    
+                    <div class="container-fluid mb-4">
+                        <div class="row d-flex justify-content-center mt-3">
+                            <?php echo $rule -> description; ?>
+                        </div>        
+                    </div>
 @endsection 

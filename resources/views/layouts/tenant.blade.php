@@ -74,7 +74,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="/tenant-payment">
+                <a class="nav-link" href="/tenant-rules">
                     <i class="fas fa-fw fa-address-book"></i>
                     <span id="content-dashboard">Rules and Regulations</span></a>
             </li>

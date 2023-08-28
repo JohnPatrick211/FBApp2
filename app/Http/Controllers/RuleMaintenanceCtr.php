@@ -40,23 +40,4 @@ class RuleMaintenanceCtr extends Controller
         // return redirect('maintenance-category')->with('success', 'Category Saved');
          return back()->with('success', 'Rule Saved');   
     }
-
-    // public function roommaintenance_room(){
-    //     $getEm = $this->getRoom();
-    //     if(request()->ajax())
-    //         {
-    //         return datatables()->of($getEm)
-    //         ->addColumn('action', function($getEm){
-    //         $button = '<a class="btn btn-sm btn-success m-1" id="btn-edit-room" employer-id='. $getEm->id .' data-toggle="modal" data-target="#editRoomModal">
-    //             <i class="fa fa-edit"></i></a>';
-    //             $button .= '<a class="btn btn-sm btn-danger m-1" id="btn-archive-room" employer-id='. $getEm->id .' data-toggle="modal" data-target="#RoomArchiveModal">
-    //             <i class="fa fa-archive"></i></a>';
-
-
-    //         return $button;
-    //     })
-    //     ->rawColumns(['action'])
-    //     ->make(true);
-    //      }
-    // }
 }

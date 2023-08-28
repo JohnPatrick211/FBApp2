@@ -123,4 +123,4 @@ Route::get('tenant-show-forum-comment/getcomment/{id}',[App\Http\Controllers\For
 Route::patch('tenant-show-forum-comment/DeleteComment', [App\Http\Controllers\ForumCtr::class, 'DeleteComment'])->middleware('Islogged');
 
 //TENANT RULES AND REGULATIONS
-Route::get('tenant-rules',[App\Http\Controllers\ForumCtr::class, 'index'])->middleware('Islogged');
+Route::get('tenant-rules',[App\Http\Controllers\RuleandRegulationCtr::class, 'index'])->middleware('Islogged');
