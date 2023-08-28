@@ -112,5 +112,15 @@ Route::get('/gcash-payment',[App\Http\Controllers\PaymentCtr::class, 'gcashPayme
 Route::get('tenant-dashboard', [App\Http\Controllers\LoginCtr::class, 'tenant'])->middleware('Islogged');
 
 //TENANT FORUM AND COMMENTS
-Route::get('tenant-forum',[App\Http\Controllers\ForumCtr::class, 'index'])->middleware('Islogged');
+Route::get('tenant-forum',[App\Http\Controllers\ForumCtr::class, 'tenant_index'])->middleware('Islogged');
+Route::get('tenant-show-forum-comment/{forum_id}', [App\Http\Controllers\ForumCtr::class, 'showtenantindex'])->middleware('Islogged');
+Route::post('/AddForum', [App\Http\Controllers\ForumCtr::class, 'AddForum'])->middleware('Islogged');
+Route::patch('tenant-show-forum-comment/EditForum/{id}', [App\Http\Controllers\ForumCtr::class, 'EditForum'])->middleware('Islogged');
+Route::patch('tenant-show-forum-comment/DeleteForum/{id}', [App\Http\Controllers\ForumCtr::class, 'DeleteForumByTenant'])->middleware('Islogged');
+Route::post('tenant-show-forum-comment/AddComment', [App\Http\Controllers\ForumCtr::class, 'AddCommentByTenant'])->middleware('Islogged');
+Route::patch('tenant-show-forum-comment/EditComment', [App\Http\Controllers\ForumCtr::class, 'EditComment'])->middleware('Islogged');
+Route::get('tenant-show-forum-comment/getcomment/{id}',[App\Http\Controllers\ForumCtr::class, 'getCommentInfo'])->middleware('Islogged');
+Route::patch('tenant-show-forum-comment/DeleteComment', [App\Http\Controllers\ForumCtr::class, 'DeleteComment'])->middleware('Islogged');
 
+//TENANT RULES AND REGULATIONS
+Route::get('tenant-rules',[App\Http\Controllers\ForumCtr::class, 'index'])->middleware('Islogged');
