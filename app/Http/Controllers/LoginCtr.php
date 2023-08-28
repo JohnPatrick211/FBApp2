@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Login;
+use App\Models\Tenant;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
@@ -119,22 +121,21 @@ class LoginCtr extends Controller
                 ->where('tbl_tenant.tenant_id','=',  $this->user[0]->id)
                 ->get();
                    
-                    // $branch = ClinicBranch::where('id','=',$staff->branch_id)->first();
-                    // $request->session()->put('LoggedUser',$staff->id);
-                    // Session::put('LoggedUser',$staff->id);
-                    // Session::put('Branch',$staff->branch_id);
-                    // Session::put('BranchName',$branch->branchname);
-                    // Session::put('Name',$staff->name);
-                    // Session::put('User-Type',$staff->user_role);
-                    //     $getname = Session::get('Name');
-                    //     $getusertype = Session::get('User-Type');
-                    //     base::recordAction( $getname, $getusertype,'Login', 'login');
+                $request->session()->put('LoggedUser', $usertenant[0]->tenant_id);
+                Session::put('LoggedUser',$usertenant[0]->tenant_id);
+                // Session::put('Branch',$staff->branch_id);
+                Session::put('Name',$usertenant[0]->fname . ' ' . $usertenant[0]->mname . ' ' . $usertenant[0]->lname);
+                Session::put('User-Type',$usertenant[0]->user_role);
+                // $getname = Session::get('Name');
+                // $getusertype = Session::get('User-Type');
+                // base::recordAction( $getname, $getusertype,'Login', 'login');
 
                     if($usertenant[0]-> status == '0'){
                         return back()->with('fail','Your account is Archived, please contact your system administrator using this email: admin@opticalclinic.online and contact number: 09397177711');
                     }
                     else{
-                        return  $usertenant;
+                        //return  $usertenant;
+                        return redirect('tenant-dashboard');
                     }
             }
                 // else if($staff->user_role == 'Staff')
@@ -278,5 +279,22 @@ class LoginCtr extends Controller
                 // 'CountApprovedJob' => $CountApprovedJob
             ];
             return view('admin-dashboard', $data);
+    }
+    //Tenant Dashboard
+    function tenant()
+    {
+            $user = Login:: where('id','=', session('LoggedUser'))->first();
+            $user_tenant = Tenant::where('tenant_id','=', session('LoggedUser'))->first();
+            $tenant_room = DB::table('tbl_room AS BR')
+              ->select('BR.roomnumber','tbl_tenant.*')
+              ->leftJoin('tbl_tenant', 'BR.id', '=', 'tbl_tenant.room_id')
+              ->where('tbl_tenant.tenant_id', session('LoggedUser'))
+              ->first();
+            $data = [
+                'LoggedUserInfo' => $user,
+                'TenantInfo' =>  $user_tenant,
+                'TenantRoom' =>  $tenant_room,
+            ];
+            return view('tenant-dashboard', $data);
     }
 }

@@ -107,3 +107,10 @@ Route::post('archiveroom/retrieve/{id}',[App\Http\Controllers\ArchiveCtr::class,
 //Route::get('/payment',[App\Http\Controllers\PaymentCtr::class, 'index']);
 Route::get('/payment',[App\Http\Controllers\PaymentCtr::class, 'index']);
 Route::get('/gcash-payment',[App\Http\Controllers\PaymentCtr::class, 'gcashPayment'])->name('gcashpayment');
+
+//TENANT INTERFACE
+Route::get('tenant-dashboard', [App\Http\Controllers\LoginCtr::class, 'tenant'])->middleware('Islogged');
+
+//TENANT FORUM AND COMMENTS
+Route::get('tenant-forum',[App\Http\Controllers\ForumCtr::class, 'index'])->middleware('Islogged');
+
