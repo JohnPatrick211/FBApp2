@@ -105,8 +105,8 @@ Route::post('archiveroom/retrieve/{id}',[App\Http\Controllers\ArchiveCtr::class,
 
 //test payment
 //Route::get('/payment',[App\Http\Controllers\PaymentCtr::class, 'index']);
-Route::get('/payment',[App\Http\Controllers\PaymentCtr::class, 'index']);
-Route::get('/gcash-payment',[App\Http\Controllers\PaymentCtr::class, 'gcashPayment'])->name('gcashpayment');
+// Route::get('/payment',[App\Http\Controllers\PaymentCtr::class, 'index']);
+// Route::get('/gcash-payment',[App\Http\Controllers\PaymentCtr::class, 'gcashPayment'])->name('gcashpayment');
 
 //TENANT INTERFACE
 Route::get('tenant-dashboard', [App\Http\Controllers\LoginCtr::class, 'tenant'])->middleware('Islogged');
@@ -130,3 +130,7 @@ Route::get('tenant-propertymaintenance',[App\Http\Controllers\PropertyMaintenanc
 Route::get('tenantproperty-maintenance/property',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'tenantpropertymaintenance_property'])->middleware('Islogged');
 
 //TENANT PAYMENT 
+Route::get('/tenant-payment',[App\Http\Controllers\PaymentCtr::class, 'index']);
+Route::post('/gcash-payment',[App\Http\Controllers\PaymentCtr::class, 'gcashPayment'])->name('gcashpayment');
+Route::get('/gcash-payment-checkout',[App\Http\Controllers\PaymentCtr::class, 'gcashPaymentCheckout'])->name('gcash-payment-checkout');
+Route::get('/tenant-payment-error',[App\Http\Controllers\PaymentCtr::class, 'index_error']);
