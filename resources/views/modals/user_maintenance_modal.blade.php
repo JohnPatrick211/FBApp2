@@ -111,6 +111,22 @@
                   </select>
                 </div>
 
+                <div class="col-6 hide-contractstart" style="display: none">
+                  <label class="col-form-label">Contract Start</label>
+                  <input type="date" class="form-control" id="contractstart" name="contractstart" required>
+                  <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
+                        <label class="label text-danger">Please input the birthday</label>
+                       </div>
+                </div>
+
+                <div class="col-6 hide-contractend" style="display: none">
+                  <label class="col-form-label" >Contract End</label>
+                  <input type="date" class="form-control" id="contractend" name="contractend" required>
+                  <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
+                        <label class="label text-danger">Please input the birthday</label>
+                       </div>
+                </div>
+
                 <div class="col-6">
                   <label class="col-form-label">Birthday</label>
                   <input type="date" class="form-control" id="birthdate" name="birthdate" required>
@@ -276,6 +292,22 @@
                       <option value="Separated">Separated</option>
                       <option value="Divorced">Divorced</option>
                   </select>
+                </div>
+
+                <div class="col-6 ehide-contractstart" style="display: none">
+                  <label class="col-form-label">Contract Start</label>
+                  <input type="date" class="form-control" id="econtractstart" name="econtractstart" required>
+                  <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
+                        <label class="label text-danger">Please input the birthday</label>
+                       </div>
+                </div>
+
+                <div class="col-6 ehide-contractend" style="display: none">
+                  <label class="col-form-label" >Contract End</label>
+                  <input type="date" class="form-control" id="econtractend" name="econtractend" required>
+                  <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
+                        <label class="label text-danger">Please input the birthday</label>
+                       </div>
                 </div>
 
                 <div class="col-6">

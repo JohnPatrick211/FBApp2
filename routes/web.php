@@ -128,7 +128,5 @@ Route::get('tenant-rules',[App\Http\Controllers\RuleandRegulationCtr::class, 'in
 //TENANT PROPERTY MAINTENANCE
 Route::get('tenant-propertymaintenance',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'index'])->middleware('Islogged');
 Route::get('tenantproperty-maintenance/property',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'tenantpropertymaintenance_property'])->middleware('Islogged');
-// Route::get('property-maintenance-details/{id}',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'getRoomDetails'])->middleware('Islogged');
-// Route::post('property/editproperty/', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'updateRoom'])->middleware('Islogged');
-// Route::post('property-maintenance/deleteproperty/{id}', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'ArchiveRoom']);
-// Route::post('AddProperty', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'AddRoom']);
+
+//TENANT PAYMENT 

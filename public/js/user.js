@@ -262,6 +262,8 @@ $(document).ready(function()
           var test2 = $('#dateofoccupancy').val('');
           $('.hide-room').css('display', 'inline');
           $('.hide-dateofoccupancy').css('display', 'inline');
+          $('.hide-contractstart').css('display', 'inline');
+          $('.hide-contractend').css('display', 'inline');
           console.log(test);
           console.log(test2);
           
@@ -272,6 +274,8 @@ $(document).ready(function()
           var test2 = $('#dateofoccupancy').val('');
           $('.hide-room').css('display', 'none');
           $('.hide-dateofoccupancy').css('display', 'none');
+          $('.hide-contractstart').css('display', 'none');
+          $('.hide-contractend').css('display', 'none');
           console.log(test);
           console.log(test2);
          }
@@ -310,6 +314,8 @@ $(document).ready(function()
                 var test2 = $('#edateofoccupancy').val('');
                 $('.ehide-dateofoccupancy').css('display', 'inline');
                 $('.ehide-room').css('display', 'inline');
+                $('.ehide-contractstart').css('display', 'inline');
+                $('.ehide-contractend').css('display', 'inline');
                 console.log(test);
                 console.log(test2);
                 getUserDetails(id,user_type);
@@ -321,6 +327,8 @@ $(document).ready(function()
                 var test2 = $('#edateofoccupancy').val('');
                 $('.ehide-dateofoccupancy').css('display', 'none');
                 $('.ehide-room').css('display', 'none');
+                $('.ehide-contractstart').css('display', 'none');
+                $('.ehide-contractend').css('display', 'none');
                console.log(test);
                console.log(test2);
                getUserDetails(id,user_type);
@@ -332,6 +340,8 @@ $(document).ready(function()
               var test2 = $('#edateofoccupancy').val('');
               $('.ehide-dateofoccupancy').css('display', 'none');
              $('.ehide-room').css('display', 'none');
+             $('.ehide-contractstart').css('display', 'none');
+             $('.ehide-contractend').css('display', 'none');
              console.log(test);
              console.log(test2);
              getUserDetails(id,user_type);
@@ -358,6 +368,8 @@ $(document).ready(function()
                     $('#eage').val(data[0].age);
                     $('#ebirthdate').val(data[0].birthdate);
                     $('#edateofoccupancy').val(data[0].date_of_occupancy);
+                    $('#econtractstart').val(data[0].contract_start);
+                    $('#econtractend').val(data[0].contract_end);
                     $('#egender').val(data[0].gender);
                     $('#ecivilstatus').val(data[0].civilstatus);
                     document.getElementById("eroom").value = data[0].roomid;
@@ -466,6 +478,8 @@ $(document).ready(function()
             var age = $('#eage').val();
             var birthdate = $('#ebirthdate').val();
             var dateofoccupancy = $('#edateofoccupancy').val();
+            var contractstart = $('#econtractstart').val();
+            var contractend = $('#econtractend').val();
             var gender = $('#egender').val();
             var civilstatus = $('#ecivilstatus').val();
             var profilepic = $('#eprofilepic').prop('files')[0];
@@ -482,6 +496,8 @@ $(document).ready(function()
             form.append('username', username)
             form.append('password', password)
             form.append('birthdate', birthdate)
+            form.append('contractstart', contractstart)
+            form.append('contractend', contractend)
             form.append('dateofoccupancy', dateofoccupancy)
             form.append('civilstatus', civilstatus)
             form.append('profilepic', profilepic)
