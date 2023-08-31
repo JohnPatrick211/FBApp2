@@ -128,9 +128,34 @@ Route::get('tenant-rules',[App\Http\Controllers\RuleandRegulationCtr::class, 'in
 //TENANT PROPERTY MAINTENANCE
 Route::get('tenant-propertymaintenance',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'index'])->middleware('Islogged');
 Route::get('tenantproperty-maintenance/property',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'tenantpropertymaintenance_property'])->middleware('Islogged');
+Route::post('AddProperty', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'AddProperty']);
+Route::get('property-maintenance-details/{id}',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'getPropertyInfoDetails'])->middleware('Islogged');
+Route::post('property/editproperty/', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'updateProperty'])->middleware('Islogged');
+Route::post('property-maintenance/deleteproperty/{id}', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'DeleteProperty']);
 
 //TENANT PAYMENT 
 Route::get('/tenant-payment',[App\Http\Controllers\PaymentCtr::class, 'index']);
 Route::post('/gcash-payment',[App\Http\Controllers\PaymentCtr::class, 'gcashPayment'])->name('gcashpayment');
 Route::get('/gcash-payment-checkout',[App\Http\Controllers\PaymentCtr::class, 'gcashPaymentCheckout'])->name('gcash-payment-checkout');
 Route::get('/tenant-payment-error',[App\Http\Controllers\PaymentCtr::class, 'index_error']);
+
+//EMPLOYEE INTERFACE
+
+//EMPLOYEE FORUM AND COMMENTS
+Route::get('employee-forum',[App\Http\Controllers\ForumCtr::class, 'employee_index'])->middleware('Islogged');
+Route::get('employee-show-forum-comment/{forum_id}', [App\Http\Controllers\ForumCtr::class, 'showemployeeindex'])->middleware('Islogged');
+Route::post('/AddForum', [App\Http\Controllers\ForumCtr::class, 'AddForum'])->middleware('Islogged');
+Route::patch('employee-show-forum-comment/EditForum/{id}', [App\Http\Controllers\ForumCtr::class, 'EditForum'])->middleware('Islogged');
+Route::patch('employee-show-forum-comment/DeleteForum/{id}', [App\Http\Controllers\ForumCtr::class, 'DeleteForumByEmployee'])->middleware('Islogged');
+Route::post('employee-show-forum-comment/AddComment', [App\Http\Controllers\ForumCtr::class, 'AddCommentByEmployee'])->middleware('Islogged');
+Route::patch('employee-show-forum-comment/EditComment', [App\Http\Controllers\ForumCtr::class, 'EditComment'])->middleware('Islogged');
+Route::get('employee-show-forum-comment/getcomment/{id}',[App\Http\Controllers\ForumCtr::class, 'getCommentInfo'])->middleware('Islogged');
+Route::patch('employee-show-forum-comment/DeleteComment', [App\Http\Controllers\ForumCtr::class, 'DeleteComment'])->middleware('Islogged');
+
+//EMPLOYEE PROPERTY MAINTENANCE
+//HERE
+Route::get('employee-propertymaintenance',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'employeeindex'])->middleware('Islogged');
+Route::get('employeeproperty-maintenance/property',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'employeepropertymaintenance_property'])->middleware('Islogged');
+Route::get('empproperty-maintenance-details/{id}',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'getPropertyInfoDetails'])->middleware('Islogged');
+Route::post('empproperty/editproperty/', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'updateStatus'])->middleware('Islogged');
+Route::post('empproperty-maintenance/deleteproperty/{id}', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'DeleteProperty']);

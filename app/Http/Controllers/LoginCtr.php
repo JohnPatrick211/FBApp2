@@ -99,18 +99,22 @@ class LoginCtr extends Controller
                 ->where('tbl_employee.emp_id','=',  $this->user[0]->id)
                 ->get();
                    
-                    // $branch = ClinicBranch::where('id','=',$staff->branch_id)->first();
-                    // $request->session()->put('LoggedUser',$staff->id);
-                    // Session::put('LoggedUser',$staff->id);
-                    // Session::put('Branch',$staff->branch_id);
-                    // Session::put('BranchName',$branch->branchname);
-                    // Session::put('Name',$staff->name);
-                    // Session::put('User-Type',$staff->user_role);
-                    //     $getname = Session::get('Name');
-                    //     $getusertype = Session::get('User-Type');
-                    // base::recordAction( $getname, $getusertype,'Login', 'login');
-                    //return redirect('doctor-dashboard');
-                    return $useremp;
+                $request->session()->put('LoggedUser', $useremp[0]->emp_id);
+                Session::put('LoggedUser',$useremp[0]->emp_id);
+                // Session::put('Branch',$staff->branch_id);
+                Session::put('Name',$useremp[0]->fname . ' ' . $useremp[0]->mname . ' ' . $useremp[0]->lname);
+                Session::put('User-Type',$useremp[0]->user_role);
+                // $getname = Session::get('Name');
+                // $getusertype = Session::get('User-Type');
+                // base::recordAction( $getname, $getusertype,'Login', 'login');
+
+                    if($useremp[0]-> status == '0'){
+                        return back()->with('fail','Your account is Archived, please contact your system administrator using this email: admin@fbbuilding.online and contact number: 09397177711');
+                    }
+                    else{
+                        //return  $usertenant;
+                        return redirect('employee-forum');
+                    }
             }
             else if($this->user[0]->user_role == 'Tenant')
             {
@@ -296,5 +300,17 @@ class LoginCtr extends Controller
                 'TenantRoom' =>  $tenant_room,
             ];
             return view('tenant-dashboard', $data);
+    }
+
+    //Tenant Dashboard
+    function employee()
+    {
+            $user = Login:: where('id','=', session('LoggedUser'))->first();
+            $user_employee = Employee::where('emp_id','=', session('LoggedUser'))->first();
+            $data = [
+                'LoggedUserInfo' => $user,
+                'EmployeeInfo' =>  $user_employee,
+            ];
+            return view('employee-dashboard', $data);
     }
 }

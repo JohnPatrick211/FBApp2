@@ -49,59 +49,36 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/admin-dashboard">
+            <!-- <li class="nav-item active">
+                <a class="nav-link" href="/tenant-dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span id="content-dashboard">Dashboard</span></a>
+                    <span id="content-dashboard">Tenant Information</span></a>
+            </li> -->
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/employee-forum">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span id="content-dashboard">Forum and Comments</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/employee-propertymaintenance">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span id="content-dashboard">Property Maintenance</span></a>
             </li>
 
             <!-- <li class="nav-item active">
-                <a class="nav-link" href="/forum">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span id="content-dashboard">Forum and Comments</span></a>
-            </li> -->
-
-            <!-- <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePatientApproval"
-                    aria-expanded="true" aria-controls="collapseApproval">
-                    <i class="fas fa-fw fa-address-book"></i>
-                    <span>Information Monitoring</span>
-                </a>
-                <div id="collapsePatientApproval" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/tenant-information">Tenant Information</a>
-                        <a class="collapse-item" href="/employee-information">Employee Information</a>
-                        <a class="collapse-item" href="/room-information">Room Information</a>
-                    </div>
-                </div>
-            </li> -->
-
-            <!-- <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAppointmentApproval"
-                    aria-expanded="true" aria-controls="collapseApproval">
-                    <i class="fas fa-fw fa-calendar-check"></i>
-                    <span>Forum and Comments</span>
-                </a>
-                <div id="collapseAppointmentApproval" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="admin-appointment-approval">Appointment Approval</a>
-                        <a class="collapse-item" href="admin-appointment-list">Appointment List</a>
-                    </div>
-                </div>
-            </li> -->
-
-            <!-- <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseApproval"
-                    aria-expanded="true" aria-controls="collapseApproval">
+                <a class="nav-link" href="/tenant-payment">
                     <i class="fas fa-fw fa-money-bill"></i>
-                    <span>Sales</span>
-                </a>
-                <div id="collapseApproval" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/billing">Billing</a>
-                    </div>
-                </div>
+                    <span id="content-dashboard">Payment</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/tenant-rules">
+                    <i class="fas fa-fw fa-address-book"></i>
+                    <span id="content-dashboard">Rules and Regulations</span></a>
             </li> -->
+            
 
             <!-- Divider -->
             {{-- <hr class="sidebar-divider"> --}}
@@ -112,18 +89,7 @@
             </div> --}}
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-chart-pie"></i>
-                    <span>Reports</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/sales-reports">Sales Reports</a>
-                    </div>
-                </div>
-            </li> -->
+
 
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="employer-approval">
@@ -135,38 +101,6 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Job Approval </span></a>
             </li> --}}
-
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMaintenance"
-                    aria-expanded="true" aria-controls="collapseMaintenance">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Maintenance</span>
-                </a>
-                <div id="collapseMaintenance" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <a class="collapse-item" href="/user-maintenance">User Maintenance</a>
-                        <a class="collapse-item" href="/room-maintenance">Room Maintenance</a> -->
-                        <a class="collapse-item" href="/rule-maintenance">Rule Maintenance</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/audit-trail">Audit Trail</a>
-                        <a class="collapse-item" href="/backup-and-restore">Backup and Restore</a>
-                        <a class="collapse-item" href="/archive">Archive</a>
-                    </div>
-                </div>
-            </li> -->
 
             <!-- Divider -->
             {{-- <hr class="sidebar-divider">
@@ -444,6 +378,7 @@
     <script src="/js/cashiering.js"></script>
     <script src="/js/salesreport.js"></script>
     <script src="/js/forum_comment.js"></script>
+    <script src="/js/property.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>

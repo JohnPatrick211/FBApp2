@@ -1,5 +1,5 @@
-@include('modals.property_modals')
-@extends('layouts.tenant')
+@include('modals.employeeproperty_modals')
+@extends('layouts.employee')
 
 @section('content')
 
@@ -32,33 +32,8 @@
                       {{ \Session::get('danger') }}
                     </div>
                     @endif
-
-                    
-                    <div class="row">
-
-                        <div class="col-sm-2 col-md-2 col-lg-10 mb-3">
-                          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddPropertyModal" id="btn-add-product"><span class='fa fa-plus'></span> Add Maintenance</button>
-
-                          </div>
-                          
-                        </div>
                         
                         <div class="col-sm-2 ">
-                        <!-- <select class="form-control" style="width:auto;" name="branch" id="mainservicebranch">
-                                            <option value="All Branches">All Branches</option>
-                                            @foreach($users4 as $item)
-                                                <option value="{{$item->id}}">{{$item->branchname}}</option>
-                                            @endforeach
-                                            </select> -->
-                        
-
-                   
-                        <!-- <div class="col-sm-2 mb-3">
-                            <input data-column="9" type="date" class="form-control" id="vacantdate_to" value="{{ date('Y-m-d') }}">
-                            </div>
-                                
-                                <div class="mt-2">
-                            </div> -->
 
                         </div>
                                                 
@@ -68,7 +43,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="property-table" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="employeeproperty-table" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>ID</th>

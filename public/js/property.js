@@ -8,6 +8,7 @@ $(document).ready(function()
   });
 
     fetchProperty();
+    fetchEmployeeProperty();
 
     function fetchProperty(){
         $('#property-table').DataTable({
@@ -55,78 +56,350 @@ $(document).ready(function()
 
           });
 
-       }       
-        // show user details
-    //     $(document).on('click', '#btn-edit-room', function()
-    //     {
-    //         let id = $(this).attr('employer-id');
-    //         console.log(id);
-    //         getRoomDetails(id);
-    //     });
+       }
 
-    //     function getRoomDetails(id)
-    //     {
-    //         $.ajax({
-    //             url:"room-maintenance-details/"+id,
-    //             type:"GET",
+       function fetchEmployeeProperty(){
+        $('#employeeproperty-table').DataTable({
 
-    //             success:function(data){
-    //                 console.log(data);
-    //                 $('#ecust-id-hidden').val(id);
-    //                 $('#eroomnumber').val(data[0].roomnumber);
-    //                 $('#eroomcapacity').val(data[0].roomcapacity);
-    //                 // if(data[0].user_role == 'Doctor')
-    //                 // {
-    //                 //   $('#eroom').val(data[0].specialty);
-    //                 // }
-    //                 // else{
-    //                 //   $('#eroom').val('none');
-    //                 // }
-    //                // $('#ebranch').val(data[0].branchname);
-    //             }
-    //            });
-    //     }
+           processing: true,
+           serverSide: true,
 
-    //     $(document).on('click', '#btn-archive-room', function()
-    //     {
-    //         let id = $(this).attr('employer-id');
-    //         console.log(id);
-    //         $('#id_archive').val(id);
-    //     });
+           ajax:"employeeproperty-maintenance/property",
 
-    //     $(document).on('click', '#btn_archive_room', function(){
-    //         var id = $('#id_archive').val();
-    //         console.log(id);
+           columnDefs: [{
+            targets: 0,
+            searchable: false,
+            orderable: true,
+            changeLength: true,
+            className: 'dt-body-center',
+            render: function (data, type, full, meta){
+                return 'MAIN-'+data;
+            }
+         }, {
+          targets: 3,
+          orderable: true,
+          changeLength: true,
+          className: 'dt-body-center',
+          render: function (data, type, full, meta){
+            if(data == 1){
+                return 'Completed'
+            }
+            else if(data == 0){
+                return 'Pending'
+            }
+            else{
+                return 'Ongoing'
+            }
+          }
+       }],
 
-    //        Archive(id);
 
-    //     });
+           columns:[
+            {data: 'maintenance_id', name: 'maintenance_id'},
+            {data: 'roomnumber', name: 'roomnumber'},
+            {data: 'maintenance_desc', name: 'maintenance_desc'},
+            {data: 'maintenance_status', name: 'maintenance_status'},
+            {data: 'action', name: 'action', orderable:false}
+           ]
 
-    //       function Archive(id) {
-    //         $.ajax({
-    //           url:"room-maintenance/archiveroom/"+ id,
-    //           type:"POST",
-    //           data:{
-    //               id:id,
-    //             },
-    //             beforeSend:function(){
-    //                 $('#btn_archive_room').text('Please wait...');
-    //                 $('.loader').css('display', 'inline');
-    //               },
-    //             success:function(data){
-    //                 $('.dupdate-success-validation').css('display', 'inline');
-    //                 $('.loader').css('display', 'none');
-    //                 $('#btn_archive_room').text('Yes');
-    //                 $('#room-table').DataTable().ajax.reload();
-    //                 setTimeout(function(){
-    //                 $('.dupdate-success-validation').fadeOut('slow');
-    //                 $('#RoomArchiveModal').modal('toggle');
+          });
 
-    //             },2000);
-    //           }
+       }
+       
+       $('#maintenance').change(function()
+       {
+         let maintenance = $('#maintenance').val()
+         if(maintenance == 'Others')
+         {
+          var test = $('#others').val('');
+          $('.hide-others').css('display', 'inline');
+         }
+         else
+         {
+          var test = $('#others').val('none');
+          $('.hide-others').css('display', 'none');
+          console.log(test)
+         }
+       });
+       
+      //  $('#emaintenance').change(function()
+      //  {
+      //    let maintenance = $('#emaintenance').val()
+      //    if(maintenance == 'Others')
+      //    {
+      //     var test = $('#eothers').val('');
+      //     $('.ehide-others').css('display', 'inline');
+      //    }
+      //    else
+      //    {
+      //     var test = $('#eothers').val('none');
+      //     $('.ehide-others').css('display', 'none');
+      //     console.log(test)
+      //    }
+      //  });
+       
+       $('#empmaintenance').change(function()
+       {
+         let maintenance = $('#empmaintenance').val()
+         if(maintenance == 'Others')
+         {
+          var test = $('#empothers').val('');
+          $('.ehide-others').css('display', 'inline');
+         }
+         else
+         {
+          var test = $('#empothers').val('none');
+          $('.ehide-others').css('display', 'none');
+          console.log(test)
+         }
+       }); 
 
-    //          });
-    //       }
+       // show property details
+        $(document).on('click', '#btn-edit-property', function()
+        {
+            let maintenance = $('#emaintenance').val()
+              if(maintenance == 'Others')
+              {
+                var test = $('#eothers').val('');
+                $('.ehide-others').css('display', 'inline');
+              }
+              else
+              {
+                var test = $('#eothers').val('none');
+                $('.ehide-others').css('display', 'none');
+                console.log('nope')
+              }
+            let id = $(this).attr('employer-id');
+            console.log(id);
+            getPropertyDetails(id);
+        });
+
+        $(document).on('click', '#btn-edit-empproperty', function()
+        {
+            let id = $(this).attr('employer-id');
+            console.log(id);
+            getEmpPropertyDetails(id);
+        });
+
+        function getPropertyDetails(id)
+        {
+            $.ajax({
+                url:"property-maintenance-details/"+id,
+                type:"GET",
+
+                success:function(data){
+                    console.log(data);
+                    $('#ecust-id-hidden').val(id);
+                    $('#eproperty_roomid').val(data[0].room_id);
+                    if(data[0].maintenance_desc == 'Carpenter' || data[0].maintenance_desc == 'Plumber' || data[0].maintenance_desc == 'Electrician')
+                    {
+                        // var test = $('#eothers').val('');
+                        document.getElementById("emaintenance").value = data[0].maintenance_desc;
+                        var test = $('#eothers').val('none');
+                        $('.ehide-others').css('display', 'none');
+                        // $('.ehide-others').css('display', 'inline');
+                        console.log('success')
+                    }
+                    else
+                    {
+                        document.getElementById("emaintenance").value = 'Others';
+                         $('.ehide-others').css('display', 'inline');
+                         $('#eothers').val(data[0].maintenance_desc);
+                        // document.getElementById("ebranch").value = data[0].branch_id;
+                        var test = $('#eothers').val('');
+                        // $('.ehide-others').css('display', 'none');
+                        // console.log(test)
+                        console.log('failed')
+                    }
+                }
+               });
+        }
+
+        function getEmpPropertyDetails(id)
+        {
+            $.ajax({
+                url:"empproperty-maintenance-details/"+id,
+                type:"GET",
+
+                success:function(data){
+                    console.log(data);
+                    $('#empcust-id-hidden').val(id);
+                    $('#empproperty_roomid').val(data[0].room_id);
+                    $('#empmaintenance').val(data[0].maintenance_desc);
+                    
+                        // var test = $('#eothers').val('');
+                        document.getElementById("empstatus").value = data[0].maintenance_status;
+                }
+               });
+        }
+
+            $(document).on('click', '#btn-edit-save-property', function()
+            {
+                var id =  $('#ecust-id-hidden').val();
+                var room_id = $('#eproperty_roomid').val();
+                var maintenance = $('#emaintenance').val();
+                var others = $('#eothers').val();
+                var form = new FormData()
+                form.append('id', id)
+                form.append('room_id', room_id)
+                form.append('maintenance', maintenance)
+                form.append('others', others)
+
+                edit(form)
+            });
+
+            $(document).on('click', '#btn-edit-save-empproperty', function()
+            {
+                var id =  $('#empcust-id-hidden').val();
+                var room_id = $('#empproperty_roomid').val();
+                var status = $('#empstatus').val();
+                var form = new FormData()
+                form.append('id', id)
+                form.append('room_id', room_id)
+                form.append('status', status)
+
+                editemp(form)
+            });
+
+            function edit(form) {
+            $.ajax({
+              url:"property/editproperty/",
+              type:"POST",
+              data:form,
+                cache: false,
+                contentType: false,
+                processData: false,
+              beforeSend:function(){
+                  $('#btn-edit-save-property').text('Please wait...');
+                  $('.loader').css('display', 'inline');
+                },
+              success:function(data){
+                console.log(data);   
+                    $('.update-success-validation').css('display', 'inline');
+                    $('.loader').css('display', 'none');
+                    $('#btn-edit-save-property').text('Edit');
+                    $('#property-table').DataTable().ajax.reload();
+                    setTimeout(function(){
+                    $('.update-success-validation').fadeOut('slow');
+                    $('#EditPropertyModal').modal('toggle');
+                  },2000);
+                  
+              }
+
+             });
+
+            }
+
+            function editemp(form) {
+              $.ajax({
+                url:"empproperty/editproperty/",
+                type:"POST",
+                data:form,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                beforeSend:function(){
+                    $('#btn-edit-save-empproperty').text('Please wait...');
+                    $('.loader').css('display', 'inline');
+                  },
+                success:function(data){
+                  console.log(data);   
+                      $('.update-success-validation').css('display', 'inline');
+                      $('.loader').css('display', 'none');
+                      $('#btn-edit-save-empproperty').text('Update');
+                      $('#employeeproperty-table').DataTable().ajax.reload();
+                      setTimeout(function(){
+                      $('.update-success-validation').fadeOut('slow');
+                      $('#EmployeePropertyModal').modal('toggle');
+                    },2000);
+                    
+                }
+  
+               });
+  
+              }
+
+        $(document).on('click', '#btn-delete-property', function()
+        {
+            let id = $(this).attr('employer-id');
+            console.log(id);
+            $('#id_archive').val(id);
+        });
+
+        $(document).on('click', '#btn-delete-empproperty', function()
+        {
+            let id = $(this).attr('employer-id');
+            console.log(id);
+            $('#id_archive').val(id);
+        });
+
+        $(document).on('click', '#btn_delete_property', function(){
+            var id = $('#id_archive').val();
+            console.log(id);
+
+           Delete(id);
+
+         });
+
+         $(document).on('click', '#btn_delete_empproperty', function(){
+          var id = $('#id_archive').val();
+          console.log(id);
+
+         empDelete(id);
+
+       });
+
+          function Delete(id) {
+            $.ajax({
+              url:"property-maintenance/deleteproperty/"+ id,
+              type:"POST",
+              data:{
+                  id:id,
+                },
+                beforeSend:function(){
+                    $('#btn_delete_property').text('Please wait...');
+                    $('.loader').css('display', 'inline');
+                  },
+                success:function(data){
+                    $('.dupdate-success-validation').css('display', 'inline');
+                    $('.loader').css('display', 'none');
+                    $('#btn_delete_property').text('Yes');
+                    $('#property-table').DataTable().ajax.reload();
+                    setTimeout(function(){
+                    $('.dupdate-success-validation').fadeOut('slow');
+                    $('#DeletePropertyModal').modal('toggle');
+
+                },2000);
+              }
+
+             });
+          }
+
+          function empDelete(id) {
+            $.ajax({
+              url:"empproperty-maintenance/deleteproperty/"+ id,
+              type:"POST",
+              data:{
+                  id:id,
+                },
+                beforeSend:function(){
+                    $('#btn_delete_empproperty').text('Please wait...');
+                    $('.loader').css('display', 'inline');
+                  },
+                success:function(data){
+                    $('.dupdate-success-validation').css('display', 'inline');
+                    $('.loader').css('display', 'none');
+                    $('#btn_delete_empproperty').text('Yes');
+                    $('#employeeproperty-table').DataTable().ajax.reload();
+                    setTimeout(function(){
+                    $('.dupdate-success-validation').fadeOut('slow');
+                    $('#EmployeeDeletePropertyModal').modal('toggle');
+
+                },2000);
+              }
+
+             });
+          }
 
 
     //     $(document).on('click', '#btn-edit-save-room', function(){
