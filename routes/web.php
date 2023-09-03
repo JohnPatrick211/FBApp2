@@ -157,5 +157,5 @@ Route::patch('employee-show-forum-comment/DeleteComment', [App\Http\Controllers\
 Route::get('employee-propertymaintenance',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'employeeindex'])->middleware('Islogged');
 Route::get('employeeproperty-maintenance/property',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'employeepropertymaintenance_property'])->middleware('Islogged');
 Route::get('empproperty-maintenance-details/{id}',[App\Http\Controllers\PropertyMaintenanceCtr::class, 'getPropertyInfoDetails'])->middleware('Islogged');
-Route::post('empproperty/editpropert', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'updateStatus'])->middleware('Islogged');
+Route::post('empproperty/editproperty', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'updateStatus'])->middleware('Islogged');
 Route::post('empproperty-maintenance/deleteproperty/{id}', [App\Http\Controllers\PropertyMaintenanceCtr::class, 'DeleteProperty']);
