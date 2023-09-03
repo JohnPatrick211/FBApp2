@@ -146,7 +146,7 @@ $(document).ready(function()
 
         function edit(form) {
             $.ajax({
-              url:"room/editroom/",
+              url:"room/editroom",
               type:"POST",
               data:form,
                 cache: false,
