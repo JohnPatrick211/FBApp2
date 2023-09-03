@@ -15,7 +15,7 @@
                                         Total Number of Rooms</div>
                                     <div class="h3 mb-0 font-weight-bold text-gray-800">{{ $numberOfRooms }}
                                     <br><br>
-                                    <!-- <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="room-information">Click Here to See More</a></div> -->
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="room-information">Click Here to See More</a></div>
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -37,7 +37,7 @@
                                     <div class="h3 mb-0 font-weight-bold text-gray-800">{{$numberofTenants}}
                                         <br><br>
                                     <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                        <!-- <a href="tenant-information">Click Here to See More</a> -->
+                                        <a href="tenant-information">Click Here to See More</a>
                                     </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                     <div class="h3 mb-0 font-weight-bold text-gray-800">{{$numberOfVacantBedsAvailable}}
                                      <br><br>
                                     <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                        <!-- <a href="room-information">Click Here to See More</a> -->
+                                        <a href="room-information">Click Here to See More</a>
                                     </div>
                                 </div>
                                     
@@ -80,7 +80,7 @@
                                     <div class="h3 mb-0 font-weight-bold text-gray-800">{{$numberOfVacantRoomsAvailable}}
                                      <br><br>   
                                     <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                        <!-- <a href="room-information">Click Here to See More</a> -->
+                                        <a href="room-information">Click Here to See More</a>
                                     </div>
                                 </div>
                                 </div>
@@ -101,7 +101,7 @@
                                     <div class="h3 mb-0 font-weight-bold text-gray-800">{{$numberofEmployees}}
                                      <br><br>
                                     <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                        <!-- <a href="user-maintenance">Click Here to See More</a> -->
+                                        <a href="user-maintenance">Click Here to See More</a>
                                     </div>
                                 </div>
                                     
@@ -123,7 +123,7 @@
                                     <div class="h3 mb-0 font-weight-bold text-gray-800"><span style="font-size: 28px;">&#8369;</span> {{$sales}}
                                      <br><br>   
                                     <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                        <!-- <a href="sales-reports">Click Here to See More</a> -->
+                                        <a href="sales-reports">Click Here to See More</a>
                                     </div>
                                 </div>
                                 </div>
