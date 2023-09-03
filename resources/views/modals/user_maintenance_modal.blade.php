@@ -156,7 +156,7 @@
                 <br/><br/><br/><br/>
                 <div class="col-12">
                         <label class="label-small">Profile Picture</label>
-                        <input type="file"  name="profilepic" id="profilepic" enctype="multipart/form-data">
+                        <input type="file"  name="profilepic" id="profilepic" enctype="multipart/form-data" required>
                 </div>
 
                 <div class="col-6 mb-2">
