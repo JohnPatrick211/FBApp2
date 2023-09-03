@@ -31,8 +31,8 @@ Route::get('user-maintenance/admin',[App\Http\Controllers\UserMaintenanceCtr::cl
 Route::get('user-maintenance/employee',[App\Http\Controllers\UserMaintenanceCtr::class, 'usermaintenance_employee'])->middleware('Islogged');
 Route::get('user-maintenance/tenant',[App\Http\Controllers\UserMaintenanceCtr::class, 'usermaintenance_tenant'])->middleware('Islogged');
 Route::get('user-maintenance-details/{id}/{user_type}',[App\Http\Controllers\UserMaintenanceCtr::class, 'getUserDetails'])->middleware('Islogged');
-Route::post('usermaintenance/edituser/', [App\Http\Controllers\UserMaintenanceCtr::class, 'updateUser'])->middleware('Islogged');
-Route::post('usermaintenance/edituserwithoutpassword/', [App\Http\Controllers\UserMaintenanceCtr::class, 'updateUserWithoutPassword'])->middleware('Islogged');
+Route::post('usermaintenance/edituser', [App\Http\Controllers\UserMaintenanceCtr::class, 'updateUser'])->middleware('Islogged');
+Route::post('usermaintenance/edituserwithoutpassword', [App\Http\Controllers\UserMaintenanceCtr::class, 'updateUserWithoutPassword'])->middleware('Islogged');
 Route::post('usermaintenance/archiveuser/{id}/{user_type}', [App\Http\Controllers\UserMaintenanceCtr::class, 'ArchiveUser']);
 Route::post('AddUser', [App\Http\Controllers\UserMaintenanceCtr::class, 'AddUser']);
 //Room Maintenance

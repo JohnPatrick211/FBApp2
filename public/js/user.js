@@ -523,7 +523,7 @@ $(document).ready(function()
 
         function edit(form) {
             $.ajax({
-              url:"usermaintenance/edituser/",
+              url:"usermaintenance/edituser",
               type:"POST",
               data:form,
                 cache: false,
@@ -554,7 +554,7 @@ $(document).ready(function()
 
           function editwithoutpassword(form) {
             $.ajax({
-              url:"usermaintenance/edituserwithoutpassword/",
+              url:"usermaintenance/edituserwithoutpassword",
               type:"POST",
               data:form,
               cache: false,
