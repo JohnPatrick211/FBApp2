@@ -264,6 +264,9 @@ $(document).ready(function()
           $('.hide-dateofoccupancy').css('display', 'inline');
           $('.hide-contractstart').css('display', 'inline');
           $('.hide-contractend').css('display', 'inline');
+          document.getElementById("dateofoccupancy").required = true;
+          document.getElementById("contractstart").required = true;
+          document.getElementById("contractend").required = true;
           console.log(test);
           console.log(test2);
           
@@ -276,6 +279,9 @@ $(document).ready(function()
           $('.hide-dateofoccupancy').css('display', 'none');
           $('.hide-contractstart').css('display', 'none');
           $('.hide-contractend').css('display', 'none');
+          document.getElementById("dateofoccupancy").required = false;
+          document.getElementById("contractstart").required = false;
+          document.getElementById("contractend").required = false;
           console.log(test);
           console.log(test2);
          }
