@@ -57,7 +57,7 @@ class LoginAPICtr extends Controller
 
                 if($usertenant-> status == '0'){
                     return response()->json([
-                        'success' => true,
+                        'success' => false,
                         'message' => 'Your Account is Archived, Please Contact the System Administrator'
                     ]);
                 }
