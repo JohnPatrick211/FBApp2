@@ -85,7 +85,9 @@ class PaymentCtr extends Controller
                 return redirect($source->getRedirect()['checkout_url']); 
             }     
 
-            $this->makePayment($source_ss,$description);        
+            $id = $source_ss['source_id'];     
+
+            $this->makePayment($source_ss,$description,$id);        
        
         }
     }
@@ -126,9 +128,10 @@ class PaymentCtr extends Controller
             }
             // else{
             //     return redirect('/tenant-payment')->send();
-            // }     
+            // }
+            $id = $source_ss['source_id'];     
 
-            $this->makePayment($source_ss,$description);        
+            $this->makePayment($source_ss,$description,$id);        
        
         }
     }
@@ -146,7 +149,7 @@ class PaymentCtr extends Controller
                 ]);
     }
 
-    public function makePayment($source_ss,$description)
+    public function makePayment($source_ss,$description,$id)
     {
         Paymongo::payment()
         ->create([
@@ -163,7 +166,7 @@ class PaymentCtr extends Controller
         DB::table('tbl_sales')
         ->insert([
         'tenant_id' => session('LoggedUser'),
-        'invoice_no' => $source_ss['source_id'],
+        'invoice_no' => $id,
         'product_name' => $description,
         'amount' => $source_ss['amount'],
         'payment_method' => 'GCash',
