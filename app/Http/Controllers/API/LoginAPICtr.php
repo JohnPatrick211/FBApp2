@@ -55,10 +55,18 @@ class LoginAPICtr extends Controller
                 ->where('tbl_tenant.tenant_id','=',  $this->user[0]->id)
                 ->first();
 
-                return response()->json([
-                    'success' => true,
-                    'user' => $usertenant
-                ]);
+                if($usertenant-> status == '0'){
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Your Account is Archived, Please Contact the System Administrator'
+                    ]);
+                }
+                else{
+                    return response()->json([
+                        'success' => true,
+                        'user' => $usertenant
+                    ]);
+                }
             }
             else{
                 return response()->json([
