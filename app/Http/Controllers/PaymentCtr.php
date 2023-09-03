@@ -160,26 +160,16 @@ class PaymentCtr extends Controller
             ]
         ]);
 
-        // DB::table('tblorders')
-        // ->where('user_id', Auth::id())
-        // ->where('order_no',  \Session::get('ORDER_NO'))
-        // ->update([
-        //     'payment_method' => 'GCash',
-        //     'status' => 1,
-        // ]);
-
-        
-        // $order = $this->getOrderDetails(\Session::get('ORDER_NO'));
-
-        // for($i = 0; $i < $order->count(); $i++){
-        //     $this->recordSales(
-        //         $order[$i]->menu_id,
-        //         $order[$i]->qty,
-        //         $order[$i]->amount,
-        //         'Gcash'
-        //     );    
-        //     \Helper::adjustQty($order[$i]->menu_id, $order[$i]->qty);
-        // }
+        DB::table('tbl_sales')
+        ->insert([
+        'tenant_id' => session('LoggedUser'),
+        'invoice_no' => $source_ss['source_id'],
+        'product_name' => $description,
+        'amount' => $source_ss['amount'],
+        'payment_method' => 'GCash',
+        'created_at' => \Carbon\Carbon::now(),
+        'updated_at' => \Carbon\Carbon::now(),
+        ]);
 
         session()->forget('source');
         return redirect('/tenant-payment')->send();
