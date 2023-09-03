@@ -141,7 +141,7 @@ class PaymentCtr extends Controller
                     'currency' => 'PHP',
                     'redirect' => [
                         'success' => route('gcash-payment-checkout'),
-                        'failed' => 'http://127.0.0.1:8000/tenant-payment-error'
+                        'failed' => 'https://fbapp.online/tenant-payment-error'
                     ]
                 ]);
     }
