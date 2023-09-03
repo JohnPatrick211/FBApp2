@@ -292,7 +292,7 @@ $(document).ready(function()
 
             function editemp(form) {
               $.ajax({
-                url:"empproperty/editproperty",
+                url:"empproperty/empeditproperty",
                 type:"POST",
                 data:form,
                   cache: false,
