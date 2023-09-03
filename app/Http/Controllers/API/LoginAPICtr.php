@@ -27,7 +27,7 @@ class LoginAPICtr extends Controller
         else{
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid Username and Password'
+                'message' => 'Invalid Password'
             ]);
         }
 
@@ -40,7 +40,7 @@ class LoginAPICtr extends Controller
         else{
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid Username and Password'
+                'message' => 'Hash Check Error'
             ]);
         }
 
@@ -71,7 +71,7 @@ class LoginAPICtr extends Controller
             else{
                 return response()->json([
                     'success' => false,
-                    'message' => 'Invalid Username and Password'
+                    'message' => 'Account Not Found'
                 ]);
             }
         }
