@@ -70,7 +70,7 @@
 
                 <div class="hide-dateofoccupancy col-12" style="display: none">
                   <label class="col-form-label">Date of Occupancy</label>
-                  <input type="date" class="form-control" id="dateofoccupancy" name="dateofoccupancy" required>
+                  <input type="date" class="form-control" id="dateofoccupancy" name="dateofoccupancy">
                   <div class="empty-reject-dateofoccupancy mr-auto ml-3" style="display: none">
                         <label class="label text-danger">Please input the Date of Occupancy</label>
                        </div>
@@ -113,7 +113,7 @@
 
                 <div class="col-6 hide-contractstart" style="display: none">
                   <label class="col-form-label">Contract Start</label>
-                  <input type="date" class="form-control" id="contractstart" name="contractstart" required>
+                  <input type="date" class="form-control" id="contractstart" name="contractstart" >
                   <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
                         <label class="label text-danger">Please input the birthday</label>
                        </div>
@@ -121,7 +121,7 @@
 
                 <div class="col-6 hide-contractend" style="display: none">
                   <label class="col-form-label" >Contract End</label>
-                  <input type="date" class="form-control" id="contractend" name="contractend" required>
+                  <input type="date" class="form-control" id="contractend" name="contractend">
                   <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
                         <label class="label text-danger">Please input the birthday</label>
                        </div>
@@ -256,7 +256,7 @@
 
                 <div class="ehide-dateofoccupancy col-12" style="display: none">
                   <label class="col-form-label">Date of Occupancy</label>
-                  <input type="date" class="form-control" id="edateofoccupancy" name="edateofoccupancy" required>
+                  <input type="date" class="form-control" id="edateofoccupancy" name="edateofoccupancy">
                   <div class="empty-reject-dateofoccupancy mr-auto ml-3" style="display: none">
                         <label class="label text-danger">Please input the Date of Occupancy</label>
                        </div>
@@ -296,7 +296,7 @@
 
                 <div class="col-6 ehide-contractstart" style="display: none">
                   <label class="col-form-label">Contract Start</label>
-                  <input type="date" class="form-control" id="econtractstart" name="econtractstart" required>
+                  <input type="date" class="form-control" id="econtractstart" name="econtractstart">
                   <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
                         <label class="label text-danger">Please input the birthday</label>
                        </div>
@@ -304,7 +304,7 @@
 
                 <div class="col-6 ehide-contractend" style="display: none">
                   <label class="col-form-label" >Contract End</label>
-                  <input type="date" class="form-control" id="econtractend" name="econtractend" required>
+                  <input type="date" class="form-control" id="econtractend" name="econtractend">
                   <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
                         <label class="label text-danger">Please input the birthday</label>
                        </div>

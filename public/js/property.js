@@ -263,7 +263,7 @@ $(document).ready(function()
 
             function edit(form) {
             $.ajax({
-              url:"property/editproperty/",
+              url:"property/editproperty",
               type:"POST",
               data:form,
                 cache: false,
