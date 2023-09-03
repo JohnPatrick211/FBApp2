@@ -55,13 +55,13 @@
                     <span id="content-dashboard">Dashboard</span></a>
             </li>
 
-            <!-- <li class="nav-item active">
+            <li class="nav-item active">
                 <a class="nav-link" href="/forum">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span id="content-dashboard">Forum and Comments</span></a>
-            </li> -->
+            </li>
 
-            <!-- <li class="nav-item active">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePatientApproval"
                     aria-expanded="true" aria-controls="collapseApproval">
                     <i class="fas fa-fw fa-address-book"></i>
@@ -74,7 +74,7 @@
                         <a class="collapse-item" href="/room-information">Room Information</a>
                     </div>
                 </div>
-            </li> -->
+            </li>
 
             <!-- <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAppointmentApproval"
@@ -90,7 +90,7 @@
                 </div>
             </li> -->
 
-            <!-- <li class="nav-item active">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseApproval"
                     aria-expanded="true" aria-controls="collapseApproval">
                     <i class="fas fa-fw fa-money-bill"></i>
@@ -101,7 +101,7 @@
                         <a class="collapse-item" href="/billing">Billing</a>
                     </div>
                 </div>
-            </li> -->
+            </li>
 
             <!-- Divider -->
             {{-- <hr class="sidebar-divider"> --}}
@@ -112,7 +112,7 @@
             </div> --}}
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item active">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-chart-pie"></i>
@@ -123,7 +123,7 @@
                         <a class="collapse-item" href="/sales-reports">Sales Reports</a>
                     </div>
                 </div>
-            </li> -->
+            </li>
 
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="employer-approval">
