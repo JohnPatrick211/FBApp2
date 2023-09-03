@@ -1,0 +1,12 @@
+for .htaccess
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+for DB(env and example):
+
+DB_DATABASE=u561754780_fbapp
+DB_USERNAME=u561754780_fbapp
+DB_PASSWORD=+Ao8Uf>^iG3g

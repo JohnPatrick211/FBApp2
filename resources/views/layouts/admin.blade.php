@@ -144,8 +144,8 @@
                 </a>
                 <div id="collapseMaintenance" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <a class="collapse-item" href="/user-maintenance">User Maintenance</a>
-                        <a class="collapse-item" href="/room-maintenance">Room Maintenance</a> -->
+                        <a class="collapse-item" href="/user-maintenance">User Maintenance</a>
+                        <a class="collapse-item" href="/room-maintenance">Room Maintenance</a>
                         <a class="collapse-item" href="/rule-maintenance">Rule Maintenance</a>
                     </div>
                 </div>

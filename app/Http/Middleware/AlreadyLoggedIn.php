@@ -16,7 +16,7 @@ class AlreadyloggedIn
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session()->has('LoggedUser') && (url($request->path() == 'login')))
+        if(session()->has('LoggedUser') && (url($request->path() == '/')))
         {
             return back();
         }
