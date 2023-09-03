@@ -161,8 +161,8 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/audit-trail">Audit Trail</a>
-                        <a class="collapse-item" href="/backup-and-restore">Backup and Restore</a>
+                        <!-- <a class="collapse-item" href="/audit-trail">Audit Trail</a>
+                        <a class="collapse-item" href="/backup-and-restore">Backup and Restore</a> -->
                         <a class="collapse-item" href="/archive">Archive</a>
                     </div>
                 </div>
