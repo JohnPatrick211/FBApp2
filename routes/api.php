@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-//Route::post('login','API\LoginAPICtr@login');
+//Login API
 Route::post('login', [App\Http\Controllers\API\LoginAPICtr::class, 'login']);
+//Rule API
+Route::get('getRules', [App\Http\Controllers\API\RuleAPICtr::class, 'getRules']);
