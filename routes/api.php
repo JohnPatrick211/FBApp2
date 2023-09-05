@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [App\Http\Controllers\API\LoginAPICtr::class, 'login']);
 //Rule API
 Route::get('getRules', [App\Http\Controllers\API\RuleAPICtr::class, 'getRules']);
+//Tenant Profile API
+Route::get('getTenantProfile', [App\Http\Controllers\API\TenantAPICtr::class, 'getTenantProfile']);
