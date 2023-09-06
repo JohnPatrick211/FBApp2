@@ -21,3 +21,11 @@ Route::post('login', [App\Http\Controllers\API\LoginAPICtr::class, 'login']);
 Route::get('getRules', [App\Http\Controllers\API\RuleAPICtr::class, 'getRules']);
 //Tenant Profile API
 Route::get('getTenantProfile', [App\Http\Controllers\API\TenantAPICtr::class, 'getTenantProfile']);
+//Payment GCash
+Route::get('getPayment', [App\Http\Controllers\API\PaymentAPICtr::class, 'getPayment'])->name('getPayment');
+Route::get('gcashPaymentCheckoutAPI', [App\Http\Controllers\API\PaymentAPICtr::class, 'gcashPaymentCheckoutAPI'])->name('gcashPaymentCheckoutAPI');
+//Route::get('gcashPayment', [App\Http\Controllers\API\PaymentAPICtr::class, 'getPayment'])->name('gcashPayment');
+//Payment History
+//Payment History
+
+Route::get('PaymentHistory', [App\Http\Controllers\API\PaymentHistoryAPICtr::class, 'PaymentHistory']);
