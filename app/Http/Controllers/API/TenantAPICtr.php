@@ -19,7 +19,8 @@ class TenantAPICtr extends Controller
         $id = $request->id;
 
         $usertenant = DB::table('tbl_tenant as BR')
-                ->select('BR.*')
+                ->select('BR.*','tbl_room.roomnumber')
+                ->leftJoin('tbl_room', 'BR.room_id', '=', 'tbl_room.id')
                 ->where('BR.tenant_id','=',  $id)
                 ->first();
 
