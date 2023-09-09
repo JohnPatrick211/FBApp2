@@ -216,7 +216,7 @@ class BillingCtr extends Controller
         <h3 style="text-align:center;">OFFICIAL RECEIPT</h3>
         <br/>
         <p class="p-details address" style="text-align:right;"> Date: '. $date .'</p>
-        <p class="p-details address" style="text-align:left;">Patient Name: '.$tenantname .'</p>
+        <p class="p-details address" style="text-align:left;">Tenant Name: '.$tenantname .'</p>
         <p class="p-details address" style="text-align:left;">Invoice No.: '.$invoice .'</p>
         <br/>
 

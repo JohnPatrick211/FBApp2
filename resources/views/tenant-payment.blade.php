@@ -53,7 +53,11 @@
                                     <div class="ml-0 mb-12">
                                     <div class="input-group mb-3 mt-3">
                                             </div>
-                                            <input class="form-control form-control-navbar" id="input-tenantname" type="text" placeholder="Name of Tenant" aria-label="Search" value="{{ $TenantInfo -> fname}}  {{ $TenantInfo -> mname}} {{ $TenantInfo -> lname}}" readonly>
+                                            @if($TenantInfo -> mname === null)
+                                            <input class="form-control form-control-navbar" id="input-tenantname" type="text" placeholder="Name of Tenant" aria-label="Search" value="{{ $TenantInfo -> fname}} {{ $TenantInfo -> lname}}" readonly>
+                                            @else
+                                            <input class="form-control form-control-navbar" id="input-tenantname" type="text" placeholder="Name of Tenant" aria-label="Search" value="{{ $TenantInfo -> fname}} {{ $TenantInfo -> mname}} {{ $TenantInfo -> lname}}" readonly>
+                                            @endif
                                             <input class="form-control form-control-navbar mt-3" id="input-roomnumber" type="text" placeholder="Room Number" aria-label="Search" value="{{ $TenantRoom -> roomnumber}}" readonly>
                                             <div class="input-group mb-3">
                                                 <input class="form-control form-control-navbar mt-3" id="payment-description" name="payment-description" type="text" placeholder="Name of Room / Description">

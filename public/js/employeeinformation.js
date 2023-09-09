@@ -32,7 +32,12 @@ $(document).ready(function()
           changeLength: true,
           className: 'dt-body-center',
           render: function (data, type, full, meta){
+            if(full.mname === null){
+              return data + ' ' + full.lname;
+            }
+            else{
               return data + ' ' +full.mname + ' ' + full.lname;
+            }
           }
        },
        { "visible": false,  "targets": [ 2 ] },
@@ -69,7 +74,6 @@ $(document).ready(function()
                 success:function(data){
                     console.log(data);
                     $('#infofname').val(data[0].fname);
-                    $('#infomname').val(data[0].mname);
                     $('#infolname').val(data[0].lname);
                     $('#infoemail').val(data[0].email);
                     $('#infoage').val(data[0].age);
@@ -80,6 +84,12 @@ $(document).ready(function()
                     $('#infoaddress').val(data[0].address);
                     var img_source = '../../images/'+data[0].profile_pic;
                     $('#infoshowprofile').attr('src', img_source);
+                    if(data[0].mname === null){
+                      $('#infomname').val('No Middle Name');
+                    }
+                    else{
+                      $('#infomname').val(data[0].mname);
+                    }
                 }
                });
         }

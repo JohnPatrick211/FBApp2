@@ -42,7 +42,7 @@
 
                 <div class="col-3 mb-2">
                   <label class="col-form-label">Middle Name</label>
-                  <input type="text" class="form-control" name="mname" id="mname" placeholder="Middle Name" required>
+                  <input type="text" class="form-control" name="mname" id="mname" placeholder="Middle Name">
                   <div class="empty-reject-name mr-auto ml-3" style="display: none">
                     <label class="label text-danger">Please input the middle name</label>
                    </div>
@@ -234,7 +234,7 @@
 
               <div class="col-3 mb-2">
                 <label class="col-form-label">Middle Name</label>
-                <input type="text" class="form-control" name="mname" id="emname" placeholder="Middle Name" required>
+                <input type="text" class="form-control" name="mname" id="emname" placeholder="Middle Name">
               </div>
 
               <div class="col-3 mb-2">

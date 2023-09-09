@@ -103,7 +103,12 @@ function searchUser()
                               )
                         }
                         else{
-                            var fullname = data[0].fname + ' ' + data[0].mname + ' ' + data[0].lname;
+                            if(data[0].mname === null){
+                                var fullname = data[0].fname + ' ' + data[0].lname;
+                              }
+                              else{
+                                var fullname = data[0].fname + ' ' + data[0].mname + ' ' + data[0].lname;
+                              }
                             console.log(fullname);
                             $('#input-tenantname').val(fullname);
                             $('#input-roomnumber').val(data[0].roomnumber);
