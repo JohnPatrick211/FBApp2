@@ -204,6 +204,7 @@ class ForumCtr extends Controller
             ->leftJoin('tbl_employee', 'BR.author_id', '=', 'tbl_employee.emp_id')
             ->leftJoin('tbl_admin', 'BR.author_id', '=', 'tbl_admin.admin_id')
             ->leftJoin('tbl_user', 'BR.author_id', '=', 'tbl_user.id')
+            ->orderBy('BR.id', 'desc')
             ->get();
             
             $data = [
@@ -310,6 +311,7 @@ class ForumCtr extends Controller
             ->leftJoin('tbl_employee', 'BR.author_id', '=', 'tbl_employee.emp_id')
             ->leftJoin('tbl_admin', 'BR.author_id', '=', 'tbl_admin.admin_id')
             ->leftJoin('tbl_user', 'BR.author_id', '=', 'tbl_user.id')
+            ->orderBy('BR.id', 'desc')
             ->get();
             
             $data = [
