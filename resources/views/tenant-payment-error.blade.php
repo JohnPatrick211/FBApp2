@@ -1,41 +1,20 @@
 
 @extends('layouts.tenant')
 @section('content')
-<style>
-    table,#product-container{
-        font-size:19px;
-    }
-    table td {
-        text-align: right !important;
-    }
-</style>
 
 <div class="content-header"></div>
 
 <div class="page-header">
-  <h3 class="mt-2" id="page-title">Payment Error</h3>
+  <h3 class="mt-2" id="page-title">Payment Result</h3>
   <hr>
 </div>
 
-  @if(count($errors)>0)
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
 
-          <li>{{$error}}</li>
-              
-          @endforeach
-      </ul>
-  </div>
-  @endif
+                    <div class="alert alert-danger">
+                      <h5><i class="icon fas fa-exclamation-triangle"></i> <b>Payment Transaction Failed</b></h5>
+                      Your Payment for GCash is Failed, Please click this <a href="tenant-payment" class="alert-link">link</a>. to go back in the payment form
+                    </div>
 
-  @if(\Session::has('success'))
-  <div class="alert alert-success alert-dismissible">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h5><i class="icon fas fa-check"></i> </h5>
-    {{ \Session::get('success') }}
-  </div>
-  @endif
 <style>
     thead{
         position: sticky;
