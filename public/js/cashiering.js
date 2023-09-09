@@ -2,7 +2,11 @@ $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
-}); 
+});
+
+document.getElementById("input-description").disabled = true;
+document.getElementById("input-amount").disabled = true;
+document.getElementById("btn-add-to-tray").disabled = true;
 
 var data_storage;
 var last_key = 0;
@@ -95,7 +99,14 @@ function searchUser()
                     success:function(data){
                         console.log(data)
                         if(Object.keys(data).length == 0){
-                            $('#input-search-userid').val(""); 
+                            $('#input-search-userid').val("");
+                            $('#input-tenantname').val("");
+                            $('#input-roomnumber').val("");
+                            $('#input-description').val("");
+                            $('#input-amount').val("");
+                            document.getElementById("input-description").disabled = true;
+                            document.getElementById("input-amount").disabled = true;
+                            document.getElementById("btn-add-to-tray").disabled = true; 
                             Swal.fire(
                                 'Error',
                                 'Not Found Tenant ID in the Database',
@@ -112,6 +123,9 @@ function searchUser()
                             console.log(fullname);
                             $('#input-tenantname').val(fullname);
                             $('#input-roomnumber').val(data[0].roomnumber);
+                            document.getElementById("input-description").disabled = false;
+                            document.getElementById("input-amount").disabled = false;
+                            document.getElementById("btn-add-to-tray").disabled = false;
                         }
                     }
                    });
@@ -226,6 +240,14 @@ function on_Click () {
                                     $('#tendered').val('');
                                     $('#invoice-no').val('');
                                     $('#proccess').html("Process");
+                                    $('#input-search-userid').val("");
+                                    $('#input-tenantname').val("");
+                                    $('#input-roomnumber').val("");
+                                    $('#input-description').val("");
+                                    $('#input-amount').val("");
+                                    document.getElementById("input-description").disabled = true;
+                                    document.getElementById("input-amount").disabled = true;
+                                    document.getElementById("btn-add-to-tray").disabled = true; 
                                     swal.fire({
                                         title: "Transaction was successfully recorded",
                                         icon: 'success',
