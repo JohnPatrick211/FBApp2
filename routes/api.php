@@ -24,8 +24,7 @@ Route::get('getTenantProfile', [App\Http\Controllers\API\TenantAPICtr::class, 'g
 //Payment GCash
 Route::get('getPayment', [App\Http\Controllers\API\PaymentAPICtr::class, 'getPayment'])->name('getPayment');
 Route::get('gcashPaymentCheckoutAPI', [App\Http\Controllers\API\PaymentAPICtr::class, 'gcashPaymentCheckoutAPI'])->name('gcashPaymentCheckoutAPI');
-//Route::get('gcashPayment', [App\Http\Controllers\API\PaymentAPICtr::class, 'getPayment'])->name('gcashPayment');
-//Payment History
-//Payment History
-
+//Payment History(Consideration)
 Route::get('PaymentHistory', [App\Http\Controllers\API\PaymentHistoryAPICtr::class, 'PaymentHistory']);
+//Forum
+Route::get('getForum', [App\Http\Controllers\API\ForumAPICtr::class, 'getForum']);
