@@ -177,7 +177,7 @@ class PaymentCtr extends Controller
         ]);
 
         session()->forget('source');
-        return redirect('/tenant-payment')->with('status', 'Profile updated!');
+        return redirect('/tenant-payment')->with('status', 'Profile updated!')->send();
     }
 }
 
