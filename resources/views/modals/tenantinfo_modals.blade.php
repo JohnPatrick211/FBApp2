@@ -51,6 +51,16 @@
                 <input type="text" class="form-control" name="infodateofoccupancy" id="infodateofoccupancy" placeholder="Last Name" readonly>
               </div>
 
+              <div class="col-6 " >
+                  <label class="col-form-label">Contract Start</label>
+                  <input type="date" class="form-control" id="infocontractstart" name="infocontractstart" readonly>
+                </div>
+
+                <div class="col-6 " >
+                  <label class="col-form-label" >Contract End</label>
+                  <input type="date" class="form-control" id="infocontractend" name="infocontractend" readonly>
+                </div>
+
               <div class="col-5">
                   <label class="col-form-label">Email</label>
                   <input type="text" class="form-control" name="infoemail" id="infoemail" readonly>

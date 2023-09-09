@@ -77,6 +77,8 @@ $(document).ready(function()
                     $('#infolname').val(data[0].lname);
                     $('#inforoomnumber').val(data[0].roomnumber);
                     $('#infodateofoccupancy').val(data[0].date_of_occupancy);
+                    $('#infocontractstart').val(data[0].contract_start);
+                    $('#infocontractend').val(data[0].contract_end);
                     $('#infoemail').val(data[0].email);
                     $('#infoage').val(data[0].age);
                     $('#infogender').val(data[0].gender);
