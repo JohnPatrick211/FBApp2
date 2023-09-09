@@ -206,7 +206,6 @@ $(document).ready(function()
                          $('.ehide-others').css('display', 'inline');
                          $('#eothers').val(data[0].maintenance_desc);
                         // document.getElementById("ebranch").value = data[0].branch_id;
-                        var test = $('#eothers').val('');
                         // $('.ehide-others').css('display', 'none');
                         // console.log(test)
                         console.log('failed')
