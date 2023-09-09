@@ -84,6 +84,7 @@ class LoginCtr extends Controller
                     // Session::put('Branch',$staff->branch_id);
                     Session::put('Name',$useradmin[0]->fname . ' ' . $useradmin[0]->mname . ' ' . $useradmin[0]->lname);
                     Session::put('User-Type',$useradmin[0]->user_role);
+                    Session::put('profile_pic',$useradmin[0]->profile_pic);
                     // $getname = Session::get('Name');
                     // $getusertype = Session::get('User-Type');
                     // base::recordAction( $getname, $getusertype,'Login', 'login');
@@ -104,6 +105,7 @@ class LoginCtr extends Controller
                 // Session::put('Branch',$staff->branch_id);
                 Session::put('Name',$useremp[0]->fname . ' ' . $useremp[0]->mname . ' ' . $useremp[0]->lname);
                 Session::put('User-Type',$useremp[0]->user_role);
+                Session::put('profile_pic',$useremp[0]->profile_pic);
                 // $getname = Session::get('Name');
                 // $getusertype = Session::get('User-Type');
                 // base::recordAction( $getname, $getusertype,'Login', 'login');
@@ -130,6 +132,7 @@ class LoginCtr extends Controller
                 // Session::put('Branch',$staff->branch_id);
                 Session::put('Name',$usertenant[0]->fname . ' ' . $usertenant[0]->mname . ' ' . $usertenant[0]->lname);
                 Session::put('User-Type',$usertenant[0]->user_role);
+                Session::put('profile_pic',$usertenant[0]->profile_pic);
                 // $getname = Session::get('Name');
                 // $getusertype = Session::get('User-Type');
                 // base::recordAction( $getname, $getusertype,'Login', 'login');
