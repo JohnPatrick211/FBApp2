@@ -122,21 +122,21 @@ $(document).ready(function()
          }
        });
        
-      //  $('#emaintenance').change(function()
-      //  {
-      //    let maintenance = $('#emaintenance').val()
-      //    if(maintenance == 'Others')
-      //    {
-      //     var test = $('#eothers').val('');
-      //     $('.ehide-others').css('display', 'inline');
-      //    }
-      //    else
-      //    {
-      //     var test = $('#eothers').val('none');
-      //     $('.ehide-others').css('display', 'none');
-      //     console.log(test)
-      //    }
-      //  });
+       $('#emaintenance').change(function()
+       {
+         let maintenance = $('#emaintenance').val()
+         if(maintenance == 'Others')
+         {
+          var test = $('#eothers').val('');
+          $('.ehide-others').css('display', 'inline');
+         }
+         else
+         {
+          var test = $('#eothers').val('none');
+          $('.ehide-others').css('display', 'none');
+          console.log(test)
+         }
+       });
        
        $('#empmaintenance').change(function()
        {
