@@ -177,7 +177,7 @@ class PaymentCtr extends Controller
         ]);
 
         session()->forget('source');
-        return redirect('/tenant-payment')->with('success', 'Your Payment Transaction is Successfully Created')->send();
+        return redirect('/tenant-payment')->with('success', 'Your Online Payment Transaction is Successfully Created')->send();
     }
 }
 
