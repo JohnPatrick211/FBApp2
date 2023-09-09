@@ -750,7 +750,6 @@ class UserMaintenanceCtr extends Controller
             ->where('id', $request->input('id'))
             ->update([
                 'username' => $request->input('username'),
-                'password' => Hash::make($request->input('password')),
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
             ]);   
