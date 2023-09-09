@@ -1,15 +1,21 @@
 $(document).ready(function()
 {
 
-  $('#forum-table').DataTable();
-  
-  
+  $('#forum-table').DataTable({
 
+    columnDefs: [
+      { "visible": false,  "targets": [ 4 ] 
+    }],
+
+    order: [[4, 'desc']],
+  });
+  
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
+
         //show user details
         $(document).on('click', '#editcomment', function()
         {

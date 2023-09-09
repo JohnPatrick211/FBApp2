@@ -57,6 +57,7 @@
                                         <th>Author Name</th>
                                         <th>User Type</th>
                                         <th style="width: 100px;">Action</th>
+                                        <th>Created_At</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -80,6 +81,7 @@
                                             <td>
                                                 <a href='show-forum-comment/{{$forum->forum_id}}'class="btn btn-primary">Show Forum</a>
                                             </td>
+                                            <td>{{ $forum->created }}</td>
                                         </tr>
                                         @endforeach
                                 </tbody>
