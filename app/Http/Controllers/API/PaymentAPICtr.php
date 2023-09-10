@@ -201,4 +201,15 @@ class PaymentAPICtr extends Controller
             'message' => 'payment successfully, return to mobile app'
         ]);
     }
+
+    public function deletePayment(Request $request){
+        $id = $request->id;
+        DB::table('tbl_onlinepayment')->where('online_id', $id)->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'payment failed, deleted in DB, return to mobile app'
+        ]);
+        
+    }
 }
