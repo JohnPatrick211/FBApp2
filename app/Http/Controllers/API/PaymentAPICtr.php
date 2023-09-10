@@ -104,9 +104,13 @@ class PaymentAPICtr extends Controller
                 ]);
             }
             else{
+
+                $str = $url->url;
+                $split = explode("id=",$str);
                 return response()->json([
                     'success' => true,
                     'redirect' =>  $url->url,
+                    'id' => $split[1],
                 ]);  
             }
         }
