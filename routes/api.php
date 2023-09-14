@@ -29,3 +29,11 @@ Route::post('deletePayment', [App\Http\Controllers\API\PaymentAPICtr::class, 'de
 Route::get('PaymentHistory', [App\Http\Controllers\API\PaymentHistoryAPICtr::class, 'PaymentHistory']);
 //Forum
 Route::get('getForum', [App\Http\Controllers\API\ForumAPICtr::class, 'getForum']);
+Route::post('addForum', [App\Http\Controllers\API\ForumAPICtr::class, 'addForum']);
+Route::post('updateForum', [App\Http\Controllers\API\ForumAPICtr::class, 'updateForum']);
+Route::post('deleteForum', [App\Http\Controllers\API\ForumAPICtr::class, 'deleteForum']);
+//Comment
+Route::get('getComment', [App\Http\Controllers\API\ForumAPICtr::class, 'getComment']);
+Route::post('addComment', [App\Http\Controllers\API\ForumAPICtr::class, 'addComment']);
+Route::post('updateComment', [App\Http\Controllers\API\ForumAPICtr::class, 'updateComment']);
+Route::post('deleteComment', [App\Http\Controllers\API\ForumAPICtr::class, 'deleteComment']);

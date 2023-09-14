@@ -53,4 +53,54 @@ class ForumAPICtr extends Controller
             ]);
         }    
     }
+
+    public function addForum(Request $request){
+        $forum = new Forum();
+        $validateforum =  Forum::where('title','=', $request->title)->first();
+        if($validateforum)
+        {
+            return response()->json([
+                'success' => false,
+                'message' => 'Forum Title Already Exist'
+            ]);
+        }
+        else
+        {
+            $forum->title = $request->title;
+            $forum->body = $request->body;
+            $forum->author_id = $request->author_id;
+            $forum->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Forum Created Successfully'
+            ]);
+        }
+    }
+
+    public function updateForum(Request $request){
+        DB::table('tbl_forum')
+        ->where('id', $request->id)
+        ->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Forum Edited Successfully'
+        ]);
+    }
+
+    public function deleteForum(Request $request){
+        DB::table('tbl_forum')->where('id', $request->id)->delete();
+        //DB::table('tbl_comment')->where('parent_id', $request->parent_id)->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Forum Deleted Successfully'
+        ]);
+    }
 }
