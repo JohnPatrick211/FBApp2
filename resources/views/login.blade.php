@@ -22,8 +22,7 @@
     <div class="body box">
             <div class="content1">
                 <div class="logo flexCol">
-                    <img src="" alt="logos">
-                    <img src="" alt="logos" style="margin-top: -15px;">
+                    <img src="{{asset('img/logo_low.png')}}" alt="logos" >
                 </div>
 
                 <form class="text-center" action="check" method="post" style="width: 100%;">
