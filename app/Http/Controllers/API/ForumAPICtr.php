@@ -103,4 +103,29 @@ class ForumAPICtr extends Controller
             'message' => 'Forum Deleted Successfully'
         ]);
     }
+
+    // Comment
+    public function getComment(Request $request){
+
+        $forum_id = $request->forum_id;
+
+        $comment = DB::table('tbl_comment AS BR')
+            ->select('BR.*', 'tbl_tenant.*','tbl_employee.*','tbl_admin.*', 'tbl_forum.*','BR.id AS comment_id', 'tbl_user.*','tbl_user.user_role AS role'
+            ,'tbl_employee.fname AS emp_fname', 'tbl_employee.mname AS emp_mname', 'tbl_employee.lname AS emp_lname'
+            ,'tbl_tenant.fname AS tenant_fname','tbl_tenant.mname AS tenant_mname', 'tbl_tenant.lname AS tenant_lname'
+            ,'tbl_employee.profile_pic AS emp_profile_pic','tbl_tenant.profile_pic AS tenant_profile_pic')
+            ->leftJoin('tbl_tenant', 'BR.user_id', '=', 'tbl_tenant.tenant_id')
+            ->leftJoin('tbl_employee', 'BR.user_id', '=', 'tbl_employee.emp_id')
+            ->leftJoin('tbl_admin', 'BR.user_id', '=', 'tbl_admin.admin_id')
+            ->leftJoin('tbl_forum', 'BR.parent_id', '=', 'tbl_forum.author_id')
+            ->leftJoin('tbl_user', 'BR.user_id', '=', 'tbl_user.id')
+            ->where('BR.parent_id',$forum_id)
+            ->groupBy('BR.id')
+            ->get();
+
+            return response()->json([
+                'success' => true,
+                'comment' => $comment
+            ]);
+    }
 }
