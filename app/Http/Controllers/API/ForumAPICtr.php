@@ -98,7 +98,7 @@ class ForumAPICtr extends Controller
 
     public function deleteForum(Request $request){
         DB::table('tbl_forum')->where('id', $request->id)->delete();
-        //DB::table('tbl_comment')->where('parent_id', $request->parent_id)->delete();
+        DB::table('tbl_comment')->where('parent_id', $request->id)->delete();
 
         return response()->json([
             'success' => true,
