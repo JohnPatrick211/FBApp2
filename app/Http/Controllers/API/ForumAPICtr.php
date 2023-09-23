@@ -131,6 +131,62 @@ class ForumAPICtr extends Controller
             ]);
     }
 
+    public function addComment(Request $request)
+    {
+        $comment = new Comment();
+        $validatecomment =  Comment::where('comment_body','=', $request->comment_body)->first();
+        if($validatecomment)
+        {
+            return response()->json([
+                'success' => false,
+                'message' => 'Comment Already Exist'
+            ]);
+        }
+        else
+        {
+            $comment->parent_id = $request->parent_id;
+            $comment->comment_body = $request->comment_body;
+            $comment->user_id = $request->user_id;
+            $comment->save();
+
+             return response()->json([
+                'success' => true,
+                'message' => 'Comment Created Successfully'
+            ]);
+        }
+    }
+
+    public function updateComment(Request $request)
+    {
+        DB::table('tbl_comment')
+        ->where('id', $request->comment_id)
+        ->update([
+            'comment_body' => $request->comment_body,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Comment Edited Successfully'
+        ]);
+        
+    }
+
+    public function deleteComment(Request $request)
+    {
+        DB::table('tbl_comment')->where('id', $request->comment_id)->delete();
+        // $getname = Session::get('Name');
+        // $getusertype = Session::get('User-Type');
+        // base::recordAction( $getname, $getusertype,'Category Maintenance', 'Add Category Successfully');
+        // return redirect('maintenance-category')->with('success', 'Category Saved');
+        return response()->json([
+            'success' => true,
+            'message' => 'Comment Deleted Successfully'
+        ]);
+        
+    }
+
     public function getForumById(Request $request){
 
         $id = $request->id;
