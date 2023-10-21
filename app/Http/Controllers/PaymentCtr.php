@@ -144,6 +144,47 @@ class PaymentCtr extends Controller
                         'failed' => 'https://fbapp.online/tenant-payment-error'
                     ]
                 ]);
+
+                    // $client = new \Adyen\Client();
+                    // $client->setXApiKey("AQElhmfuXNWTK0Qc+iSWsEYtruifQYVKa/VRKzNocCf7vgBUZHA9xBDBXVsNvuR83LVYjEgiTGAH-AurpKfWJ2EAgJExVxOCSwR3qeJr2gtZ2W9llyEDi4QE=-KaXA2@cDh46@~E3Q");
+                    // $client->setEnvironment(\Adyen\Environment::TEST);
+                    // $service = new \Adyen\Service\Checkout($client);
+                    
+                    // $params = array(
+                    // "amount" => array(
+                    //     "currency" => "PHP",
+                    //     "value" => 1000
+                    // ),
+                    // "reference" => "YOUR_ORDER_NUMBER",
+                    // "paymentMethod" => array(
+                    //     "type" => "gcash"
+                    // ),
+                    // "returnUrl" => "https://your-company.com/checkout?shopperOrder=12xy..",
+                    // "merchantAccount" => "FBBuildingECOM"
+                    // );
+                    // $result = $service->payments($params);
+
+                    // $client = new \Adyen\Client();
+                    //  $client->setXApiKey("AQElhmfuXNWTK0Qc+iSWsEYtruifQYVKa/VRKzNocCf7vgBUZHA9xBDBXVsNvuR83LVYjEgiTGAH-AurpKfWJ2EAgJExVxOCSwR3qeJr2gtZ2W9llyEDi4QE=-KaXA2@cDh46@~E3Q");
+                    // $client->setEnvironment(\Adyen\Environment::TEST);
+                    // $service = new \Adyen\Service\Checkout($client);
+                    
+                    // $params = array(
+                    // "amount" => array(
+                    //     "currency" => "PHP",
+                    //     "value" => 1000
+                    // ),
+                    // "reference" => "YOUR_ORDER_NUMBER",
+                    // "paymentMethod" => array(
+                    //     "type" => "gcash",
+                    // ),
+                    // "returnUrl" => "https://your-company.com/checkout?shopperOrder=12xy..",
+                    // "merchantAccount" => "FBBuildingECOM"
+                    // );
+
+                    // $result = $service->payments($params);
+
+                    // return dd($result);
     }
 
     public function makePayment($source_ss,$description)
