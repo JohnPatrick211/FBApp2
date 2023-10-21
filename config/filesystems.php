@@ -55,6 +55,12 @@ return [
             'visibility' => 'public',
         ],
 
+        'my_upload2' => [
+            'driver' => 'local',
+            'root' => '/home/u561754780/domains/fbapp.online/public_html/public'.'/',
+            'visibility' => 'public',
+            ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
