@@ -57,7 +57,7 @@ return [
 
         'my_upload2' => [
             'driver' => 'local',
-            'root' => '/home/u561754780/domains/fbapp.online/public_html/public'.'/',
+            'root' => '/home/u561754780/domains/fbapp.online/public_html/public'.'/images/profiles_pic/',
             'visibility' => 'public',
             ],
 

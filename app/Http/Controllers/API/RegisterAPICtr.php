@@ -23,7 +23,7 @@ class RegisterAPICtr extends Controller
         $user->password =  Hash::make($request->password);
         if ($request->profilepic) {
             $file_path = time().'.jpg';
-            file_put_contents(my_upload2() . '/images/profiles_pic/'.$file_path,base64_decode($request->profilepic));
+            file_put_contents(public_path() . '/images/profiles_pic/'.$file_path,base64_decode($request->profilepic));
             $profile_pic = $file_path;
         }
 
