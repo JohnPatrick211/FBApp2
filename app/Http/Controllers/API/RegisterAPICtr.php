@@ -22,8 +22,9 @@ class RegisterAPICtr extends Controller
         $user->username =  $request->username;
         $user->password =  Hash::make($request->password);
         if ($request->profilepic) {
-            $file = $request->profilepic;
-            $profile_pic = $this->imageUpload($file, 'pic_only');
+            $file_path = time().'.jpg';
+            file_put_contents('storage/profiles/'.$file_path,base64_decode($request->profilepic));
+            $profile_pic = $file_path;
         }
 
         $user->save();
@@ -66,16 +67,5 @@ class RegisterAPICtr extends Controller
                 'message' => 'Register Successfully',
                 'result' => $result
             ]);
-    }
-
-    public function imageUpload($request, $type) 
-    {
-        $folder_to_save = 'profile_pic';
-
-        if ($type == 'pic_only') {
-            $image_name = uniqid() . "." . $request->extension();
-            $request->move(public_path('images/' . $folder_to_save), $image_name);
-            return $folder_to_save . "/" . $image_name;
-        }
     }
 }
