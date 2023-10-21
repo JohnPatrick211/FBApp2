@@ -16,6 +16,8 @@ class RegisterAPICtr extends Controller
 {
     public function register(Request $request){
 
+        $user = new Login();
+
         $user->user_role =  'Tenant';
         $user->username =  $request->username;
         $user->password =  Hash::make($request->password);
