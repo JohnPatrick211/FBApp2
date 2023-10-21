@@ -38,3 +38,6 @@ Route::get('getComment', [App\Http\Controllers\API\ForumAPICtr::class, 'getComme
 Route::post('addComment', [App\Http\Controllers\API\ForumAPICtr::class, 'addComment']);
 Route::post('updateComment', [App\Http\Controllers\API\ForumAPICtr::class, 'updateComment']);
 Route::post('deleteComment', [App\Http\Controllers\API\ForumAPICtr::class, 'deleteComment']);
+//Register
+Route::post('register', [App\Http\Controllers\API\RegisterCtr::class, 'register']);
+
