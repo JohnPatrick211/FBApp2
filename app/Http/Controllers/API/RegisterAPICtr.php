@@ -25,6 +25,13 @@ class RegisterAPICtr extends Controller
         ->first();
 
         if($exist){
+            return response()->json([
+                'success' => false,
+                'message' => 'User Already Exist'
+            ]);
+        }
+        else{
+
             $user->user_role =  'Tenant';
             $user->username =  $request->username;
             $user->password =  Hash::make($request->password);
@@ -74,12 +81,6 @@ class RegisterAPICtr extends Controller
                     'message' => 'For Verification',
                     'result' => $result
                 ]);
-        }
-        else{
-            return response()->json([
-                'success' => false,
-                'message' => 'User Already Exist'
-            ]);
         }
     }
 }
