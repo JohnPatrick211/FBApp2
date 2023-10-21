@@ -31,7 +31,7 @@
                     <div class="col">
                         <label class="pure-material-textfield-standard widthCon">
                             <input name="username" type="text" placeholder=" " autofocus>
-                            <span class="span">Usernames</span>
+                            <span class="span">Username</span>
                         </label>
                     </div>
                     <br/>
