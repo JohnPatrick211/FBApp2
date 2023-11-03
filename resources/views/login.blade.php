@@ -51,6 +51,7 @@
                     @if(Session::get('success'))
                     {{Session::get('success')}}
                     @endif
+                    <br/>
                     <div class="d-flex align-items-center justify-content-center pb-5">
                     <p class="mb-0 me-2">Don't have an account?</p>
                     <a href="#"><button type="button" class="btn btn-outline-primary">Register Here</button></a>
