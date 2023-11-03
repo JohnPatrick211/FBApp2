@@ -23,7 +23,7 @@ Route::post('check',[App\Http\Controllers\LoginCtr::class, 'check'])->name('chec
 Route::get('logout', [App\Http\Controllers\LoginCtr::class, 'logout']);
 
 //Signup
-Route::get('signup',[App\Http\Controllers\SignUpController::class, 'signup']);
+Route::get('signup',[App\Http\Controllers\SignUpController::class, 'index']);
 
 //ADMIN INTERFACE
 Route::get('admin-dashboard', [App\Http\Controllers\LoginCtr::class, 'admin'])->middleware('Islogged');
