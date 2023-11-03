@@ -22,6 +22,9 @@ Route::get('/',[App\Http\Controllers\LoginCtr::class, 'index'])->middleware('Alr
 Route::post('check',[App\Http\Controllers\LoginCtr::class, 'check'])->name('check');
 Route::get('logout', [App\Http\Controllers\LoginCtr::class, 'logout']);
 
+//Signup
+Route::get('signup',[App\Http\Controllers\SignUpController::class, 'signup']);
+
 //ADMIN INTERFACE
 Route::get('admin-dashboard', [App\Http\Controllers\LoginCtr::class, 'admin'])->middleware('Islogged');
 //MAINTENANCE
