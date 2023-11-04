@@ -167,7 +167,7 @@ $(document).ready(function(){
 
           success:function(data){
 
-           var status = data[0].status;
+           var status = data[0].pendingstatus;
            console.log(status);
               if(status == '2')
               {
