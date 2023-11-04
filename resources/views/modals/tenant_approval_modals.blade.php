@@ -14,31 +14,31 @@
 
             <input type="hidden" id="cust-id-hidden">
 
-              <div class="col-3 mb-2">
+            <div class="col-4 mb-2">
+                  <label class="col-form-label">Last Name</label>
+                  <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" readonly>
+                  <div class="empty-reject-name mr-auto ml-3" style="display: none">
+                    <label class="label text-danger">Please input the last name</label>
+                   </div>
+                </div> 
+
+              <div class="col-4 mb-2">
                   <label class="col-form-label">First Name</label>
-                  <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" required>
+                  <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" readonly>
                   <div class="empty-reject-name mr-auto ml-3" style="display: none">
                     <label class="label text-danger">Please input the first name</label>
                    </div>
                 </div>
 
-                <div class="col-3 mb-2">
+                <div class="col-4 mb-2">
                   <label class="col-form-label">Middle Name</label>
-                  <input type="text" class="form-control" name="mname" id="mname" placeholder="Middle Name">
+                  <input type="text" class="form-control" name="mname" id="mname" placeholder="No Middle Name" readonly>
                   <div class="empty-reject-name mr-auto ml-3" style="display: none">
                     <label class="label text-danger">Please input the middle name</label>
                    </div>
                 </div>
 
-                <div class="col-3 mb-2">
-                  <label class="col-form-label">Last Name</label>
-                  <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" required>
-                  <div class="empty-reject-name mr-auto ml-3" style="display: none">
-                    <label class="label text-danger">Please input the last name</label>
-                   </div>
-                </div>
-
-                <div class="hide-room col-12 mb-2">
+                <div class="hide-room col-6 mb-2">
                   <label class="col-form-label">Room Number</label>
                   <input type="text" class="form-control" name="room" id="room" placeholder="Last Name" required>
                   <div class="empty-reject-room mr-auto ml-3" style="display: none">
@@ -46,7 +46,7 @@
                    </div>
                 </div>
 
-                <div class="hide-dateofoccupancy col-12">
+                <div class="hide-dateofoccupancy col-6">
                   <label class="col-form-label">Date of Occupancy</label>
                   <input type="date" class="form-control" id="dateofoccupancy" name="dateofoccupancy">
                   <div class="empty-reject-dateofoccupancy mr-auto ml-3" style="display: none">
@@ -56,7 +56,7 @@
 
                 <div class="col-5">
                     <label class="col-form-label">Email</label>
-                    <input type="text" class="form-control" name="email" id="email"  required>
+                    <input type="text" class="form-control" name="email" id="email"  readonly>
                     <div class="empty-reject-email mr-auto ml-3" style="display: none">
                         <label class="label text-danger">Please input the email</label>
                        </div>
@@ -64,7 +64,7 @@
 
                   <div class="col-2">
                     <label class="col-form-label">Age</label>
-                    <input type="text" class="form-control" name="age" id="age"  required>
+                    <input type="text" class="form-control" name="age" id="age">
                     <div class="empty-reject-age mr-auto ml-3" style="display: none">
                         <label class="label text-danger">Please input the Age</label>
                        </div>
@@ -72,21 +72,12 @@
 
                   <div class="col-2">
                   <label class="col-form-label">Gender</label>
-                  <select class="form-control" name="gender" id="gender" required>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                  </select>
+                  <input type="text" class="form-control" name="gender" id="gender" readonly>
                 </div>
 
                 <div class="col-3">
                   <label class="col-form-label">Civil Status</label>
-                  <select class="form-control" name="civilstatus" id="civilstatus" required>
-                      <option value="Single">Single</option>
-                      <option value="Married">Married</option>
-                      <option value="Widowed">Widowed</option>
-                      <option value="Separated">Separated</option>
-                      <option value="Divorced">Divorced</option>
-                  </select>
+                  <input type="text" class="form-control" name="civilstatus" id="civilstatus" readonly>
                 </div>
 
                 <div class="col-6 hide-contractstart">
@@ -131,14 +122,6 @@
                     <label class="label text-danger">Please input the address</label>
                    </div>
                 </div>
-
-                <div class="col-6 mb-2">
-                    <label class="col-form-label">Username</label>
-                    <input type="text" class="form-control" name="username" id="username" required>
-                    <div class="empty-reject-username mr-auto ml-3" style="display: none">
-                        <label class="label text-danger">Please input the username</label>
-                       </div>
-                  </div>
             </div>
 
         </div>

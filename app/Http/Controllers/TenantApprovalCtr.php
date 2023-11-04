@@ -42,7 +42,7 @@ class TenantApprovalCtr extends Controller
              {
                 return datatables()->of($getEm)
                 ->addColumn('action', function($getEm){
-                $button = '<a class="btn btn-sm" id="btn-view-upload" employer-id='. $getEm->id .' data-toggle="modal" data-target="#patientapprovalModal">
+                $button = '<a class="btn btn-sm" id="btn-view-upload" employer-id='. $getEm->id .' data-toggle="modal" data-target="#ApprovalModal">
                     <i class="fas fa-eye"></i></a>';
 
                 return $button;
