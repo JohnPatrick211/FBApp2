@@ -101,7 +101,7 @@
                              </select>
                         </div>
 
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label class="label-small">Date of Occupancy</label>
                             <span style="color:red" > *</span>
                             <input type="date" class="form-control" id="dateofoccupancy" placeholder="dateofoccupancy">
