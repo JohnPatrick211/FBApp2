@@ -35,19 +35,19 @@
                         <div class="col-md-3 mb-3">
                             <label class="label-small">Last Name</label>
                             <span class="fs-6" style="color:red">*</span>
-                            <input type="text" class="form-control"  oninput="this.value = this.value.toUpperCase()" id="lastname" placeholder="Last Name">
+                            <input type="text" class="form-control" id="lastname" placeholder="Last Name">
                         </div>
 
                         <div class="col-md-3 mb-3">
                             <label class="label-small ">First Name</label>
                             <span style="color:red"> *</span>
-                            <input type="text" class="form-control"  oninput="this.value = this.value.toUpperCase()" id="firstname" placeholder="First Name">
+                            <input type="text" class="form-control" id="firstname" placeholder="First Name">
                         </div>
 
                         <div class="col-md-3 mb-3">
                             <label class="label-small">Middle Name</label>
                             <span style="color:white" > a</span>
-                            <input type="text" class="form-control"  oninput="this.value = this.value.toUpperCase()" id="middlename" placeholder="Middle Name">
+                            <input type="text" class="form-control" id="middlename" placeholder="Middle Name">
                         </div>
                         
                         <div class="col-md-3 mb-6">
@@ -108,13 +108,21 @@
                             <input type="date" class="form-control" id="dateofoccupancy" placeholder="dateofoccupancy">
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label class="label-small">Email</label>
                             <span style="color:red"> *</span>
                             <input type="text" class="form-control" id="email" placeholder="Email Address">
+                            <a id="send-OTP" style="cursor: pointer; color:#32638D;" class="label-medium"><u>Send OTP</u></a>
+                            <span class="countdown label-medium"></span>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <label class="label-small">Enter your OTP</label>
+                            <span style="color:red"> *</span>
+                            <input type="text" class="form-control" id="otp" placeholder="Enter your 4 digit OTP">
+                        </div>
+
+                        <div class="col-md-4">
                             <label class="label-small">Contact Number</label>
                             <span style="color:red"> *</span>
                             <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" class="form-control" id="phone_no">

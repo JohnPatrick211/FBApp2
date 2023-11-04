@@ -116,6 +116,84 @@ $(document).ready(function(){
             
         });
 
+    $('#send-OTP').click(function() {
+        var email = $('#email').val();
+        sendOTP(email);
+      // setTimer();
+    });
+
+    function sendOTP(email){
+        if(email){
+            $.ajax({
+                url:"/signup/send-OTP",
+                type:"GET",
+                data:{
+                email:email
+                },
+                success:function(){
+                    setTimer();
+                }         
+               });
+       }
+
+    }
+
+    function setTimer(){
+        $('#send-OTP').css('display', 'none');
+        var timer2 = "0:30";
+        var interval = setInterval(function() {
+        
+          var timer = timer2.split(':');
+          //by parsing integer, I avoid all extra string processing
+          var minutes = parseInt(timer[0], 10);
+          var seconds = parseInt(timer[1], 10);
+          --seconds;
+          minutes = (seconds < 0) ? --minutes : minutes;
+          if (minutes < 0) clearInterval(interval);
+          seconds = (seconds < 0) ? 59 : seconds;
+          seconds = (seconds < 10) ? '0' + seconds : seconds;
+          //minutes = (minutes < 10) ?  minutes : minutes;
+          $('.countdown').text('Resend OTP in ' + minutes + ':' + seconds);
+          timer2 = minutes + ':' + seconds;
+
+          if(seconds == 0){
+              minutes = 0;
+              seconds = 0;
+            $('.countdown').css('display', 'none');
+            $('#send-OTP').css('display', 'inline');
+            $('#send-OTP').text('Resend OTP');
+          }
+        }, 1000);
+    }
+
+
+    $('#otp').blur(function() {
+         var otp = $(this).val();
+         console.log(otp);
+         validateOTP(otp);
+    });
+
+    function validateOTP(otp){
+        if(otp){
+            $.ajax({
+                url:"/signup/validate-otp/"+otp,
+                type:"GET",
+                success:function(response){
+                    if(response == '1'){
+                        $("#pn-validation").remove();
+                        $('#otp')
+                        .after('<span class="label-small text-success" id="pn-validation">OTP is valid.</div>');
+                    }
+                    else{
+                        $("#pn-validation").remove();
+                        $('#otp')
+                        .after('<span class="label-small text-danger" id="pn-validation">OTP is invalid.</div>');
+                    }
+                }         
+               });
+        }
+    }
+
     function signUp(form) {
         var otp = $('#otp').val();
         console.log("OK2")
