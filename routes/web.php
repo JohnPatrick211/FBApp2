@@ -33,6 +33,10 @@ Route::get('admin-dashboard', [App\Http\Controllers\LoginCtr::class, 'admin'])->
 //Admin Tenant Verification
 Route::get('/admin-tenant-approval', [App\Http\Controllers\TenantApprovalCtr::class, 'index'])->middleware('Islogged');
 Route::get('tenant-approval-data',[App\Http\Controllers\TenantApprovalCtr::class, 'TenantApproval'])->middleware('Islogged');
+Route::get('tenant-approval-data-approved',[App\Http\Controllers\TenantApprovalCtr::class, 'TenantApproved'])->middleware('Islogged');
+Route::get('verifytenant/getverificationinfo/{id}', [App\Http\Controllers\TenantApprovalCtr::class, 'getVerificationInfo']);
+Route::post('verifypatient/approve/{id}', [App\Http\Controllers\PatientApprovalController::class, 'approve']);
+Route::post('verifypatient/reject/{id}', [App\Http\Controllers\PatientApprovalController::class, 'reject']);
 //MAINTENANCE
 // User Maintenance
 Route::get('user-maintenance',[App\Http\Controllers\UserMaintenanceCtr::class, 'index'])->middleware('Islogged');

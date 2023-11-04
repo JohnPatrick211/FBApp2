@@ -74,17 +74,18 @@ class TenantApprovalCtr extends Controller
 
     public function getPatientApproved()
     {
-        $getpatientapproved = DB::table('tbl_user')
-        ->select('tbl_user.*')
-        ->where('user_role','Patient')
-        ->where('status','Approved')
-         ->get();
+        $getpatientapproved = DB::table('tbl_user AS BR')
+        ->select('BR.*','tbl_tenant.*', 'tbl_room.*', 'tbl_room.id AS roomid', 'tbl_tenant.id AS tenantid')
+        ->leftJoin('tbl_tenant', 'BR.id', '=', 'tbl_tenant.tenant_id')
+        ->leftJoin('tbl_room', 'tbl_tenant.room_id', '=', 'tbl_room.id')
+        ->where('tbl_tenant.status',1)
+        ->get();
 
         return $getpatientapproved;       
     }
     public function getVerificationInfo($id){
         $verification_info = DB::table('tbl_user AS BR')
-        ->select('BR.*','tbl_tenant.*', 'tbl_room.*', 'tbl_room.id AS roomid', 'tbl_tenant.tenant_id AS tenantid')
+        ->select('BR.*','tbl_tenant.*', 'tbl_room.*', 'tbl_room.id AS roomid', 'tbl_tenant.id AS tenantid')
         ->leftJoin('tbl_tenant', 'BR.id', '=', 'tbl_tenant.tenant_id')
         ->leftJoin('tbl_room', 'tbl_tenant.room_id', '=', 'tbl_room.id')
         ->where('tbl_tenant.id',$id)
