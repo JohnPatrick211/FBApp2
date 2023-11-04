@@ -32,7 +32,7 @@ Route::post('/signup/signup', [App\Http\Controllers\SignUpController::class, 'si
 Route::get('admin-dashboard', [App\Http\Controllers\LoginCtr::class, 'admin'])->middleware('Islogged');
 //Admin Tenant Verification
 Route::get('/admin-tenant-approval', [App\Http\Controllers\TenantApprovalCtr::class, 'index'])->middleware('Islogged');
-Route::get('tenant-approval-data',[App\Http\Controllers\TenantApprovalController::class, 'TenantApproval'])->middleware('Islogged');
+Route::get('tenant-approval-data',[App\Http\Controllers\TenantApprovalCtr::class, 'TenantApproval'])->middleware('Islogged');
 //MAINTENANCE
 // User Maintenance
 Route::get('user-maintenance',[App\Http\Controllers\UserMaintenanceCtr::class, 'index'])->middleware('Islogged');
