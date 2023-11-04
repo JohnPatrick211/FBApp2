@@ -168,6 +168,7 @@ $(document).ready(function(){
           success:function(data){
 
            var status = data[0].status;
+           console.log(status);
               if(status == '2')
               {
                 console.log('Pending');
