@@ -96,8 +96,9 @@
                             <label class="label-small">Room Number</label>
                             <span style="color:red"> *</span>
                             <select class="form-control" name="roomnumber" id="roomnumber">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                            @foreach($users4 as $item)
+                                <option value="{{$item->id}}">{{$item->roomnumber}}</option>
+                            @endforeach
                              </select>
                         </div>
 
