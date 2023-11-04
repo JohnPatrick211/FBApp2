@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Mail;
+use App\Models\MailVerify;
 
 
 class TenantApprovalCtr extends Controller
@@ -85,4 +87,82 @@ class TenantApprovalCtr extends Controller
         ->get();
          return  $verification_info;
     }
+
+    public function approve($id,$room){
+        DB::table('tbl_tenant')
+        ->where('tbl_tenant.id', $id)
+        ->update([
+            'status' => '1'
+        ]);
+
+        DB::table('tbl_room')
+                ->where('id', $room)
+                ->update([
+                    'vacantnumber' => DB::raw('vacantnumber -'. 1),
+                ]);
+
+                $aftergetDBvacantnumber = DB::table('tbl_room AS BR')
+                ->select('BR.vacantnumber')
+                ->where('BR.id',$room)
+                ->get();
+                $aftergetDBroomcapacity = DB::table('tbl_room AS BR')
+                ->select('BR.roomcapacity')
+                ->where('BR.id',$room)
+                ->get();
+
+                $latestroomcapacity = $aftergetDBroomcapacity[0]->roomcapacity;
+                $latestvacantnumber = $aftergetDBvacantnumber[0]->vacantnumber;
+
+                if($latestroomcapacity > $latestvacantnumber){
+                    if($latestvacantnumber == 0){
+                        DB::table('tbl_room')
+                        ->where('id', $room)
+                        ->update([
+                            'isOccupied' => 1,
+                        ]);
+                    }
+                    else if( $latestvacantnumber <= -1){
+                        DB::table('tbl_room')
+                        ->where('id', $room)
+                        ->update([
+                            'isOccupied' => 3,
+                        ]);
+                    }
+                    else{
+                        DB::table('tbl_room')
+                        ->where('id', $room)
+                        ->update([
+                            'isOccupied' => 2,
+                        ]);
+                    }
+                }
+                else if($latestroomcapacity == $latestvacantnumber){
+                    DB::table('tbl_room')
+                    ->where('id', $room)
+                    ->update([
+                        'isOccupied' => 0,
+                    ]);
+                }
+                else if( $latestvacantnumber <= -1){
+                    DB::table('tbl_room')
+                    ->where('id', $room)
+                    ->update([
+                        'isOccupied' => 3,
+                    ]);
+                }
+
+
+        $users = Tenant::where('id', '=', $id)->first();
+
+        $email = DB::table('tbl_tenant')
+        ->select('tbl_tenant.email')
+        ->where('tbl_tenant.id',$id)
+        ->get();
+
+        $message =  "<p>" . "Good day " . $users->name  . "your account has been verified according to your submitted information. You may proceed using our system and also you can change your profile anytime as you requested. Have a Nice Day!" . "</p>";
+
+    Mail::to($email)->send(new MailVerify($message));
+
+
+}
 }

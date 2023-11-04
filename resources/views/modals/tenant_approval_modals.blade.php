@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">Add user</h4>
+          <h4 class="modal-title" id="exampleModalLabel">Tenant Information</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -13,6 +13,7 @@
             <div class="row">
 
             <input type="hidden" id="cust-id-hidden">
+            <input type="hidden" id="room-id-hidden">
 
             <div class="col-4 mb-2">
                   <label class="col-form-label">Last Name</label>
@@ -141,6 +142,65 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="confirmationpatientapproveModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to approve this Tenant?</p>
+          </div>
+          <input type="hidden" id="id_archive" name="id_archive">
+          <div class="modal-footer">
+            <div class="dupdate-success-validation mr-auto ml-3" style="display: none">
+                <label class="label text-success">User is Successfully Archived</label>
+               </div>
+                   <div class="dreject-validation mr-auto ml-3" style="display: none">
+                    <label class="label text-success">Employer Job is Successfully Rejected</label>
+                   </div>
+                   <img src="../../assets/loader.gif" class="loader" alt="loader" style="display: none">
+            <button class="btn btn-sm btn-outline-dark"  id="btn_confirmpatientapprove">Yes</button>
+            <button class="btn btn-sm btn-danger cancel-delete" data-dismiss="modal">Cancel</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+     <!--Reject Modal-->
+    <div class="modal fade" id="confirmationpatientrejectModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to reject this Tenant?</p>
+          </div>
+          <input type="hidden" id="id_archive" name="id_archive">
+          <div class="modal-footer">
+            <div class="dupdate-success-validation mr-auto ml-3" style="display: none">
+                <label class="label text-success">User is Successfully Archived</label>
+               </div>
+                   <div class="dreject-validation mr-auto ml-3" style="display: none">
+                    <label class="label text-success">Employer Job is Successfully Rejected</label>
+                   </div>
+                   <img src="../../assets/loader.gif" class="loader" alt="loader" style="display: none">
+            <button class="btn btn-sm btn-outline-dark"  id="btn_confirmpatientreject">Yes</button>
+            <button class="btn btn-sm btn-danger cancel-delete" data-dismiss="modal">Cancel</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
   

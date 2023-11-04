@@ -138,6 +138,7 @@ $(document).ready(function(){
             console.log(data);
             isVerified(id);
             $('#cust-id-hidden').val(data[0].id);
+            $('#room-id-hidden').val(data[0].roomid);
             $('#fname').val(data[0].fname);
             $('#mname').val(data[0].mname);
             $('#lname').val(data[0].lname);
@@ -167,7 +168,7 @@ $(document).ready(function(){
           success:function(data){
 
            var status = data[0].status;
-              if(status == 'Pending')
+              if(status == '2')
               {
                 console.log('Pending');
                 $("#btn-approve").attr('disabled', false);
@@ -192,42 +193,35 @@ $(document).ready(function(){
        $(document).on('click', '#btn_confirmpatientapprove', function() {
            
             var id = $('#cust-id-hidden').val();
-            var name = $('#name').text();
-            var email = $('#email').text();
-            var companyoverview = $('#companyoverview').text();
-            var address = $('#address').text();
-            var BIR_file = $('#BIR_file-hidden').text();
-            console.log(BIR_file);
+            var room = $('#room-id-hidden').val();
+            console.log(id);
+            console.log(room);
             $("#confirmationpatientapproveModal").modal('hide')
-            approve(id,email,BIR_file,name,companyoverview, address);
+            approve(id,room);
        });
 
-    function approve(id,email,BIR_file,name,companyoverview, address) {
+    function approve(id,room) {
       $.ajax({
-        url:"/verifypatient/approve/"+ id,
+        url:"/verifytenant/approve/"+ id +"/" + room,
         type:"POST",
         data:{
           id:id,
-          email:email,
-          BIR_file:BIR_file,
-          name:name,
-          companyoverview:companyoverview,
-          address:address
+          room:room
         },
         beforeSend:function(){
           $('#btn-approve').text('Please wait...');
           $('.loader').css('display', 'inline');
         },
         success:function(){
-          $('#patient-approval-table').DataTable().ajax.reload();
-          $('#patient-approved-table').DataTable().ajax.reload();
+          $('#tenant-approval-table').DataTable().ajax.reload();
+          $('#tenant-approved-table').DataTable().ajax.reload();
           setTimeout(function(){
             $('.update-success-validation').css('display', 'inline');
             $('#btn-approve').text('Approve');
             $('.loader').css('display', 'none');
             setTimeout(function(){
               $('.update-success-validation').fadeOut('slow');
-              $('#patientapprovalModal').modal('toggle');
+              $('#ApprovalModal').modal('toggle');
 
             },2000);
 
