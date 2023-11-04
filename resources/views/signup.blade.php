@@ -114,7 +114,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="label-small">Phone Number</label>
+                            <label class="label-small">Contact Number</label>
                             <span style="color:red"> *</span>
                             <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" class="form-control" id="phone_no">
                         </div>
