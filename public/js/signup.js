@@ -4,82 +4,6 @@ $(document).ready(function(){
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
       });
-
-      load_data();
-
-      function load_data()  {
-        // let province = $('#province').val()
-        // console.log(province);
-        // fetchCity(province);
-        document.getElementById('city').disabled = true;
-        document.getElementById('barangay').disabled = true;
-        document.getElementById('age').disabled = true;
-        document.getElementById("btn-signup").disabled = true;
-      }
-
-      $('#province').change(function()
-      {
-        let province = $('#province').val()
-        console.log(province);
-        fetchCity(province);
-        document.getElementById('city').disabled = false;
-      });
-
-      $('#city').change(function()
-      {
-        let province = $('#province').val()
-        let city = $('#city').val()
-        console.log(city);
-        fetchBrgy(province, city);
-        document.getElementById('barangay').disabled = false;
-      });
-
-
-      function fetchCity(province){
-        console.log("OK");
-        $.ajax({
-          url:"/address/getcity/"+ province,
-          type:"GET",
-
-          success:function(data){
-            console.log(data);
-            var len = data.length;
-
-            $("#city").empty();
-            for( var i = 0; i<len; i++){
-                var id = data[i]['citymunCode'];
-                var name = data[i]['citymunDesc'];
-                
-                $("#city").append("<option value='"+id+"'>"+name+"</option>");
-
-            }
-          }
-
-         });
-      }
-
-      function fetchBrgy(province, city){
-        console.log("OK");
-        $.ajax({
-          url:"/address/getbrgy/"+ province + "/" + city,
-          type:"GET",
-
-          success:function(data){
-            console.log(data);
-            var len = data.length;
-
-            $("#barangay").empty();
-            for( var i = 0; i<len; i++){
-                var id = data[i]['brgyCode'];
-                var name = data[i]['brgyDesc'];
-                
-                $("#barangay").append("<option value='"+id+"'>"+name+"</option>");
-
-            }
-          }
-
-         });
-      }
     
     $('#btn-signup').click(function(){
         console.log("asd");
@@ -176,6 +100,7 @@ $(document).ready(function(){
     });
 
     $('#birthdate').change(function() {
+        console.log('success');
         var userinput = document.getElementById("birthdate").value;
         var dob = new Date(userinput);
          //calculate month difference from current date in time
