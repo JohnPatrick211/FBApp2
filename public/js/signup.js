@@ -17,6 +17,7 @@ $(document).ready(function(){
         var dateofoccupancy = $('#dateofoccupancy').val();
         var contractstart = $('#contractstart').text();
         var contractend = $('#contractend').text();
+        var address = $('#address').text();
         var username = $('#username').val();
         var age = $('#age').val();
         var birthdate = $('#birthdate').val();
@@ -33,6 +34,7 @@ $(document).ready(function(){
         form.append('dateofoccupancy',dateofoccupancy);
         form.append('contractstart',contractstart);
         form.append('contractend',contractend);
+        form.append('address',address);
         form.append('username',username);
         form.append('age',age);
         form.append('birthdate',birthdate);
@@ -40,7 +42,7 @@ $(document).ready(function(){
         form.append('civilstatus',civilstatus);
 
 
-        var is_valid = validateInputs(firstname, lastname, phone_no, password,email,roomnumber, dateofoccupancy, contractstart, contractend,username,age,gender,birthdate);
+        var is_valid = validateInputs(firstname, lastname, phone_no, password,email,roomnumber, dateofoccupancy, contractstart, contractend,username,age,gender,birthdate, address);
         
         if(is_valid){
             console.log("OK1")
@@ -49,9 +51,9 @@ $(document).ready(function(){
       
     });
 
-    function validateInputs(firstname, lastname, phone_no, password,email,roomnumber, dateofoccupancy, contractstart, contractend,username,age,gender,birthdate) {
+    function validateInputs(firstname, lastname, phone_no, password,email,roomnumber, dateofoccupancy, contractstart, contractend,username,age,gender,birthdate, address) {
 
-        if(birthdate == '' || gender == '' || age == '' || firstname == '' || lastname == '' || phone_no == '' || password == '' || email == '' || roomnumber == '' || dateofoccupancy == '' || contractstart == '' || contractend == '' || username == ''){
+        if(birthdate == '' || gender == '' || age == '' || firstname == '' || lastname == '' || phone_no == '' || password == '' || email == '' || roomnumber == '' || address == ''||dateofoccupancy == '' || contractstart == '' || contractend == '' || username == ''){
             alert('Please input all of the required credentials!');
         }
         else{
@@ -201,7 +203,7 @@ $(document).ready(function(){
                                 $('#alert-acc-success').addClass('alert-success');
                                 $('#alert-acc-success')
                                 .html('You have successfully created your account!');
-                                window.location.href = "/login";
+                                window.location.href = "https://fbapp.online/";
                             }         
                            });   
                     }

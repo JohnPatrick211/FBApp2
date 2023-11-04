@@ -24,6 +24,9 @@ Route::get('logout', [App\Http\Controllers\LoginCtr::class, 'logout']);
 
 //Signup
 Route::get('signup',[App\Http\Controllers\SignUpController::class, 'index']);
+Route::get('/signup/send-OTP', [App\Http\Controllers\SignUpController::class, 'sendOTP']);
+Route::get('/signup/validate-otp/{otp}', [App\Http\Controllers\SignUpController::class, 'validateOTP']);
+Route::post('/signup/signup', [App\Http\Controllers\SignUpController::class, 'signup']);
 
 //ADMIN INTERFACE
 Route::get('admin-dashboard', [App\Http\Controllers\LoginCtr::class, 'admin'])->middleware('Islogged');
