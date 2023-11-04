@@ -32,7 +32,7 @@
                             <h4 style="color: #555555">Create your account</h4>
                         </div>
 
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label class="label-small">Last Name</label>
                             <span class="fs-6" style="color:red">*</span>
                             <input type="text" class="form-control"  oninput="this.value = this.value.toUpperCase()" id="lastname" placeholder="Last Name">
@@ -44,15 +44,10 @@
                             <input type="text" class="form-control"  oninput="this.value = this.value.toUpperCase()" id="firstname" placeholder="First Name">
                         </div>
 
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label class="label-small">Middle Name</label>
                             <span style="color:white" > a</span>
                             <input type="text" class="form-control"  oninput="this.value = this.value.toUpperCase()" id="middlename" placeholder="Middle Name">
-                        </div>
-
-                        <div class="col-md-2 mb-3">
-                            <label class="label-small">Suffix Name</label>
-                            <input type="text" class="form-control"  oninput="this.value = this.value.toUpperCase()" id="suffixname" placeholder="Suffix Name">
                         </div>
                         
                         <div class="col-md-3 mb-6">
@@ -92,23 +87,50 @@
                             <option value="Divorced">Divorced</option>
                              </select>
                         </div>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label class="label-small">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="addresss">
+                            <input type="text" class="form-control" id="address" placeholder="address">
                         </div>
 
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-3 mb-3">
+                            <label class="label-small">Room Number</label>
+                            <span style="color:red"> *</span>
+                            <select class="form-control" name="roomnumber" id="roomnumber">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                             </select>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label class="label-small">Date of Occupancy</label>
+                            <span style="color:red" > *</span>
+                            <input type="date" class="form-control" id="dateofoccupancy" placeholder="dateofoccupancy">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
                             <label class="label-small">Email</label>
                             <span style="color:red"> *</span>
                             <input type="text" class="form-control" id="email" placeholder="Email Address">
                         </div>
-            
+
                         <div class="col-md-6">
                             <label class="label-small">Phone Number</label>
                             <span style="color:red"> *</span>
                             <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" class="form-control" id="phone_no">
                             <a id="send-OTP" style="cursor: pointer; color:#32638D;" class="label-medium"><u>Send OTP</u></a>
                             <span class="countdown label-medium"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="label-small">Contract Start</label>
+                            <span style="color:red" > *</span>
+                            <input type="date" class="form-control" id="contractstart" placeholder="contractstart">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="label-small">Contract End</label>
+                            <span style="color:red" > *</span>
+                            <input type="date" class="form-control" id="contractend" placeholder="contractend">
                         </div>
     
                         <div class="col-md-6 mb-3">
