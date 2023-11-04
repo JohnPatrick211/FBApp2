@@ -76,13 +76,13 @@ $(document).ready(function(){
       fetchVerified();
 
       function fetchVerified(){
-        $('#patient-approved-table').DataTable({
+        $('#tenant-approved-table').DataTable({
 
           processing: true,
           serverSide: true,
 
           ajax:{
-           url: "patient-approval-data-approved",
+           url: "tenant-approval-data-approved",
           },
           
           columnDefs: [{
@@ -92,25 +92,34 @@ $(document).ready(function(){
             changeLength: true,
             className: 'dt-body-center',
             render: function (data, type, full, meta){
-                return 'UID-'+data;
+                return 'TEN-'+data;
             }
-         }],
-         order: [[0, 'desc']],
+         }, {
+          targets: 1,
+          orderable: true,
+          changeLength: true,
+          className: 'dt-body-center',
+          render: function (data, type, full, meta){
+            if(full.mname === null){
+              return data + ' ' + full.lname;
+            }
+            else{
+              return data + ' ' +full.mname + ' ' + full.lname;
+            }
+          }
+       },
+       { "visible": false,  "targets": [ 2 ] },
+       { "visible": false,  "targets": [ 3 ] }],
 
-          columns:[
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
+           columns:[
+            {data: 'tenantid', name: 'tenantid'},
+            {data: 'fname', name: 'fname'},
+            {data: 'mname', name: 'mname'},
+            {data: 'lname', name: 'lname'},
             {data: 'email', name: 'email'},
-            {data: 'address', name: 'address'},
-            // { data: 'BIR_file', name: 'BIR_file',
-            //         render: function( data, type, full, meta ) {
-            //             return "<img src=\"/storage/BIR/" + data + "\" height=\"50\"id=\"trigger\"/>";
-            //           // return '<div align="center"><a href="/storage/jobposts/" """><img src="{{ asset("siteicons/Info_Box_Blue.png") }}" id="trigger" onclick="ShowSlider(0)"></a></div>';
-            //         }
-            //     },
-            {data: 'status', name: 'status'},
+            {data: 'phone', name: 'phone'},
             {data: 'action', name: 'action', orderable:false}
-          ]
+           ]
         });
 
       }
@@ -122,14 +131,16 @@ $(document).ready(function(){
 
       function fetchUploadInfo(id){
         $.ajax({
-          url:"/verifypatient/getverificationinfo/"+ id,
+          url:"/verifytenant/getverificationinfo/"+ id,
           type:"GET",
 
           success:function(data){
-                console.log(data);
+            console.log(data);
             isVerified(id);
             $('#cust-id-hidden').val(data[0].id);
-            $('#name').text(data[0].name);
+            $('#fname').text(data[0].fname);
+            $('#mname').text(data[0].mname);
+            $('#lname').text(data[0].lname);
             $('#email').text(data[0].email);
             $('#status').text(data[0].status);
             $('#address').text(data[0].address);
@@ -138,15 +149,11 @@ $(document).ready(function(){
             $('#gender').text(data[0].gender);
             $('#birthdate').text(data[0].birthdate);
             $('#civilstatus').text(data[0].civilstatus);
-            $('#valid-hidden').text(data[0].validid);
-            if(data[0].validid !== null){
-              var img_source = '../../images/'+data[0].validid;
-            }
-            else{
-              var img_source = '../../storage/BIR/banner2.jpg';
-            }
-              $('#image').attr('src', img_source);
-              console.log(img_source);
+            $('#room').text(data[0].roomnumber);
+            $('#dateofoccupancy').text(data[0].dateofoccupancy);
+            $('#contractstart').text(data[0].contractstart);
+            $('#contractend').text(data[0].contractend);
+
           }
 
          });
@@ -154,7 +161,7 @@ $(document).ready(function(){
 
       function isVerified(id){
         $.ajax({
-          url:"/verifypatient/getverificationinfo/"+ id,
+          url:"/verifytenant/getverificationinfo/"+ id,
           type:"GET",
 
           success:function(data){

@@ -12,6 +12,8 @@
         <div class="modal-body">
             <div class="row">
 
+            <input type="hidden" id="cust-id-hidden">
+
               <div class="col-3 mb-2">
                   <label class="col-form-label">First Name</label>
                   <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" required>
@@ -36,7 +38,7 @@
                    </div>
                 </div>
 
-                <div class="hide-room col-12 mb-2" style="display: none">
+                <div class="hide-room col-12 mb-2">
                   <label class="col-form-label">Room Number</label>
                   <input type="text" class="form-control" name="room" id="room" placeholder="Last Name" required>
                   <div class="empty-reject-room mr-auto ml-3" style="display: none">
@@ -44,7 +46,7 @@
                    </div>
                 </div>
 
-                <div class="hide-dateofoccupancy col-12" style="display: none">
+                <div class="hide-dateofoccupancy col-12">
                   <label class="col-form-label">Date of Occupancy</label>
                   <input type="date" class="form-control" id="dateofoccupancy" name="dateofoccupancy">
                   <div class="empty-reject-dateofoccupancy mr-auto ml-3" style="display: none">
@@ -87,7 +89,7 @@
                   </select>
                 </div>
 
-                <div class="col-6 hide-contractstart" style="display: none">
+                <div class="col-6 hide-contractstart">
                   <label class="col-form-label">Contract Start</label>
                   <input type="date" class="form-control" id="contractstart" name="contractstart" >
                   <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
@@ -95,7 +97,7 @@
                        </div>
                 </div>
 
-                <div class="col-6 hide-contractend" style="display: none">
+                <div class="col-6 hide-contractend">
                   <label class="col-form-label" >Contract End</label>
                   <input type="date" class="form-control" id="contractend" name="contractend">
                   <div class="empty-reject-birthday mr-auto ml-3" style="display: none">
