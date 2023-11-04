@@ -56,6 +56,12 @@
             </li> -->
 
             <li class="nav-item active">
+                <a class="nav-link" href="/employee-tenant-approval">
+                    <i class="fas fa-fw fa-address-book"></i>
+                    <span id="content-dashboard">Tenant Verification</span></a>
+            </li>
+
+            <li class="nav-item active">
                 <a class="nav-link" href="/employee-forum">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span id="content-dashboard">Forum and Comments</span></a>

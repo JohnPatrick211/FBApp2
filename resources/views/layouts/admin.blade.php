@@ -56,6 +56,12 @@
             </li>
 
             <li class="nav-item active">
+                <a class="nav-link" href="/admin-tenant-approval">
+                    <i class="fas fa-fw fa-address-book"></i>
+                    <span id="content-dashboard">Tenant Verification</span></a>
+            </li>
+
+            <li class="nav-item active">
                 <a class="nav-link" href="/forum">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span id="content-dashboard">Forum and Comments</span></a>
@@ -444,6 +450,7 @@
     <script src="/js/cashiering.js"></script>
     <script src="/js/salesreport.js"></script>
     <script src="/js/forum_comment.js"></script>
+    <script src="/js/tenantapproval.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>

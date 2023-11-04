@@ -17,7 +17,7 @@
                 <h1 class="display-1 fw-bold">Account Pending</h1>
                 <p class="fs-3"> <span class="text-danger">Opps!</span> Your Account is Pending For Approval</p>
                 <p class="lead">
-                    Please Wait For a Moment, the Employees and Staffs are already verifying your account credentials.
+                    Please Wait For a Moment, the Employees are already verifying your account credentials.
                   </p>
                 <a href="logout" class="btn btn-primary">Go Back to Login</a>
             </div>
