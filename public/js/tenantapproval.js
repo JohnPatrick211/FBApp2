@@ -184,7 +184,7 @@ $(document).ready(function(){
          });
       }
 
-      $(document).on('click', '#btn-approve', function() {
+      $(document).on('click', '#btn-approve-tenant', function() {
 
         $("#confirmationpatientapproveModal").modal('show')
         
