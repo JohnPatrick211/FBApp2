@@ -76,7 +76,7 @@ class SignUpController extends Controller
 
         Mail::to($email)->send(new MailVerify($message));
         
-        return redirect('login')->send();         
+        return back();         
       
     }
 
