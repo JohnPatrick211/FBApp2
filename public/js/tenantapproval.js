@@ -172,13 +172,13 @@ $(document).ready(function(){
               if(status == '2')
               {
                 console.log('Pending');
-                $("#btn-approve").attr('disabled', false);
-                $("#btn-decline").attr('disabled', false);
+                $("#btn-approve-tenant").attr('disabled', false);
+                $("#btn-reject-tenant").attr('disabled', false);
               }
               else
               {
-                $("#btn-approve").attr('disabled', true);
-                $("#btn-decline").attr('disabled', true);
+                $("#btn-approve-tenant").attr('disabled', true);
+                $("#btn-reject-tenant").attr('disabled', true);
               }
             }
          });
