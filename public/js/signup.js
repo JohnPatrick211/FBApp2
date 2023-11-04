@@ -15,9 +15,9 @@ $(document).ready(function(){
         var email = $('#email').val();
         var roomnumber = $('#roomnumber').val();
         var dateofoccupancy = $('#dateofoccupancy').val();
-        var contractstart = $('#contractstart').text();
-        var contractend = $('#contractend').text();
-        var address = $('#address').text();
+        var contractstart = $('#contractstart').val();
+        var contractend = $('#contractend').val();
+        var address = $('#address').val();
         var username = $('#username').val();
         var age = $('#age').val();
         var birthdate = $('#birthdate').val();

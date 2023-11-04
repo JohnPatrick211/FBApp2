@@ -88,7 +88,7 @@ class SignUpController extends Controller
        //$otp = rand(1000,1001);
       
        $message =  "<p>From: " . "FB Building"  . "</p>" .
-                    "<p>Message: " . "NEVER SHARE YOUR OTP. To allow this account to gain access to the system. Your OTP is ' . $otp. ' from Optical Clinic. Use this OTP to validate your login. If you DID NOT make this request, please ignore this message. Thank you!" . "</p>";
+                    "<p>Message: " . "NEVER SHARE YOUR OTP. To allow this account to gain access to the system. Your OTP is ' . $otp. ' from FB Building. Use this OTP to validate your login. If you DID NOT make this request, please ignore this message. Thank you!" . "</p>";
 
        Mail::to($email)->send(new MailVerify($message));
             
