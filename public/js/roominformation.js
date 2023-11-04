@@ -84,7 +84,12 @@ $(document).ready(function()
           changeLength: true,
           className: 'dt-body-center',
           render: function (data, type, full, meta){
+            if(full.mname === null){
+              return data + ' ' + full.lname;
+            }
+            else{
               return data + ' ' +full.mname + ' ' + full.lname;
+            }
           }
        },
        { "visible": false,  "targets": [ 2 ] },
