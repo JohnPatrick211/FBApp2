@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Mail;
+use App\Models\MailVerify;
 
 class RegisterAPICtr extends Controller
 {
