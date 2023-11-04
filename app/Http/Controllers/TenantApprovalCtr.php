@@ -65,7 +65,7 @@ class TenantApprovalCtr extends Controller
 
 
 
-    public function getTenanrApproved()
+    public function getTenantApproved()
     {
         $getpatientapproved = DB::table('tbl_user AS BR')
         ->select('BR.*','tbl_tenant.*', 'tbl_room.*', 'tbl_room.id AS roomid', 'tbl_tenant.id AS tenantid')
@@ -82,7 +82,7 @@ class TenantApprovalCtr extends Controller
         ->leftJoin('tbl_tenant', 'BR.id', '=', 'tbl_tenant.tenant_id')
         ->leftJoin('tbl_room', 'tbl_tenant.room_id', '=', 'tbl_room.id')
         ->where('tbl_tenant.id',$id)
-        ->first();
+        ->get();
          return  $verification_info;
     }
 }
