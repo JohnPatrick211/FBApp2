@@ -165,4 +165,35 @@ class TenantApprovalCtr extends Controller
 
 
 }
+
+public function reject($id){
+
+    $email = DB::table('tbl_tenant')
+    ->select('tbl_tenant.email')
+    ->where('tbl_tenant.id',$id)
+    ->get();
+
+    $tenantid = DB::table('tbl_tenant')
+    ->select('tbl_tenant.tenant_id')
+    ->where('tbl_tenant.id',$id)
+    ->get();
+
+    $users = Login::where('id', '=', $id)->first();
+
+    $message =  "Good Day " . $users->name  . "<br><br>"."<p>We really appreciate the effort you put into this. Unfortunately, We are unable to approve your account at this time. We received and have reviewed the content of your information. At this moment, we would encourage you to check and re-arrange the details herein. You may sign up again in our website. <br><br>Have a Nice Day!<p>";
+
+    Mail::to($email)->send(new MailVerify($message));
+        
+     DB::table('tbl_tenant')
+    ->where('tbl_tenant.id', $id)
+    ->delete();
+
+    DB::table('tbl_user')
+    ->where('tbl_tenant.id', $tenantid)
+    ->delete();
+    
+    
+}
+
+
 }

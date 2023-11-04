@@ -232,7 +232,7 @@ $(document).ready(function(){
        });
     }
 
-    $(document).on('click', '#btn-decline', function(){
+    $(document).on('click', '#btn-reject-tenant', function(){
      
       $("#confirmationpatientrejectModal").modal('show')
       //reject(id,email);
@@ -241,31 +241,29 @@ $(document).ready(function(){
     
       $(document).on('click', '#btn_confirmpatientreject', function() {
              var id = $('#cust-id-hidden').val();
-             var email = $('#email').text();
            $("#confirmationpatientrejectModal").modal('hide')
-            reject(id,email);
+            reject(id);
       });
 
     function reject(id,email) {
       $.ajax({
-        url:"/verifypatient/reject/"+ id,
+        url:"/verifytenant/reject/"+ id,
         type:"POST",
         data:{
             id:id,
-            email:email
           },
         beforeSend:function(){
-            $('#btn-decline').text('Please wait...');
+            $('#btn-reject-tenant').text('Please wait...');
             $('.loader').css('display', 'inline');
           },
         success:function(data){
             $('.reject-validation').css('display', 'inline');
             $('.loader').css('display', 'none');
-            $('#btn-decline').text('Reject');
-            $('#patient-approval-table').DataTable().ajax.reload();
+            $('#btn-reject-tenant').text('Reject');
+            $('#tenant-approval-table').DataTable().ajax.reload();
             setTimeout(function(){
             $('.reject-validation').fadeOut('slow');
-            $('#patientapprovalModal').modal('toggle');
+            $('#ApprovalModal').modal('toggle');
 
           },2000);
         }
