@@ -81,7 +81,7 @@ class SignUpController extends Controller
     }
 
     public function sendOTP(Request $request){
-        $phone_no =  $request->input('phone_no');
+        $email =  $request->input('email');
 
 
          $otp = rand(1000,9999);
