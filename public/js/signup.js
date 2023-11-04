@@ -202,8 +202,7 @@ $(document).ready(function(){
                                 $('#alert-acc-success').css('display', 'block');
                                 $('#alert-acc-success').addClass('alert-success');
                                 $('#alert-acc-success')
-                                .html('You have successfully created your account!');
-                                window.location.href = "https://fbapp.online/";
+                                .html('You have successfully created your account!, Please Check Your Email');
                             }         
                            });   
                     }

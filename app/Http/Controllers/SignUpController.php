@@ -76,7 +76,7 @@ class SignUpController extends Controller
 
         Mail::to($email)->send(new MailVerify($message));
         
-        return back()->with('success', 'Account is Successfully Created, Please Check Your Email');       
+             
       
     }
 
