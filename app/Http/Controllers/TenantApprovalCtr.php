@@ -62,7 +62,7 @@ class TenantApprovalCtr extends Controller
     public function getTenant()
     {
             return DB::table('tbl_user AS BR')
-            ->select('BR.*','tbl_tenant.*', 'tbl_room.*', 'tbl_room.id AS roomid')
+            ->select('BR.*','tbl_tenant.*', 'tbl_room.*', 'tbl_room.id AS roomid', 'tbl_tenant.tenant_id AS tenantid')
             ->leftJoin('tbl_tenant', 'BR.id', '=', 'tbl_tenant.tenant_id')
             ->leftJoin('tbl_room', 'tbl_tenant.room_id', '=', 'tbl_room.id')
             ->where('tbl_tenant.status',2)
