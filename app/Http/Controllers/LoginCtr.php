@@ -142,6 +142,9 @@ class LoginCtr extends Controller
                        // return redirect('/error')->with('fail','Your account is Archived, please contact your system administrator using this email: admin@opticalclinic.online and contact number: 09397177711');
                        return view('account-archive');
                     }
+                    else if($usertenant[0]-> status == '2'){
+                        return view('account-pending');
+                    }
                     else{
                         //return  $usertenant;
                         return redirect('tenant-dashboard');
