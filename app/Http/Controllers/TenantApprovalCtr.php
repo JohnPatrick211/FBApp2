@@ -176,7 +176,7 @@ public function reject($id){
     $tenantid = DB::table('tbl_tenant')
     ->select('tbl_tenant.tenant_id')
     ->where('tbl_tenant.id',$id)
-    ->get();
+    ->first();
 
     $users = Login::where('id', '=', $id)->first();
 
@@ -189,7 +189,7 @@ public function reject($id){
     ->delete();
 
     DB::table('tbl_user')
-    ->where('tbl_tenant.id', $tenantid)
+    ->where('tbl_tenant.id', $tenantid->tenant_id)
     ->delete();
     
     
