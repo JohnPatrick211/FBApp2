@@ -92,47 +92,11 @@
                             <option value="Divorced">Divorced</option>
                              </select>
                         </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label class="label-small">Province</label>
-                            <span style="color:red"> *</span>
-                            <!-- <input type="text" class="form-control" id="province" placeholder="Province"> -->
-                            <select class="form-control" name="province" id="province">
-                                                <option value="0">Province</option>
-                                                @foreach($LoggedUserInfo as $item)
-                                                    <option value="{{$item->provCode}}">{{$item->provDesc}}</option>
-                                                @endforeach
-                                                </select>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label class="label-small">City/Municipality</label>
-                            <span style="color:red"> *</span>
-                            <!-- <input type="text" class="form-control" id="city" placeholder="City/Municipality"> -->
-                            <select class="form-control" name="city" id="city" disabled>
-                                                <option value="0">City/Municipality</option>
-                                                </select>
-                        </div>
-
                         <div class="col-md-2 mb-3">
-                            <label class="label-small">Barangay</label>
-                            <span style="color:red"> *</span>
-                            <!-- <input type="text" class="form-control" id="barangay" placeholder="Barangay"> -->
-                            <select class="form-control" name="barangay" id="barangay" disabled>
-                                                <option value="0">Barangay</option>
-                                                </select>
-                        </div>
-                        
-                        
-                        <div class="col-md-2 mb-3">
-                            <label class="label-small">Street</label>
-                            <input type="text" class="form-control" id="street" placeholder="Street">
+                            <label class="label-small">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="addresss">
                         </div>
 
-                        <div class="col-md-2 mb-3">
-                            <label class="label-small">House No.</label>
-                            <input type="number" class="form-control" id="houseno" placeholder="House No.">
-                        </div>
                         <div class="col-md-12 mb-3">
                             <label class="label-small">Email</label>
                             <span style="color:red"> *</span>
@@ -146,12 +110,6 @@
                             <a id="send-OTP" style="cursor: pointer; color:#32638D;" class="label-medium"><u>Send OTP</u></a>
                             <span class="countdown label-medium"></span>
                         </div>
-                        
-                        <div class="col-md-6">
-                            <label class="label-small">Enter your OTP</label>
-                            <span style="color:red"> *</span>
-                            <input type="text" class="form-control" id="otp" placeholder="Enter your 4 digit OTP">
-                        </div> 
     
                         <div class="col-md-6 mb-3">
                             <label class="label-small">Password</label>
@@ -175,19 +133,9 @@
                             <span class="text-success">Password Match</span>
                             </div>
                         </div>
-                        
-                        <div class="col-md-12">
-                        <label class="label-small">Valid ID</label>
-                        <input type="file"  name="validid" id="validid" enctype="multipart/form-data">
-                        </div>
                        
                         <div class="col-md-12">
                             <input type="button" class="btn" id="btn-signup" name="btn-signup" value="SIGN UP">
-                            <span class="label-small m-0">By clicking "SIGN UP"; I agree to Optical Clinic 
-                                <a href="" data-toggle="modal" data-target="#TermsandConditionsModal" id="btn-add-categoryproduct">Terms of Use</a> and <a href="" data-toggle="modal" data-target="#PrivacyPolicyModal" id="btn-add-categoryproduct">Privacy Policy</a>
-                                <!-- <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#CategoryProductModal" id="btn-add-categoryproduct"><span class='fa fa-plus'></span> Add Category</a> -->
-
-                            </span>	
                         </div>
 
                         <div class="col-md-12"><hr></div>
