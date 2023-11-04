@@ -138,7 +138,7 @@ $(document).ready(function(){
             console.log(data);
             isVerified(id);
             $('#cust-id-hidden').val(data[0].id);
-            $('#fname').text(data[0].fname);
+            $('#fname').val(data[0].fname);
             $('#mname').text(data[0].mname);
             $('#lname').text(data[0].lname);
             $('#email').text(data[0].email);
