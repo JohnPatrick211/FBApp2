@@ -35,9 +35,9 @@ class TenantApprovalCtr extends Controller
              }
     }
 
-    public function PatientApproved()
+    public function TenantApproved()
     {
-        $getEm = $this->getPatientApproved();
+        $getEm = $this->getTenantApproved();
          if(request()->ajax())
              {
                 return datatables()->of($getEm)
@@ -50,13 +50,6 @@ class TenantApprovalCtr extends Controller
             ->rawColumns(['action'])
             ->make(true);
              }
-    }
-
-    public function countValidationEmployer(){
-
-        $getEm = $this->getEmployer();
-
-        return $getEm->count();
     }
 
     public function getTenant()
@@ -72,7 +65,7 @@ class TenantApprovalCtr extends Controller
 
 
 
-    public function getPatientApproved()
+    public function getTenanrApproved()
     {
         $getpatientapproved = DB::table('tbl_user AS BR')
         ->select('BR.*','tbl_tenant.*', 'tbl_room.*', 'tbl_room.id AS roomid', 'tbl_tenant.id AS tenantid')
@@ -89,7 +82,7 @@ class TenantApprovalCtr extends Controller
         ->leftJoin('tbl_tenant', 'BR.id', '=', 'tbl_tenant.tenant_id')
         ->leftJoin('tbl_room', 'tbl_tenant.room_id', '=', 'tbl_room.id')
         ->where('tbl_tenant.id',$id)
-        ->get();
+        ->first();
          return  $verification_info;
     }
 }
