@@ -36,7 +36,7 @@ Route::get('tenant-approval-data',[App\Http\Controllers\TenantApprovalCtr::class
 Route::get('tenant-approval-data-approved',[App\Http\Controllers\TenantApprovalCtr::class, 'TenantApproved'])->middleware('Islogged');
 Route::get('verifytenant/getverificationinfo/{id}', [App\Http\Controllers\TenantApprovalCtr::class, 'getVerificationInfo']);
 Route::post('verifytenant/approve/{id}/{room}', [App\Http\Controllers\TenantApprovalCtr::class, 'approve']);
-Route::post('verifytenant/reject/{id}', [App\Http\Controllers\TenantApprovalController::class, 'reject']);
+Route::post('verifytenant/reject/{id}', [App\Http\Controllers\TenantApprovalCtr::class, 'reject']);
 //MAINTENANCE
 // User Maintenance
 Route::get('user-maintenance',[App\Http\Controllers\UserMaintenanceCtr::class, 'index'])->middleware('Islogged');
