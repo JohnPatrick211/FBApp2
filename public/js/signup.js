@@ -10,43 +10,37 @@ $(document).ready(function(){
         var firstname = $('#firstname').val();
         var middlename = $('#middlename').val();
         var lastname = $('#lastname').val();
-        var suffixname = $('#suffixname').val();
         var phone_no = $('#phone_no').val();
         var password = $('#password').val();
         var email = $('#email').val();
-        var houseno = $('#houseno').val();
-        var street = $('#street').val();
-        var barangay = $('#barangay option:selected').text();
-        var city = $('#city option:selected').text();
-        var province = $('#province option:selected').text();
+        var roomnumber = $('#roomnumber').val();
+        var dateofoccupancy = $('#dateofoccupancy').val();
+        var contractstart = $('#contractstart').text();
+        var contractend = $('#contractend').text();
         var username = $('#username').val();
         var age = $('#age').val();
         var birthdate = $('#birthdate').val();
         var gender = $('#gender').val();
         var civilstatus = $('#civilstatus').val();
-        var validid = $('#validid').prop('files')[0];
         var form = new FormData();
         form.append('firstname',firstname);
         form.append('middlename',middlename);
         form.append('lastname',lastname);
-        form.append('suffixname',suffixname);
         form.append('phone_no',phone_no);
         form.append('password',password);
         form.append('email',email);
-        form.append('houseno',houseno);
-        form.append('street',street);
-        form.append('barangay',barangay);
-        form.append('city',city);
-        form.append('province',province);
+        form.append('roomnumber',roomnumber);
+        form.append('dateofoccupancy',dateofoccupancy);
+        form.append('contractstart',contractstart);
+        form.append('contractend',contractend);
         form.append('username',username);
-        form.append('validid',validid);
         form.append('age',age);
         form.append('birthdate',birthdate);
         form.append('gender',gender);
         form.append('civilstatus',civilstatus);
 
 
-        var is_valid = validateInputs(firstname, lastname, phone_no, password,email,barangay, city, province,username,age,gender,birthdate);
+        var is_valid = validateInputs(firstname, lastname, phone_no, password,email,roomnumber, dateofoccupancy, contractstart, contractend,username,age,gender,birthdate);
         
         if(is_valid){
             console.log("OK1")
@@ -55,22 +49,10 @@ $(document).ready(function(){
       
     });
 
-    function validateInputs(firstname, lastname, phone_no, password,email,barangay, city, province,username,age,gender,birthdate) {
-        var firstname = $('#firstname').val();
-        var lastname = $('#lastname').val();
-        var phone_no = $('#phone_no').val();
-        var password = $('#password').val();
-        var email = $('#email').val();
-        var barangay = $('#barangay').val();
-        var city = $('#city').val();
-        var province = $('#province').val();  
-        var username = $('#username').val();
+    function validateInputs(firstname, lastname, phone_no, password,email,roomnumber, dateofoccupancy, contractstart, contractend,username,age,gender,birthdate) {
 
-        if(birthdate == '' || gender == '' || age == '' || firstname == '' || lastname == '' || phone_no == '' || password == '' || email == '' || barangay == '' || city == '' || province == '' || username == ''){
+        if(birthdate == '' || gender == '' || age == '' || firstname == '' || lastname == '' || phone_no == '' || password == '' || email == '' || roomnumber == '' || dateofoccupancy == '' || contractstart == '' || contractend == '' || username == ''){
             alert('Please input all of the required credentials!');
-        }
-        else if( document.getElementById("validid").files.length == 0 ){
-            alert('Please upload your valid ID');
         }
         else{
             return true;     
