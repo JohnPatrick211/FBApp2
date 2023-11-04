@@ -131,7 +131,7 @@
                 <label class="label text-success">Tenant is Successfully Approved</label>
                </div>
                    <div class="reject-validation mr-auto ml-3" style="display: none">
-                    <label class="label text-danger">User Already Exist</label>
+                    <label class="label text-success">Tenant is Successfully Rejected</label>
                    </div>
                    <img src="../../assets/loader.gif" class="loader" alt="loader" style="display: none">
                 <button type="button" class="btn btn-sm btn-secondary" id="btn-close" data-dismiss="modal">Close</button>
