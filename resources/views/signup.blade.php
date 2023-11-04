@@ -1,8 +1,8 @@
-@include('modals.termsandcondition_modals')
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Optical Clinic</title>
+	<title>FB Building Register</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
      <link href="/css/bootstrap.min.css" rel="stylesheet"> 
@@ -14,7 +14,7 @@
 	 <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body style="overflow:scroll;">
-	<img class="bg img-fluid" src="../images/header-bg.jpg">
+	<img class="bg img-fluid" src="../img/login-bg.jpg">
 	<div class="container-fluid">
 
         <div class="row mt-2 p-4">
@@ -194,7 +194,7 @@
 
                         <div class="col-md-6">
                             <span class="label-small m-0"> Already have an account?
-                                <a href="login"> Login </a>  here.
+                                <a href="/"> Login </a>  here.
                             </span>	
                         </div>
 
