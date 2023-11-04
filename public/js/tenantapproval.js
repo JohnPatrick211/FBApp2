@@ -139,20 +139,20 @@ $(document).ready(function(){
             isVerified(id);
             $('#cust-id-hidden').val(data[0].id);
             $('#fname').val(data[0].fname);
-            $('#mname').text(data[0].mname);
-            $('#lname').text(data[0].lname);
-            $('#email').text(data[0].email);
-            $('#status').text(data[0].status);
-            $('#address').text(data[0].address);
-            $('#contactno').text(data[0].contactno);
-            $('#age').text(data[0].age);
-            $('#gender').text(data[0].gender);
-            $('#birthdate').text(data[0].birthdate);
-            $('#civilstatus').text(data[0].civilstatus);
-            $('#room').text(data[0].roomnumber);
-            $('#dateofoccupancy').text(data[0].dateofoccupancy);
-            $('#contractstart').text(data[0].contractstart);
-            $('#contractend').text(data[0].contractend);
+            $('#mname').val(data[0].mname);
+            $('#lname').val(data[0].lname);
+            $('#email').val(data[0].email);
+            $('#status').val(data[0].status);
+            $('#address').val(data[0].address);
+            $('#contactno').val(data[0].phone);
+            $('#age').val(data[0].age);
+            $('#gender').val(data[0].gender);
+            $('#birthdate').val(data[0].birthdate);
+            $('#civilstatus').val(data[0].civilstatus);
+            $('#room').val(data[0].roomnumber);
+            $('#dateofoccupancy').val(data[0].dateofoccupancy);
+            $('#contractstart').val(data[0].contractstart);
+            $('#contractend').val(data[0].contractend);
 
           }
 
