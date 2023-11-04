@@ -137,7 +137,7 @@ $(document).ready(function(){
           success:function(data){
             console.log(data);
             isVerified(id);
-            $('#cust-id-hidden').val(data[0].id);
+            $('#cust-id-hidden').val(data[0].tenantid);
             $('#room-id-hidden').val(data[0].roomid);
             $('#fname').val(data[0].fname);
             $('#mname').val(data[0].mname);
