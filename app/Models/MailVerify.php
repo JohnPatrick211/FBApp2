@@ -31,8 +31,8 @@ class MailVerify extends Mailable
      */
     public function build()
     {
-          return $this->from('info@opticalclinic.online')
-        ->subject('Approval Result')
+          return $this->from('info@fbbuiliding.online')
+        ->subject('FB Building Notification')
         ->view('email.send_email')->with('data', $this->data);
 
     }
