@@ -188,8 +188,8 @@ public function reject($id){
     ->where('tbl_tenant.id', $id)
     ->delete();
 
-    DB::table('tbl_tenant')
-    ->where('tbl_tenant.id', $tenantid->tenant_id)
+    DB::table('tbl_user')
+    ->where('tbl_user.id', $tenantid->tenant_id)
     ->delete();
     
     
