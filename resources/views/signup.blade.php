@@ -117,8 +117,6 @@
                             <label class="label-small">Phone Number</label>
                             <span style="color:red"> *</span>
                             <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" class="form-control" id="phone_no">
-                            <a id="send-OTP" style="cursor: pointer; color:#32638D;" class="label-medium"><u>Send OTP</u></a>
-                            <span class="countdown label-medium"></span>
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -164,7 +162,7 @@
 
                         <div class="col-md-6">
                             <span class="label-small m-0"> Already have an account?
-                                <a href="/"> Login </a>  here.
+                                <a href="https://fbapp.online/"> Login </a>  here.
                             </span>	
                         </div>
 
