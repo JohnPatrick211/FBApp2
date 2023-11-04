@@ -144,15 +144,15 @@ $(document).ready(function(){
             $('#email').val(data[0].email);
             $('#status').val(data[0].status);
             $('#address').val(data[0].address);
-            $('#contactno').val(data[0].phone);
+            $('#phone').val(data[0].phone);
             $('#age').val(data[0].age);
             $('#gender').val(data[0].gender);
             $('#birthdate').val(data[0].birthdate);
             $('#civilstatus').val(data[0].civilstatus);
             $('#room').val(data[0].roomnumber);
-            $('#dateofoccupancy').val(data[0].dateofoccupancy);
-            $('#contractstart').val(data[0].contractstart);
-            $('#contractend').val(data[0].contractend);
+            $('#dateofoccupancy').val(data[0].date_of_occupancy);
+            $('#contractstart').val(data[0].contract_start);
+            $('#contractend').val(data[0].contract_end);
 
           }
 
