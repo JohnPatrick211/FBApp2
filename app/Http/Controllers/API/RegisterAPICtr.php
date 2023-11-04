@@ -83,4 +83,23 @@ class RegisterAPICtr extends Controller
                 ]);
         }
     }
+
+    public function sendOTP(Request $request){
+        $email =  $request->email;
+
+
+         $otp = rand(1000,9999);
+       //$otp = rand(1000,1001);
+      
+       $message =  "<p>From: " . "FB Building"  . "</p>" .
+                    "<p>Message: " . "NEVER SHARE YOUR OTP. To allow this account to gain access to the system. Your OTP is ' . $otp. ' from FB Building. Use this OTP to validate your login. If you DID NOT make this request, please ignore this message. Thank you!" . "</p>";
+
+       Mail::to($email)->send(new MailVerify($message));
+
+       return response()->json([
+        'success' => true,
+        'message' => 'OTP Successfully Send to ' . $email,
+        'OTP' => $otp
+    ]);
+    }
 }

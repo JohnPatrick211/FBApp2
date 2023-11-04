@@ -40,4 +40,5 @@ Route::post('updateComment', [App\Http\Controllers\API\ForumAPICtr::class, 'upda
 Route::post('deleteComment', [App\Http\Controllers\API\ForumAPICtr::class, 'deleteComment']);
 //Register
 Route::post('register', [App\Http\Controllers\API\RegisterAPICtr::class, 'register']);
+Route::post('sendOTP', [App\Http\Controllers\API\RegisterAPICtr::class, 'sendOTP']);
 
