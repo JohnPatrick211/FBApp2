@@ -44,7 +44,7 @@ class SignUpController extends Controller
 
         $patient_acc->save();
 
-        $id = $user->id;
+        $id = $patient_acc->id;
 
             DB::table('tbl_tenant')
             ->insert([
