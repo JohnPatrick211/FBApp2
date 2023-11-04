@@ -214,6 +214,8 @@ $(document).ready(function(){
                     }
                 }         
                });
+        }else{
+            alert('Please Enter Your OTP');
         }
            
        
