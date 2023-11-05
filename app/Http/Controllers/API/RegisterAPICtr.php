@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Login;
 use App\Models\Tenant;
+use App\Models\Room;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -103,5 +104,15 @@ class RegisterAPICtr extends Controller
         'message' => 'OTP Successfully Send to ' . $email,
         'OTP' => $otp
     ]);
+    }
+
+    public function roomNumber()
+    {
+        $room = Room::select('roomnumber')->distinct()->orderby('roomnumber', 'ASC')->get();
+        return response()->json([
+            'success' => true,
+            'rooms' => $room
+
+        ]);
     }
 }
