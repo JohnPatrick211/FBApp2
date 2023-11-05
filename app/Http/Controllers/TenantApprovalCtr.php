@@ -178,7 +178,7 @@ public function reject($id){
     ->where('tbl_tenant.id',$id)
     ->first();
 
-    $users = Login::where('id', '=', $id)->get();
+    $users = Tenant::where('id', '=', $id)->first();
 
     $message =  "Good Day " . $users->name  . "<br><br>"."<p>We really appreciate the effort you put into this. Unfortunately, We are unable to approve your account at this time. We received and have reviewed the content of your information. At this moment, we would encourage you to check and re-arrange the details herein. You may sign up again in our website. <br><br>Have a Nice Day!<p>";
 
