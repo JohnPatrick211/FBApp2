@@ -47,12 +47,17 @@ class RegisterAPICtr extends Controller
             $user->save();
     
             $id = $user->id;
+
+            $roomid =  DB::table('tbl_room')
+                ->select('tbl_room.id')
+                ->where('tbl_room.roomnumber','=',  $request->room)
+                ->first();
     
     
             DB::table('tbl_tenant')
                 ->insert([
                 'tenant_id' => $id,
-                'room_id' => $request->room,
+                'room_id' => $roomid->id,
                 'fname' => $request->fname,
                 'mname' => $request->mname,
                 'lname' => $request->lname,
