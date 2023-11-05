@@ -43,6 +43,9 @@ class RegisterAPICtr extends Controller
                 file_put_contents(public_path() . '/images/profile_pic/'.$file_path,base64_decode($request->profilepic));
                 $profile_pic = $file_path;
             }
+            else{
+                $profile_pic = null;
+            }
     
             $user->save();
     
