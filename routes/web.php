@@ -152,6 +152,9 @@ Route::post('/gcash-payment',[App\Http\Controllers\PaymentCtr::class, 'gcashPaym
 Route::get('/gcash-payment-checkout',[App\Http\Controllers\PaymentCtr::class, 'gcashPaymentCheckout'])->name('gcash-payment-checkout');
 Route::get('/tenant-payment-error',[App\Http\Controllers\PaymentCtr::class, 'index_error']);
 
+//EDIT TENANT
+Route::get('editprofile',[App\Http\Controllers\EditTenantCtr::class, 'index']);
+
 //EMPLOYEE INTERFACE
 
 //EMPLOYEE FORUM AND COMMENTS

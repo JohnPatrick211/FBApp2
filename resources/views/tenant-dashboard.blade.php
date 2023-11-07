@@ -115,6 +115,10 @@
                             <br/>
                             <label class="label-small" id="displayaddress">{{$TenantInfo -> address}}</label>
                         </div>
+
+                        <div class="col-12 mt-2">
+                              <a href="editprofile" class="btn btn-sm btn-primary">Edit</a>
+                              </div>
                     </div>
                 </div>
             </div>
