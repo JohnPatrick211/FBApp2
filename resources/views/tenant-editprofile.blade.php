@@ -43,6 +43,7 @@
                         {{ csrf_field() }}
 
                         <input type="text" name= "editids" id="editids" value="{{$TenantInfo -> tenant_id}}">
+                        <input type="text" name= "edituserids" id="edituserids" value="{{$LoggedUserInfo -> tenant_id}}">
 
                         <div class="col-md-4 mb-3">
                             <label class="label-small">First Name</label>
@@ -79,7 +80,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label class="label-small">Civil Status</label>
-                            <select class="form-control" name="editcivilstatus" id="editcivilstatus" value="{{$LoggedUserInfo -> civilstatus}}">
+                            <select class="form-control" name="editcivilstatus" id="editcivilstatus" value="{{$TenantInfo -> civilstatus}}">
                             <option value="Single" {{ ( $TenantInfo -> civilstatus == "Single") ? 'selected' : '' }}>Single</option>
                             <option value="Married" {{ ( $TenantInfo -> civilstatus == "Married") ? 'selected' : '' }}>Married</option>
                             <option value="Widowed" {{ ( $TenantInfo -> civilstatus == "Widowed") ? 'selected' : '' }}>Widowed</option>
