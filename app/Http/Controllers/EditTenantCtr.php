@@ -32,7 +32,6 @@ class EditTenantCtr extends Controller
     public function update(Request $request)
     {
 
-        return dd( $request->input('edituserids'));
 
         DB::table('tbl_user')
         ->where('id', $request->input('editids'))
@@ -47,7 +46,7 @@ class EditTenantCtr extends Controller
             $profilepic = $this->imageUpload($request->file('editprofilepic'), 'pic_only');
             
             DB::table('tbl_tenant')
-            ->where('tenant_id', $request->input('editid'))
+            ->where('tenant_id', $request->input('editids'))
             ->update([
                 'fname' => $request->input('editfname'),
                 'mname' => $request->input('editmname'),
@@ -66,7 +65,7 @@ class EditTenantCtr extends Controller
         }
         else{
             DB::table('tbl_tenant')
-            ->where('tenant_id', $request->input('id'))
+            ->where('tenant_id', $request->input('editids'))
             ->update([
                 'fname' => $request->input('editfname'),
                 'mname' => $request->input('editmname'),
