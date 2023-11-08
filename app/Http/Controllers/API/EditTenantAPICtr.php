@@ -40,16 +40,16 @@ class EditTenantAPICtr extends Controller
                 DB::table('tbl_tenant')
                       ->where('tenant_id', $id)
                       ->update([
-                        //   'fname' => $request->input('fname'),
-                        //   'mname' => $request->input('mname'),
-                        //   'lname' => $request->input('lname'),
-                        //   'email' => $request->input('email'),
-                        //   'address' => $request->input('address'),
-                        //   'phone' => $request->input('phone'),
-                        //   'age' => $request->input('age'),
+                          'fname' => $request->input('fname'),
+                          'mname' => $request->input('mname'),
+                          'lname' => $request->input('lname'),
+                          'email' => $request->input('email'),
+                          'address' => $request->input('address'),
+                          'phone' => $request->input('phone'),
+                          'age' => $request->input('age'),
                           'profile_pic' => $profile_pic,
-                        //   'gender' => $request->input('gender'),
-                        //   'civilstatus' => $request->input('civilstatus'),
+                          'gender' => $request->input('gender'),
+                          'civilstatus' => $request->input('civilstatus'),
                           'created_at' => \Carbon\Carbon::now(),
                           'updated_at' => \Carbon\Carbon::now(),
                       ]);
@@ -58,15 +58,15 @@ class EditTenantAPICtr extends Controller
                 DB::table('tbl_tenant')
                       ->where('tenant_id', $id)
                       ->update([
-                        //   'fname' => $request->input('fname'),
-                        //   'mname' => $request->input('mname'),
-                        //   'lname' => $request->input('lname'),
-                        //   'email' => $request->input('email'),
-                        //   'address' => $request->input('address'),
-                        //   'phone' => $request->input('phone'),
-                        //   'age' => $request->input('age'),
-                        //   'gender' => $request->input('gender'),
-                        //   'civilstatus' => $request->input('civilstatus'),
+                          'fname' => $request->input('fname'),
+                          'mname' => $request->input('mname'),
+                          'lname' => $request->input('lname'),
+                          'email' => $request->input('email'),
+                          'address' => $request->input('address'),
+                          'phone' => $request->input('phone'),
+                          'age' => $request->input('age'),
+                          'gender' => $request->input('gender'),
+                          'civilstatus' => $request->input('civilstatus'),
                           'created_at' => \Carbon\Carbon::now(),
                           'updated_at' => \Carbon\Carbon::now(),
                       ]);
