@@ -19,40 +19,59 @@ class EditTenantAPICtr extends Controller
 
             $id = $request->id;
             $username =  $request->username;
-            $password =  Hash::make($request->password);
+
+            if($request->password == null){
+                $user->where('id', $id)
+                ->update(['username' => $username]);
+            }
+            else{
+                $password =  Hash::make($request->password);
+                $user->where('id', $id)
+                ->update(['username' => $username,
+                          'password' => $password]);
+            }
+
+
             if ($request->profilepic) {
                 $file_path = time().'.jpg';
                 file_put_contents(public_path() . '/images/profile_pic/'.$file_path,base64_decode($request->profilepic));
                 $profile_pic = $file_path;
+
+                DB::table('tbl_tenant')
+                      ->where('tenant_id', $id)
+                      ->update([
+                        //   'fname' => $request->input('fname'),
+                        //   'mname' => $request->input('mname'),
+                        //   'lname' => $request->input('lname'),
+                        //   'email' => $request->input('email'),
+                        //   'address' => $request->input('address'),
+                        //   'phone' => $request->input('phone'),
+                        //   'age' => $request->input('age'),
+                          'profilepic' => $profile_pic,
+                        //   'gender' => $request->input('gender'),
+                        //   'civilstatus' => $request->input('civilstatus'),
+                          'created_at' => \Carbon\Carbon::now(),
+                          'updated_at' => \Carbon\Carbon::now(),
+                      ]);
             }
             else{
-                $profile_pic = null;
+                DB::table('tbl_tenant')
+                      ->where('tenant_id', $id)
+                      ->update([
+                        //   'fname' => $request->input('fname'),
+                        //   'mname' => $request->input('mname'),
+                        //   'lname' => $request->input('lname'),
+                        //   'email' => $request->input('email'),
+                        //   'address' => $request->input('address'),
+                        //   'phone' => $request->input('phone'),
+                        //   'age' => $request->input('age'),
+                        //   'gender' => $request->input('gender'),
+                        //   'civilstatus' => $request->input('civilstatus'),
+                          'created_at' => \Carbon\Carbon::now(),
+                          'updated_at' => \Carbon\Carbon::now(),
+                      ]);
             }
 
-            $user->where('id', $id)
-            ->update(['username' => $username,
-                      'profile_pic' => $profile_pic]);
-    
-    
-                    //   DB::table('tbl_tenant')
-                    //   ->where('tenant_id', $request->input('id'))
-                    //   ->update([
-                    //       'fname' => $request->input('fname'),
-                    //       'mname' => $request->input('mname'),
-                    //       'lname' => $request->input('lname'),
-                    //       'email' => $request->input('email'),
-                    //       'address' => $request->input('address'),
-                    //       'phone' => $request->input('phone'),
-                    //       'age' => $request->input('age'),
-                    //       'birthdate' => $request->input('birthdate'),
-                    //       'contract_start' => $request->input('contractstart'),
-                    //       'contract_end' => $request->input('contractend'),
-                    //       'date_of_occupancy' => $request->input('dateofoccupancy'),
-                    //       'gender' => $request->input('gender'),
-                    //       'civilstatus' => $request->input('civilstatus'),
-                    //       'created_at' => \Carbon\Carbon::now(),
-                    //       'updated_at' => \Carbon\Carbon::now(),
-                    //   ]);
     
                 $result =  DB::table('tbl_user')
                 ->select('tbl_user.*','tbl_tenant.*')
