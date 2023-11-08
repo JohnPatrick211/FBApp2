@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class EditTenantAPICtr extends Controller
 {
