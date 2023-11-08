@@ -92,7 +92,7 @@ class EditTenantCtr extends Controller
 
         }
 
-        return back()->with('success', 'Your Information is Successfully Update');
+        return back()->with('success', 'Your Information is Successfully Updated, Please Relogin to take effect');
 
     }
 
