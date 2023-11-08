@@ -90,6 +90,7 @@ $(document).ready(function()
         });
 
         $('#editbirthdate').change(function() {
+          console.log("success")
           var userinput = document.getElementById("editbirthdate").value;
           var dob = new Date(userinput);
            //calculate month difference from current date in time
