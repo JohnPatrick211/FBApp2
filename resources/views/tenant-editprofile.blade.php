@@ -110,7 +110,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="label-small">Username</label>
-                            <input type="text" class="form-control" name="editusername" id="editusername" value="{{$TenantInfo -> address}}" required>
+                            <input type="text" class="form-control" name="editusername" id="editusername" value="{{$TenantInfo -> username}}" required>
                         </div>
 
                         <div class="col-md-6 mb-3">
