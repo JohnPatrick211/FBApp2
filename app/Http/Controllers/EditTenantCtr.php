@@ -28,4 +28,73 @@ class EditTenantCtr extends Controller
         ];
         return view('tenant-editprofile', $data);
     }
+
+    public function updateprofile(Request $request)
+    {
+
+        DB::table('tbl_user')
+        ->where('id', $request->input('editid'))
+        ->update([
+            'username' => $request->input('editusername'),
+            'password' => Hash::make($request->input('editpassword')),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);   
+
+        if ($request->hasFile('editprofilepic')) { 
+            $profilepic = $this->imageUpload($request->file('editprofilepic'), 'pic_only');
+            
+            DB::table('tbl_tenant')
+            ->where('tenant_id', $request->input('editid'))
+            ->update([
+                'fname' => $request->input('editfname'),
+                'mname' => $request->input('editmname'),
+                'lname' => $request->input('editlname'),
+                'email' => $request->input('editemail'),
+                'address' => $request->input('editaddress'),
+                'phone' => $request->input('editphone_no'),
+                'age' => $request->input('editage'),
+                'birthdate' => $request->input('editbirthdate'),
+                'gender' => $request->input('editgender'),
+                'civilstatus' => $request->input('editcivilstatus'),
+                'profile_pic' => $profilepic,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
+            ]);
+        }
+        else{
+            DB::table('tbl_tenant')
+            ->where('tenant_id', $request->input('id'))
+            ->update([
+                'fname' => $request->input('editfname'),
+                'mname' => $request->input('editmname'),
+                'lname' => $request->input('editlname'),
+                'email' => $request->input('editemail'),
+                'address' => $request->input('editaddress'),
+                'phone' => $request->input('editphone_no'),
+                'age' => $request->input('editage'),
+                'birthdate' => $request->input('editbirthdate'),
+                'gender' => $request->input('editgender'),
+                'civilstatus' => $request->input('editcivilstatus'),
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
+            ]);
+
+        }
+
+        return back()->with('success', 'Your Information is Successfully Update');
+
+    }
+
+public function imageUpload($request, $type) 
+    {
+        $folder_to_save = 'profile_pic';
+
+        if ($type == 'pic_only') {
+            $image_name = uniqid() . "." . $request->extension();
+            $request->move(public_path('images/' . $folder_to_save), $image_name);
+            return $folder_to_save . "/" . $image_name;
+        }
+    }
+
 }

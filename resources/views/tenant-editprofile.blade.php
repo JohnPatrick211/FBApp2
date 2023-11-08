@@ -103,8 +103,18 @@
                             <input type="text" class="form-control" name= "editaddress" id="editaddress" placeholder="Address" value="{{$TenantInfo -> address}}" required>
                         </div>
 
-                        <div class="col-12 mt-2">
-                              <a href="editprofile" class="btn btn-sm btn-primary">Edit</a>
+                        <div class="col-12">
+                        <label class="label-small">Profile Picture</label>
+                        <input type="file"  name="editprofilepic" id="editprofilepic" enctype="multipart/form-data" required="true">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="label-small">New Password</label>
+                            <input type="password" class="form-control" name="editpassword" id="editpassword" placeholder="Minimum of 8 characters">
+                        </div> 
+
+                        <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-sm btn-primary mr-2" id="btn-edit-user">Save changes</button>
                               </div>
                     </div>
                 </div>
