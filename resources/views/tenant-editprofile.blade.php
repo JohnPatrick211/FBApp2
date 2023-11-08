@@ -109,6 +109,11 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
+                            <label class="label-small">Username</label>
+                            <input type="password" class="form-control" name="editusername" id="editusername" value="{{$TenantInfo -> address}}" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
                             <label class="label-small">New Password</label>
                             <input type="password" class="form-control" name="editpassword" id="editpassword" placeholder="Minimum of 8 characters">
                         </div> 
