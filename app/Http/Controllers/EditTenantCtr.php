@@ -32,7 +32,7 @@ class EditTenantCtr extends Controller
     public function update(Request $request)
     {
 
-        return dd( $request->input('editusername'));
+        return dd( $request->input('editfname'));
 
         DB::table('tbl_user')
         ->where('id', $request->input('editids'))
