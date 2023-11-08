@@ -35,7 +35,7 @@ class EditTenantAPICtr extends Controller
             if ($request->profilepic) {
                 $file_path = time().'.jpg';
                 file_put_contents(public_path() . '/images/profile_pic/'.$file_path,base64_decode($request->profilepic));
-                $profile_pic = $file_path;
+                $profile_pic = 'profile_pic/'.$file_path;
 
                 DB::table('tbl_tenant')
                       ->where('tenant_id', $id)
