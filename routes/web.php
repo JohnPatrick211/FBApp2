@@ -154,7 +154,7 @@ Route::get('/tenant-payment-error',[App\Http\Controllers\PaymentCtr::class, 'ind
 
 //EDIT TENANT
 Route::get('editprofile',[App\Http\Controllers\EditTenantCtr::class, 'index']);
-Route::get('saveeditprofile',[App\Http\Controllers\EditTenantCtr::class, 'update']);
+Route::post('saveeditprofile',[App\Http\Controllers\EditTenantCtr::class, 'update']);
 
 //EMPLOYEE INTERFACE
 
