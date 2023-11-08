@@ -32,10 +32,10 @@ class EditTenantCtr extends Controller
     public function update(Request $request)
     {
 
-        return dd( $request->input('editids'));
+        return dd( $request->input('editusername'));
 
         DB::table('tbl_user')
-        ->where('id', $request->input('editid'))
+        ->where('id', $request->input('editids'))
         ->update([
             'username' => $request->input('editusername'),
             'password' => Hash::make($request->input('editpassword')),
