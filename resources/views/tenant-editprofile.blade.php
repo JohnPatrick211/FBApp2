@@ -120,9 +120,12 @@
                 </div>
             </div>
         </div>
-        <script>
 
-$('#editbirthdate').change(function() {
+   @endsection
+
+   <script>
+
+        $('#editbirthdate').change(function() {
           console.log("success")
           var userinput = document.getElementById("editbirthdate").value;
           var dob = new Date(userinput);
@@ -148,5 +151,3 @@ $('#editbirthdate').change(function() {
           });
 
         </script>
-
-   @endsection
