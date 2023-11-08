@@ -41,7 +41,7 @@
                         <div class="col-md-4 mb-3">
                             <label class="label-small font-weight-bold">Tenant ID</label>
                             <br/>
-                            <label class="label-small" id="displayid">TEN-{{$TenantInfo -> tenant_id}}</label>
+                            <label class="label-small" id="displayid">2023-TEN-{{$TenantInfo -> tenant_id}}</label>
                         </div>
     
                         <div class="col-md-4 mb-3">
