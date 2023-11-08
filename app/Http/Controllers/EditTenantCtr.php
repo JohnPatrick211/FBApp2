@@ -29,7 +29,7 @@ class EditTenantCtr extends Controller
         return view('tenant-editprofile', $data);
     }
 
-    public function updateprofile(Request $request)
+    public function update(Request $request)
     {
 
         DB::table('tbl_user')
