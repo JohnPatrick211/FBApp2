@@ -31,16 +31,25 @@ class EditTenantCtr extends Controller
 
     public function update(Request $request)
     {
-
-
-        DB::table('tbl_user')
-        ->where('id', $request->input('editids'))
-        ->update([
-            'username' => $request->input('editusername'),
-            'password' => Hash::make($request->input('editpassword')),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
-        ]);   
+        if($request->input('editpassword') == null){
+            DB::table('tbl_user')
+            ->where('id', $request->input('editids'))
+            ->update([
+                'username' => $request->input('editusername'),
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
+            ]);  
+        }
+        else{
+            DB::table('tbl_user')
+            ->where('id', $request->input('editids'))
+            ->update([
+                'username' => $request->input('editusername'),
+                'password' => Hash::make($request->input('editpassword')),
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
+            ]);   
+        }
 
         if ($request->hasFile('editprofilepic')) { 
             $profilepic = $this->imageUpload($request->file('editprofilepic'), 'pic_only');

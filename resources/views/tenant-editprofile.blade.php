@@ -42,8 +42,8 @@
                         <div class="row">
                         {{ csrf_field() }}
 
-                        <input type="text" name= "editids" id="editids" value="{{$TenantInfo -> tenant_id}}">
-                        <input type="text" name= "edituserids" id="edituserids" value="{{$LoggedUserInfo -> tenant_id}}">
+                        <input type="hidden" name= "editids" id="editids" value="{{$TenantInfo -> tenant_id}}">
+                        <input type="hidden" name= "edituserids" id="edituserids" value="{{$LoggedUserInfo -> tenant_id}}">
 
                         <div class="col-md-4 mb-3">
                             <label class="label-small">First Name</label>
