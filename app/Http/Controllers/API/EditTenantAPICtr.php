@@ -47,7 +47,7 @@ class EditTenantAPICtr extends Controller
                         //   'address' => $request->input('address'),
                         //   'phone' => $request->input('phone'),
                         //   'age' => $request->input('age'),
-                          'profilepic' => $profile_pic,
+                          'profile_pic' => $profile_pic,
                         //   'gender' => $request->input('gender'),
                         //   'civilstatus' => $request->input('civilstatus'),
                           'created_at' => \Carbon\Carbon::now(),
