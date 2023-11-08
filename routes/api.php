@@ -42,4 +42,6 @@ Route::post('deleteComment', [App\Http\Controllers\API\ForumAPICtr::class, 'dele
 Route::post('register', [App\Http\Controllers\API\RegisterAPICtr::class, 'register']);
 Route::get('sendOTP', [App\Http\Controllers\API\RegisterAPICtr::class, 'sendOTP']);
 Route::get('roomNumber', [App\Http\Controllers\API\RegisterAPICtr::class, 'roomNumber']);
+//Edit
+Route::post('editprofile', [App\Http\Controllers\API\EditTenantAPICtr::class, 'editprofile']);
 
