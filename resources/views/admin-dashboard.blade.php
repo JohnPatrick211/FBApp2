@@ -145,7 +145,7 @@
                                 </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-money-bill fa-3x text-gray-400"></i>
+                                    <i class="fas fa-history fa-3x text-gray-400"></i>
                                 </div>
                             </div>
                         </div>
