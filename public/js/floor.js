@@ -114,7 +114,7 @@ $(document).ready(function()
 
         $(document).on('click', '#btn-edit-save-floor', function(){
             var id = $('#ecust-id-hidden').val();
-            var roomnumber = $('#eroomnumber').val();
+            var roomnumber = $('#efloornumber').val();
             var roomcapacity = $('#eno_of_room').val();
             var form = new FormData()
             form.append('id', id)
