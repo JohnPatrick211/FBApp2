@@ -141,7 +141,7 @@
                                 <div class="col mr-2">
                                     <div class="text-sm font-weight-bold text-danger text-uppercase mb-3">
                                         Oldest Tenant</div>
-                                    <div class="h3 mb-0 font-weight-bold text-gray-800"><span style="font-size: 28px;">&#8369;</span> {{$oldestTenant->fname}}
+                                    <div class="h3 mb-0 font-weight-bold text-gray-800">{{$oldestTenant->fname}} {{$oldestTenant->lname}}
                                 </div>
                                 </div>
                                 <div class="col-auto">

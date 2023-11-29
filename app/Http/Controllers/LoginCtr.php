@@ -265,7 +265,7 @@ class LoginCtr extends Controller
                 $oldestTenant = DB::table('tbl_tenant')
                ->select('tbl_tenant.*')
                ->where('status',1)
-               ->orderBy('created_at','desc')
+               ->orderBy('created_at','asc')
                 ->first();
 
                 $sales = DB::table('tbl_sales')
