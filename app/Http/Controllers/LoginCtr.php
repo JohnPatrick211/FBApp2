@@ -263,7 +263,7 @@ class LoginCtr extends Controller
                 ->count();
 
                 $oldestTenant = DB::table('tbl_tenant')
-               ->select('tbl_employee.*')
+               ->select('tbl_tenant.*')
                ->where('status',1)
                ->orderBy('created_at','desc')
                 ->first();
