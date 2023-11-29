@@ -70,14 +70,14 @@ $(document).ready(function()
                });
         }
 
-        $(document).on('click', '#btn-archive-room', function()
+        $(document).on('click', '#btn-archive-floor', function()
         {
             let id = $(this).attr('employer-id');
             console.log(id);
             $('#id_archive').val(id);
         });
 
-        $(document).on('click', '#btn_archive_room', function(){
+        $(document).on('click', '#btn_archive_floor', function(){
             var id = $('#id_archive').val();
             console.log(id);
 
@@ -139,8 +139,8 @@ $(document).ready(function()
                 if(data == 1){
                   $('.error-number').css('display', 'inline');
                     $('.loader').css('display', 'none');
-                    $('#btn-edit-save-room').text('Edit');
-                    $('#room-table').DataTable().ajax.reload();
+                    $('#btn-edit-save-floor').text('Edit');
+                    $('#floor-table').DataTable().ajax.reload();
                     setTimeout(function(){
                     $('.error-number').fadeOut('slow');
                   },2000);
