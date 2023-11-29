@@ -28,9 +28,9 @@ class FloorMaintenanceCtr extends Controller
             {
             return datatables()->of($getEm)
             ->addColumn('action', function($getEm){
-            $button = '<a class="btn btn-sm btn-success m-1" id="btn-edit-room" employer-id='. $getEm->id .' data-toggle="modal" data-target="#editFloorModal">
+            $button = '<a class="btn btn-sm btn-success m-1" id="btn-edit-floor" employer-id='. $getEm->id .' data-toggle="modal" data-target="#editFloorModal">
                 <i class="fa fa-edit"></i></a>';
-                $button .= '<a class="btn btn-sm btn-danger m-1" id="btn-archive-room" employer-id='. $getEm->id .' data-toggle="modal" data-target="#FloorArchiveModal">
+                $button .= '<a class="btn btn-sm btn-danger m-1" id="btn-archive-floor" employer-id='. $getEm->id .' data-toggle="modal" data-target="#FloorArchiveModal">
                 <i class="fa fa-archive"></i></a>';
 
 
