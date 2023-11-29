@@ -136,7 +136,17 @@ $(document).ready(function()
                   $('.loader').css('display', 'inline');
                 },
               success:function(data){
-                console.log(data);
+                if(data == 1){
+                  $('.error-number').css('display', 'inline');
+                    $('.loader').css('display', 'none');
+                    $('#btn-edit-save-room').text('Edit');
+                    $('#room-table').DataTable().ajax.reload();
+                    setTimeout(function(){
+                    $('.error-number').fadeOut('slow');
+                  },2000);
+                }
+                else{
+                  console.log(data);
                     $('.update-success-validation').css('display', 'inline');
                     $('.loader').css('display', 'none');
                     $('#btn-edit-save-floor').text('Edit');
@@ -145,6 +155,7 @@ $(document).ready(function()
                     $('.update-success-validation').fadeOut('slow');
                     $('#EditFloorModal').modal('toggle');
                   },2000);
+                }
                 
                   
               }
