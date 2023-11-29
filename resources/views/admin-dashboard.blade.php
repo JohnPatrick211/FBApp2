@@ -134,6 +134,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-sm font-weight-bold text-danger text-uppercase mb-3">
+                                        Oldest Tenant</div>
+                                    <div class="h3 mb-0 font-weight-bold text-gray-800"><span style="font-size: 28px;">&#8369;</span> {{$oldestTenant}}
+                                </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-money-bill fa-3x text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
 
                 <!-- Earnings (Monthly) Card Example -->

@@ -262,6 +262,12 @@ class LoginCtr extends Controller
                ->where('status',1)
                 ->count();
 
+                $oldestTenant = DB::table('tbl_tenant')
+               ->select('tbl_employee.*')
+               ->where('status',1)
+               ->orderBy('created_at','desc')
+                ->first();
+
                 $sales = DB::table('tbl_sales')
                 ->where(DB::raw('DATE(created_at)'), \Carbon\Carbon::now()->format('Y-m-d'))
                 // ->where(DB::raw('DATE(created_at)'), DB::raw(' DATE_ADD(created_at, INTERVAL 1 month )'))
@@ -282,6 +288,7 @@ class LoginCtr extends Controller
                  'numberofEmployees' => $numberofEmployees,
                  'sales' => $sales,
                  'numberOfVacantBedsAvailable' => $numberOfVacantBedsAvailable,
+                 'oldestTenant' => $oldestTenant,
                 // 'approvedpatient' => $approvedpatient,
                 // 'date' => $date,
                 // 'sales' => $sales,
