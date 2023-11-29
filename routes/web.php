@@ -55,6 +55,13 @@ Route::get('room-maintenance-details/{id}',[App\Http\Controllers\RoomMaintenance
 Route::post('room/editroom', [App\Http\Controllers\RoomMaintenanceCtr::class, 'updateRoom'])->middleware('Islogged');
 Route::post('room-maintenance/archiveroom/{id}', [App\Http\Controllers\RoomMaintenanceCtr::class, 'ArchiveRoom']);
 Route::post('AddRoom', [App\Http\Controllers\RoomMaintenanceCtr::class, 'AddRoom']);
+//Floor Maintenance
+Route::get('floor-maintenance',[App\Http\Controllers\RoomMaintenanceCtr::class, 'index'])->middleware('Islogged');
+Route::get('floor-maintenance/floor',[App\Http\Controllers\RoomMaintenanceCtr::class, 'floormaintenance_floor'])->middleware('Islogged');
+Route::get('floor-maintenance-details/{id}',[App\Http\Controllers\RoomMaintenanceCtr::class, 'getFloorDetails'])->middleware('Islogged');
+Route::post('floor/editfloor', [App\Http\Controllers\RoomMaintenanceCtr::class, 'updateFloor'])->middleware('Islogged');
+Route::post('floor-maintenance/archivefloor/{id}', [App\Http\Controllers\RoomMaintenanceCtr::class, 'ArchiveFloor']);
+Route::post('AddFloor', [App\Http\Controllers\RoomMaintenanceCtr::class, 'AddFloor']);
 //Rule Maintenance
 Route::get('rule-maintenance',[App\Http\Controllers\RuleMaintenanceCtr::class, 'index'])->middleware('Islogged');
 Route::get('rule-maintenance-details/{id}',[App\Http\Controllers\RuleMaintenanceCtr::class, 'getRuleDetails'])->middleware('Islogged');

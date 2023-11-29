@@ -153,6 +153,7 @@
                         <a class="collapse-item" href="/user-maintenance">User Maintenance</a>
                         <a class="collapse-item" href="/room-maintenance">Room Maintenance</a>
                         <a class="collapse-item" href="/rule-maintenance">Rule Maintenance</a>
+                        <a class="collapse-item" href="/floor-maintenance">Floor Maintenance</a>
                     </div>
                 </div>
             </li>
@@ -451,6 +452,7 @@
     <script src="/js/salesreport.js"></script>
     <script src="/js/forum_comment.js"></script>
     <script src="/js/tenantapproval.js"></script>
+    <script src="/js/floor.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>
