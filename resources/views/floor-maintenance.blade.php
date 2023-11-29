@@ -1,4 +1,4 @@
-@include('modals.room_modals')
+@include('modals.floor_modals')
 @extends('layouts.admin')
 
 @section('content')
