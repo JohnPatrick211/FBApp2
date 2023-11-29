@@ -70,7 +70,7 @@ class FloorMaintenanceCtr extends Controller
     }
 
     //get Floor
-    public function getRoomDetails($id){
+    public function getFloorDetails($id){
         return DB::table('tbl_floor AS BR')
             ->select('BR.*')
             ->where('BR.id',$id)
