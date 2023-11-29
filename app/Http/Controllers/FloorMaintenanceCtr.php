@@ -77,7 +77,7 @@ class FloorMaintenanceCtr extends Controller
             ->get();
     }
     //Edit
-    public function updateRoom(Request $request){
+    public function updateFloor(Request $request){
         $id = $request->id;
         $floornumber = $request->floornumber;
         $no_of_room = $request->no_of_room;
