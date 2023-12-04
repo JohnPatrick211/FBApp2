@@ -61,7 +61,20 @@ $(document).ready(function(){
             }
          },
          { "visible": false,  "targets": [ 2 ] },
-         { "visible": false,  "targets": [ 3 ] }],
+         { "visible": false,  "targets": [ 3 ] }, {
+          targets: 4,
+          orderable: true,
+          changeLength: true,
+          className: 'dt-body-center',
+          render: function (data, type, full, meta){
+            if(data == 1){
+                return 'Paid'
+            }
+            else{
+                return 'Unpaid'
+            }
+          }
+       }],
 
   
             columns:[
