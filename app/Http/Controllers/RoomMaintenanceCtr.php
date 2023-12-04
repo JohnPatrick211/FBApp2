@@ -65,6 +65,7 @@ class RoomMaintenanceCtr extends Controller
         {
         $room->roomnumber = $request->input('roomnumber');
         $room->roomcapacity = $request->input('roomcapacity');
+        $room->floor_id = $request->input('floor');
         $room->isOccupied = 0;
         $room->vacantnumber = $request->input('roomcapacity');
         $room->status = 1;
@@ -80,7 +81,8 @@ class RoomMaintenanceCtr extends Controller
     //get Room
     public function getRoomDetails($id){
         return DB::table('tbl_room AS BR')
-            ->select('BR.*')
+            ->select('BR.*','tbl_floor.floornumber')
+            ->leftJoin('tbl_floor', 'BR.floor_id', '=', 'tbl_floor.id')
             ->where('BR.id',$id)
             ->get();
     }
