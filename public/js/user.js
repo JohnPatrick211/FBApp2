@@ -394,7 +394,7 @@ $(document).ready(function()
                     $('#econtractend').val(data[0].contract_end);
                     $('#egender').val(data[0].gender);
                     $('#ecivilstatus').val(data[0].civilstatus);
-                    document.getElementById("eroom").value = data[0].room_id;
+                    document.getElementById("eroom").value = data[0].roomid;
                     if(data[0].roomid == null){
                        document.getElementById('eroom').disabled = false;
                        console.log(data[0].roomid)
