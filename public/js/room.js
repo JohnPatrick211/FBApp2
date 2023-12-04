@@ -140,10 +140,12 @@ $(document).ready(function()
             var id = $('#ecust-id-hidden').val();
             var roomnumber = $('#eroomnumber').val();
             var roomcapacity = $('#eroomcapacity').val();
+            var floor = $('#efloor').val();
             var form = new FormData()
             form.append('id', id)
             form.append('roomnumber', roomnumber)
             form.append('roomcapacity', roomcapacity)
+            form.append('floor', floor)
 
             edit(form)
 

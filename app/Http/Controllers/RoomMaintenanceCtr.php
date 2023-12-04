@@ -91,6 +91,7 @@ class RoomMaintenanceCtr extends Controller
         $id = $request->id;
         $roomnumber = $request->roomnumber;
         $roomcapacity = $request->roomcapacity;
+        $floor = $request->floor;
         $getDBvacantnumber = DB::table('tbl_room AS BR')
         ->select('BR.vacantnumber')
         ->where('BR.id',$id)
@@ -130,6 +131,7 @@ class RoomMaintenanceCtr extends Controller
                     DB::table('tbl_room')
                     ->where('id', $id)
                     ->update([
+                        'floor_id' => $floor,
                         'roomcapacity' => DB::raw('roomcapacity +'. $increment),
                         'vacantnumber' => DB::raw('vacantnumber +'. $increment),
                         'created_at' => \Carbon\Carbon::now(),
@@ -203,6 +205,7 @@ class RoomMaintenanceCtr extends Controller
             ->where('id', $id)
             ->update([
                 'roomnumber' => $roomnumber,
+                'floor_id' => $floor,
                 'roomcapacity' => DB::raw('roomcapacity +'. $increment),
                 'vacantnumber' => DB::raw('vacantnumber +'. $increment),
                 'created_at' => \Carbon\Carbon::now(),
