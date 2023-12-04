@@ -80,6 +80,7 @@ $(document).ready(function()
                     $('#ecust-id-hidden').val(id);
                     $('#eroomnumber').val(data[0].roomnumber);
                     $('#efloor').val(data[0].floornumber);
+                    document.getElementById("efloor").value = data[0].floor_id;
                     $('#eroomcapacity').val(data[0].roomcapacity);
                     // if(data[0].user_role == 'Doctor')
                     // {

@@ -47,7 +47,7 @@ class RoomMaintenanceCtr extends Controller
     public function getRoom()
     {
         return DB::table('tbl_room AS BR')
-                ->select('BR.*','tbl_floor.floornumber')
+                ->select('BR.*','tbl_floor.floornumber','tbl_floor.id as floor_id')
                 ->leftJoin('tbl_floor', 'BR.floor_id', '=', 'tbl_floor.id')
                 ->where('BR.status','=','1')
                 ->get();
@@ -81,7 +81,7 @@ class RoomMaintenanceCtr extends Controller
     //get Room
     public function getRoomDetails($id){
         return DB::table('tbl_room AS BR')
-            ->select('BR.*','tbl_floor.floornumber')
+            ->select('BR.*','tbl_floor.floornumber','tbl_floor.id as floor_id')
             ->leftJoin('tbl_floor', 'BR.floor_id', '=', 'tbl_floor.id')
             ->where('BR.id',$id)
             ->get();
