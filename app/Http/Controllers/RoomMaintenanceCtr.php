@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Login;
 use App\Models\Room;
+use App\Models\Floor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,8 @@ class RoomMaintenanceCtr extends Controller
              ];
              $users3 = Login::all();
              $users4 = Room::orderBy('id', 'ASC')->where('vacantnumber', '!=', 0)->where('status', '!=', 0)->get();
-             return view('room-maintenance', $data)->with('users3',$users3)->with('users4',$users4);
+             $users5 = Floor::orderBy('id', 'ASC')->get();
+             return view('room-maintenance', $data)->with('users3',$users3)->with('users4',$users4)->with('users5',$users5);
          }
     }
 
@@ -45,7 +47,8 @@ class RoomMaintenanceCtr extends Controller
     public function getRoom()
     {
         return DB::table('tbl_room AS BR')
-                ->select('BR.*')
+                ->select('BR.*','tbl_floor.floornumber')
+                ->leftJoin('tbl_floor', 'BR.floor_id', '=', 'tbl_floor.id')
                 ->where('BR.status','=','1')
                 ->get();
     }

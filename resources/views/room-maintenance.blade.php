@@ -72,6 +72,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Floor</th>
                                             <th>Room Number</th>
                                             <th>Room Capacity</th>
                                             <th>Occupied</th>

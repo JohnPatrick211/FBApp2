@@ -58,6 +58,15 @@
                     <span class="text-danger" id="brancherror"></span>
                   </div>
 
+                  <div class="col-md-6">
+                  <label class="col-form-label">Floor</label>
+                  <select class="form-control" name="floor" id="floor">
+                  @foreach($users5 as $item)
+                      <option value="{{$item->id}}">{{$item->floornumber}}</option>
+                  @endforeach
+                  </select>
+                </div>
+
                   <div class="col-sm-12 col-md-6 col-lg-6">
                     <label class="col-form-label">Room Capacity</label>
                      <input type="number" step="1" class="form-control" name="roomcapacity" id="roomcapacity" min="1" required>
@@ -97,6 +106,15 @@
                     <input type="text" class="form-control" name="eroomnumber" id="eroomnumber" required>
                     <span class="text-danger" id="brancherror"></span>
                   </div>
+
+                  <div class="col-md-6">
+                  <label class="col-form-label">Floor</label>
+                  <select class="form-control" name="efloor" id="efloor">
+                  @foreach($users5 as $item)
+                      <option value="{{$item->id}}">{{$item->floornumber}}</option>
+                  @endforeach
+                  </select>
+                </div>
 
                   <div class="col-sm-12 col-md-6 col-lg-6">
                     <label class="col-form-label">Room Capacity</label>

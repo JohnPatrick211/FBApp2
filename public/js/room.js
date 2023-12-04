@@ -50,6 +50,7 @@ $(document).ready(function()
 
            columns:[
             {data: 'id', name: 'id'},
+            {data: 'floornumber', name: 'floornumber'},
             {data: 'roomnumber', name: 'roomnumber'},
             {data: 'roomcapacity', name: 'roomcapacity'},
             {data: 'isOccupied', name: 'isOccupied'},
@@ -78,6 +79,7 @@ $(document).ready(function()
                     console.log(data);
                     $('#ecust-id-hidden').val(id);
                     $('#eroomnumber').val(data[0].roomnumber);
+                    $('#efloor').val(data[0].floornumber);
                     $('#eroomcapacity').val(data[0].roomcapacity);
                     // if(data[0].user_role == 'Doctor')
                     // {
