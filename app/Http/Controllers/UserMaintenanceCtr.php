@@ -19,7 +19,8 @@ class UserMaintenanceCtr extends Controller
              ];
              $users3 = Login::all();
              $users4 = Room::orderBy('id', 'ASC')->where('vacantnumber', '!=', 0)->where('status', '!=', 0)->get();
-             return view('user-maintenance', $data)->with('users3',$users3)->with('users4',$users4);
+             $users5 = Room::orderBy('id', 'ASC')->where('status', '!=', 0)->get();
+             return view('user-maintenance', $data)->with('users3',$users3)->with('users4',$users4)->with('users5',$users5);
          }
     }
     public function getAdmin()

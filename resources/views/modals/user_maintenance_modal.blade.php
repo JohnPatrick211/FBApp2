@@ -245,7 +245,7 @@
               <div class="ehide-room col-12 mb-2" style="display: none">
                   <label class="col-form-label">Room Number</label>
                   <select class="form-control" name="eroom" id="eroom" >
-                  @foreach($users4 as $item)
+                  @foreach($users5 as $item)
                       <option value="{{$item->id}}">{{$item->roomnumber}}</option>
                   @endforeach
                   </select>
