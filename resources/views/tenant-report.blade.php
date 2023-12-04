@@ -35,7 +35,7 @@
                                 </div>
 
                                 <div class="col-sm-2 ">
-                            <select class="form-control" style="width:160%;" name="salespayment_method" id="salespayment_method">
+                            <select class="form-control" style="width:160%;" name="tenantpayment_method" id="tenantpayment_method">
                                                 <option value="All">All Payment Status</option>
                                                 <option value="0">Unpaid</option>
                                                 <option value="1">Paid</option>
