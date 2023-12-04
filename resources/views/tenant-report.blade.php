@@ -60,6 +60,7 @@
                                             <th>ID</th>
                                             <th>Tenant Name</th>
                                             <th>Middle Name</th>
+                                            <th>Last Name</th>
                                             <th>Status</th>
                                             <th>Next Payment Date</th>
                                   </tr>
