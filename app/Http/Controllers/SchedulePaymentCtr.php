@@ -27,7 +27,7 @@ class SchedulePaymentCtr extends Controller
          }
     }
 
-     public function SalesReportData(Request $request)
+     public function TenantReportData(Request $request)
     {
         $getEm = $this->getTenantReport($request->date_from, $request->date_to, $request->payment_method);
          if(request()->ajax())
