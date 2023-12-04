@@ -127,6 +127,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/sales-reports">Sales Reports</a>
+                        <a class="collapse-item" href="/tenant-reports">Tenant Reports</a>
                     </div>
                 </div>
             </li>
@@ -453,6 +454,7 @@
     <script src="/js/forum_comment.js"></script>
     <script src="/js/tenantapproval.js"></script>
     <script src="/js/floor.js"></script>
+    <script src="/js/tenantreport.js"></script>
     <!-- ajax action edit employer -->
     <!-- <script src="js/peso-staff--archive.js"></script>
     <script src="js/verify_appointment.js"></script>
