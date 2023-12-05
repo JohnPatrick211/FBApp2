@@ -233,7 +233,7 @@ class PaymentCtr extends Controller
 
         session()->forget('source');
         //return redirect('/tenant-payment')->with('success', 'Your Online Payment Transaction is Successfully Created')->send();
-        return dd(Carbon::parse($nextdate->next_payment)->format('Y-m-d')->addMonthsNoOverflow(1));
+        return dd(Carbon::parse($nextdate->next_payment)->addMonthsNoOverflow(1)->format('Y-m-d'));
     }
 }
 
