@@ -211,29 +211,29 @@ class PaymentCtr extends Controller
         ->where('BR.tenant_id', session('LoggedUser'))
         ->first();
 
-        // DB::table('tbl_sales')
-        // ->insert([
-        // 'tenant_id' => session('LoggedUser'),
-        // 'invoice_no' => $source_ss['source_id'],
-        // 'product_name' => $description,
-        // 'amount' => $source_ss['amount'],
-        // 'payment_method' => 'GCash',
-        // 'created_at' => \Carbon\Carbon::now(),
-        // 'updated_at' => \Carbon\Carbon::now(),
-        // ]);
+        DB::table('tbl_sales')
+        ->insert([
+        'tenant_id' => session('LoggedUser'),
+        'invoice_no' => $source_ss['source_id'],
+        'product_name' => $description,
+        'amount' => $source_ss['amount'],
+        'payment_method' => 'GCash',
+        'created_at' => \Carbon\Carbon::now(),
+        'updated_at' => \Carbon\Carbon::now(),
+        ]);
 
-        // DB::table('tbl_schedulepayment')
-        // ->where('tbl_schedulepayment.tenant_id', session('LoggedUser'))
-        // ->update([
-        //     'paid_status' => '1',
-        //     'next_payment' => 'carbon',
-        //     'created_at' => \Carbon\Carbon::now(),
-        //     'updated_at' => \Carbon\Carbon::now(),
-        // ]);
+        DB::table('tbl_schedulepayment')
+        ->where('tbl_schedulepayment.tenant_id', session('LoggedUser'))
+        ->update([
+            'paid_status' => '1',
+            'next_payment' => Carbon::parse($nextdate->next_payment)->addMonthsNoOverflow(1)->format('Y-m-d'),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
 
         session()->forget('source');
-        //return redirect('/tenant-payment')->with('success', 'Your Online Payment Transaction is Successfully Created')->send();
-        return dd(Carbon::parse($nextdate->next_payment)->addMonthsNoOverflow(1)->format('Y-m-d'));
+        return redirect('/tenant-payment')->with('success', 'Your Online Payment Transaction is Successfully Created')->send();
+        //return dd(Carbon::parse($nextdate->next_payment)->addMonthsNoOverflow(1)->format('Y-m-d'));
     }
 }
 
