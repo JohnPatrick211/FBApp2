@@ -183,6 +183,11 @@ class PaymentAPICtr extends Controller
 
         DB::table('tbl_onlinepayment')->where('online_id', $source_id->online_id)->delete();
 
+        $nextdate = DB::table('tbl_schedulepayment AS BR')
+        ->select('BR.next_payment')
+        ->where('BR.tenant_id', $tenant_id)
+        ->first();
+
         DB::table('tbl_sales')
         ->insert([
         'tenant_id' => $tenant_id,
@@ -192,6 +197,15 @@ class PaymentAPICtr extends Controller
         'payment_method' => 'GCash',
         'created_at' => \Carbon\Carbon::now(),
         'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        DB::table('tbl_schedulepayment')
+        ->where('tbl_schedulepayment.tenant_id', session('LoggedUser'))
+        ->update([
+            'paid_status' => '1',
+            'next_payment' => Carbon::parse($nextdate->next_payment)->addMonthsNoOverflow(1)->format('Y-m-d'),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         session()->forget('source');
