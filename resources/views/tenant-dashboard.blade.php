@@ -119,7 +119,7 @@
                         <div class="col-md-4 mb-3">
                             <label class="label-small font-weight-bold">Next Payment Date</label>
                             <br/>
-                            <label class="label-small" id="displayaddress">{{$TenantInfo -> nextpayment}}</label>
+                            <label class="label-small" id="displayaddress">{{$TenantRoom -> nextpayment}}</label>
                         </div>
 
                         <div class="col-12 mt-2">
