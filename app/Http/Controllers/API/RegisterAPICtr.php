@@ -79,6 +79,15 @@ class RegisterAPICtr extends Controller
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 ]);
+
+                DB::table('tbl_schedulepayment')
+                ->insert([
+                'tenant_id' => $id,
+                'next_payment' => $request->dateofoccupancy,
+                'status' => '0',
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
+                ]);
     
                 $result =  DB::table('tbl_user')
                 ->select('tbl_user.*','tbl_tenant.*')

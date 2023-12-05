@@ -191,6 +191,10 @@ public function reject($id){
     DB::table('tbl_user')
     ->where('tbl_user.id', $tenantid->tenant_id)
     ->delete();
+
+    DB::table('tbl_schedulepayment')
+    ->where('tbl_schedulepayment.tenant_id', $tenantid->tenant_id)
+    ->delete();
     
     
 }

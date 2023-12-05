@@ -67,6 +67,15 @@ class SignUpController extends Controller
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             ]);
+
+            DB::table('tbl_schedulepayment')
+            ->insert([
+            'tenant_id' => $id,
+            'next_payment' => $dateofoccupancy,
+            'status' => '0',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            ]);
         
 
         Session::forget('otp');
