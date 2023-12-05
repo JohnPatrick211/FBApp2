@@ -72,7 +72,7 @@ class SignUpController extends Controller
             ->insert([
             'tenant_id' => $id,
             'next_payment' => $dateofoccupancy,
-            'status' => '0',
+            'paid_status' => '0',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             ]);

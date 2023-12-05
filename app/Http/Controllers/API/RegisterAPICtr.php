@@ -84,7 +84,7 @@ class RegisterAPICtr extends Controller
                 ->insert([
                 'tenant_id' => $id,
                 'next_payment' => $request->dateofoccupancy,
-                'status' => '0',
+                'paid_status' => '0',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 ]);
