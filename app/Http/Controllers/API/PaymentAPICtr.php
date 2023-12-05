@@ -200,7 +200,7 @@ class PaymentAPICtr extends Controller
         ]);
 
         DB::table('tbl_schedulepayment')
-        ->where('tbl_schedulepayment.tenant_id', session('LoggedUser'))
+        ->where('tbl_schedulepayment.tenant_id', $tenant_id)
         ->update([
             'paid_status' => '1',
             'next_payment' => Carbon::parse($nextdate->next_payment)->addMonthsNoOverflow(1)->format('Y-m-d'),

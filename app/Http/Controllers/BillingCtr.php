@@ -110,6 +110,20 @@ class BillingCtr extends Controller
                 $sales->save();
             }
 
+            $nextdate = DB::table('tbl_schedulepayment AS BR')
+            ->select('BR.next_payment')
+            ->where('BR.tenant_id', $input['id'])
+            ->first();
+
+            DB::table('tbl_schedulepayment')
+            ->where('tbl_schedulepayment.tenant_id', $input['id'])
+            ->update([
+                'paid_status' => '1',
+                'next_payment' => Carbon::parse($nextdate->next_payment)->addMonthsNoOverflow(1)->format('Y-m-d'),
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
+            ]);
+
             return 'success';
         }
         else {
