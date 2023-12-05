@@ -305,8 +305,9 @@ class LoginCtr extends Controller
             $user = Login:: where('id','=', session('LoggedUser'))->first();
             $user_tenant = Tenant::where('tenant_id','=', session('LoggedUser'))->first();
             $tenant_room = DB::table('tbl_room AS BR')
-              ->select('BR.roomnumber','tbl_tenant.*')
+              ->select('BR.roomnumber','tbl_tenant.*','tbl_schedulepayment.next_payment AS nextpayment')
               ->leftJoin('tbl_tenant', 'BR.id', '=', 'tbl_tenant.room_id')
+              ->leftJoin('tbl_schedulepayment', 'BR.id', '=', 'tbl_schedulepayment.tenant_id')
               ->where('tbl_tenant.tenant_id', session('LoggedUser'))
               ->first();
             $data = [

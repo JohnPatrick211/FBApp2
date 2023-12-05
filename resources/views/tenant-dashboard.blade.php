@@ -101,19 +101,25 @@
                         <div class="col-md-4 mb-3">
                             <label class="label-small font-weight-bold">Contract Start</label>
                             <br/>
-                            <label class="label-small" id="displayroomnumber">July 10, 2023</label>
+                            <label class="label-small" id="displayroomnumber">{{$TenantInfo -> contract_start}}</label>
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <label class="label-small font-weight-bold">Contract End</label>
                             <br/>
-                            <label class="label-small" id="displayroomnumber">July 10, 2025</label>
+                            <label class="label-small" id="displayroomnumber">{{$TenantInfo -> contract_end}}</label>
                         </div>
 
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label class="label-small font-weight-bold">Address</label>
                             <br/>
                             <label class="label-small" id="displayaddress">{{$TenantInfo -> address}}</label>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label class="label-small font-weight-bold">Next Payment Date</label>
+                            <br/>
+                            <label class="label-small" id="displayaddress">{{$TenantInfo -> nextpayment}}</label>
                         </div>
 
                         <div class="col-12 mt-2">
